@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jules Bennett — Product Designer &amp; Front-End Engineer</title>
+  <meta name="description" content="Jules Bennett is a product designer and front-end engineer who designs and builds interfaces for web and mobile products.">
+  <meta name="theme-color" content="#18181B">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Jules Bennett, home">
+        <span class="logo-mark" aria-hidden="true">JB</span>
+        <span class="logo-text">Jules Bennett</span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="#contact">Get in touch</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          id="nav-toggle"
+        >
+          <span class="sr-only">Open menu</span>
+          <svg class="icon icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="icon icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+        <p class="eyebrow reveal">Product Designer &amp; Front-End Engineer</p>
+        <h1 id="hero-heading" class="hero-heading reveal">
+          I design and build interfaces that feel&nbsp;effortless.
+        </h1>
+        <p class="hero-sub reveal">
+          I'm Jules — I partner with product and engineering teams to turn
+          fuzzy ideas into clear, usable software, then ship the front end
+          myself. Currently based in Austin, TX, working remotely.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#work">
+            View my work
+            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <dl class="hero-stats reveal">
+          <div class="stat">
+            <dt>Years designing &amp; building</dt>
+            <dd>8</dd>
+          </div>
+          <div class="stat">
+            <dt>Products shipped</dt>
+            <dd>27</dd>
+          </div>
+          <div class="stat">
+            <dt>Teams partnered with</dt>
+            <dd>12</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container about-inner">
+        <div class="about-media reveal" aria-hidden="true">
+          <svg viewBox="0 0 320 320" class="about-graphic">
+            <rect x="0" y="0" width="320" height="320" rx="24" fill="var(--color-muted)"></rect>
+            <circle cx="160" cy="128" r="64" fill="var(--color-primary)"></circle>
+            <rect x="64" y="208" width="192" height="80" rx="16" fill="var(--color-accent)"></rect>
+          </svg>
+        </div>
+
+        <div class="about-content">
+          <p class="eyebrow reveal">About</p>
+          <h2 id="about-heading" class="section-heading reveal">
+            Design systems thinking, applied to real products.
+          </h2>
+          <p class="reveal">
+            I started as a visual designer, moved into product design, and
+            picked up front-end engineering along the way so I could see my
+            own work through to production. That path shapes how I work now:
+            I sweat the details of a component in Figma, then I sweat the
+            same details in the browser.
+          </p>
+          <p class="reveal">
+            Most of my work lives at the intersection of design systems and
+            product UX — building the shared language a team uses to move
+            fast without losing consistency, then applying it to the
+            highest-leverage screens in the product.
+          </p>
+
+          <ul class="about-highlights reveal">
+            <li>
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Design systems &amp; component libraries
+            </li>
+            <li>
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Complex dashboards &amp; data-dense UI
+            </li>
+            <li>
+              <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Accessible, production-grade front-end code
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="work" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow reveal">Selected work</p>
+          <h2 id="work-heading" class="section-heading reveal">A few projects I'm proud of</h2>
+          <p class="section-sub reveal">
+            A mix of product design, design systems, and the front-end code
+            behind them.
+          </p>
+        </div>
+
+        <div class="work-grid">
+
+          <article class="work-card reveal">
+            <a class="work-card-link" href="#" aria-label="Read more about Meridian, fintech analytics dashboard">
+              <div class="work-thumb work-thumb--meridian" aria-hidden="true">
+                <span class="work-thumb-label">Meridian</span>
+              </div>
+              <div class="work-card-body">
+                <div class="work-card-top">
+                  <h3>Meridian</h3>
+                  <svg class="icon icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>Analytics dashboard redesign for a fintech platform — cut time-to-insight by simplifying a dense data model into a clear visual hierarchy.</p>
+                <ul class="tag-list">
+                  <li>Product design</li>
+                  <li>Data viz</li>
+                  <li>React</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card reveal">
+            <a class="work-card-link" href="#" aria-label="Read more about Orbit Market, mobile shopping app">
+              <div class="work-thumb work-thumb--orbit" aria-hidden="true">
+                <span class="work-thumb-label">Orbit Market</span>
+              </div>
+              <div class="work-card-body">
+                <div class="work-card-top">
+                  <h3>Orbit Market</h3>
+                  <svg class="icon icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>End-to-end mobile shopping experience, from browsing to checkout, built for a fast-growing marketplace startup.</p>
+                <ul class="tag-list">
+                  <li>Mobile</li>
+                  <li>React Native</li>
+                  <li>UX research</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card reveal">
+            <a class="work-card-link" href="#" aria-label="Read more about Atlas UI, design system">
+              <div class="work-thumb work-thumb--atlas" aria-hidden="true">
+                <span class="work-thumb-label">Atlas UI</span>
+              </div>
+              <div class="work-card-body">
+                <div class="work-card-top">
+                  <h3>Atlas UI</h3>
+                  <svg class="icon icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>Token-based design system and component library adopted across five product teams, cutting new-screen build time by a third.</p>
+                <ul class="tag-list">
+                  <li>Design systems</li>
+                  <li>Figma</li>
+                  <li>Storybook</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+          <article class="work-card reveal">
+            <a class="work-card-link" href="#" aria-label="Read more about Northwind, B2B onboarding redesign">
+              <div class="work-thumb work-thumb--northwind" aria-hidden="true">
+                <span class="work-thumb-label">Northwind</span>
+              </div>
+              <div class="work-card-body">
+                <div class="work-card-top">
+                  <h3>Northwind</h3>
+                  <svg class="icon icon-external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </div>
+                <p>Reworked B2B onboarding flow that reduced time-to-first-value from nine steps to three, raising activation by 22%.</p>
+                <ul class="tag-list">
+                  <li>SaaS</li>
+                  <li>Onboarding</li>
+                  <li>A/B testing</li>
+                </ul>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow reveal">Skills</p>
+          <h2 id="skills-heading" class="section-heading reveal">What I bring to a team</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <h3>Design</h3>
+            <ul class="tag-list tag-list--skills">
+              <li>Product design</li>
+              <li>Design systems</li>
+              <li>Prototyping</li>
+              <li>User research</li>
+              <li>Interaction design</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Front-end</h3>
+            <ul class="tag-list tag-list--skills">
+              <li>HTML &amp; CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>Accessibility (WCAG)</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Tools &amp; process</h3>
+            <ul class="tag-list tag-list--skills">
+              <li>Figma</li>
+              <li>Storybook</li>
+              <li>Git</li>
+              <li>Framer Motion</li>
+              <li>Design critique</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact-inner">
+        <div class="contact-intro">
+          <p class="eyebrow reveal">Contact</p>
+          <h2 id="contact-heading" class="section-heading reveal">Let's work together</h2>
+          <p class="reveal">
+            Have a project in mind, or just want to talk shop about design
+            systems? My inbox is open.
+          </p>
+
+          <ul class="contact-links reveal">
+            <li>
+              <a href="mailto:hello@julesbennett.design">
+                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16v16H4z" opacity="0"></path>
+                  <path d="M22 6l-10 7L2 6"></path>
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                </svg>
+                hello@julesbennett.design
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Jules Bennett on GitHub">
+                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55 0-.27-.01-1-.02-1.96-3.2.7-3.88-1.54-3.88-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5Z"></path>
+                </svg>
+                github.com/julesbennett
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Jules Bennett on LinkedIn">
+                <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.64h.05c.53-.97 1.82-2 3.75-2 4.01 0 4.75 2.4 4.75 5.52V21h-4v-5.9c0-1.4-.02-3.2-1.95-3.2-1.96 0-2.26 1.5-2.26 3.1V21H9z"></path>
+                </svg>
+                linkedin.com/in/julesbennett
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <p class="field-error" id="name-error" role="alert" hidden></p>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="field-error" id="email-error" role="alert" hidden></p>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <p class="field-error" id="message-error" role="alert" hidden></p>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">
+            Send message
+          </button>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Jules Bennett. All rights reserved.</p>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
