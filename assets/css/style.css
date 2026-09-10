@@ -42,13 +42,17 @@
   --radius-lg: 20px;
   --shadow-sm: 0 1px 2px rgba(9, 9, 11, 0.06);
   --shadow-md: 0 8px 24px rgba(9, 9, 11, 0.08);
+  --shadow-lg: 0 16px 40px rgba(9, 9, 11, 0.14);
 
   /* Motion */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 150ms;
   --duration-base: 250ms;
+  --duration-slow: 400ms;
 
   --container-width: 1120px;
+  --header-height: 72px;
 }
 
 /* ==========================================================================
@@ -204,12 +208,36 @@ textarea:focus-visible {
 
 section {
   padding-block: var(--space-24);
+  scroll-margin-top: var(--header-height);
+}
+
+/* ==========================================================================
+   Scroll progress bar
+   ========================================================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 200;
+  background: transparent;
+  pointer-events: none;
+}
+
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+  transform-origin: left;
 }
 
 /* ==========================================================================
    Buttons
    ========================================================================== */
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -223,7 +251,8 @@ section {
   min-height: 44px;
   transition: background-color var(--duration-fast) var(--ease-standard),
               border-color var(--duration-fast) var(--ease-standard),
-              transform var(--duration-fast) var(--ease-standard);
+              box-shadow var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
 }
 
 .btn:active {
@@ -237,6 +266,16 @@ section {
 
 .btn-primary:hover {
   background: var(--color-secondary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-primary .icon {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.btn-primary:hover .icon {
+  transform: translateX(3px);
 }
 
 .btn-ghost {
@@ -248,6 +287,8 @@ section {
 .btn-ghost:hover {
   background: var(--color-card);
   border-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-sm {
@@ -269,14 +310,26 @@ section {
   z-index: 100;
   background: rgba(250, 250, 250, 0.85);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--duration-base) var(--ease-standard),
+              box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.site-header.is-scrolled {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 72px;
+  min-height: var(--header-height);
   gap: var(--space-4);
 }
 
@@ -297,8 +350,7 @@ section {
   border-radius: var(--radius-sm);
   background: var(--color-primary);
   color: var(--color-on-primary);
-  font-size: 0.8125rem;
-  letter-spacing: 0.02em;
+  will-change: transform;
 }
 
 .nav-list {
@@ -319,6 +371,11 @@ section {
 .nav-list a:hover {
   color: var(--color-foreground);
   border-color: var(--color-accent);
+}
+
+.nav-list a.is-active {
+  color: var(--color-foreground);
+  border-color: var(--color-primary);
 }
 
 .header-actions {
@@ -381,10 +438,46 @@ section {
    Hero
    ========================================================================== */
 .hero {
+  position: relative;
   padding-block: var(--space-24) var(--space-16);
+  overflow: hidden;
+}
+
+.hero-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-shape {
+  position: absolute;
+  will-change: transform;
+}
+
+.hero-shape--ring {
+  top: 8%;
+  right: 8%;
+}
+
+.hero-shape--plus {
+  top: 58%;
+  right: 22%;
+}
+
+.hero-shape--dot {
+  top: 20%;
+  right: 32%;
+}
+
+.hero-shape--square {
+  top: 68%;
+  right: 4%;
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   max-width: 760px;
 }
 
@@ -447,6 +540,11 @@ section {
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.about-shape {
+  will-change: transform;
 }
 
 .about-content p {
@@ -479,6 +577,7 @@ section {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-8);
+  perspective: 1200px;
 }
 
 .work-card {
@@ -486,13 +585,16 @@ section {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: transform var(--duration-base) var(--ease-standard),
-              box-shadow var(--duration-base) var(--ease-standard);
+  will-change: transform;
+  transition: transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out);
 }
 
 .work-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  border-color: var(--color-secondary);
 }
 
 .work-card-link {
@@ -726,6 +828,46 @@ section {
 }
 
 /* ==========================================================================
+   Floating back-to-top button
+   ========================================================================== */
+.scroll-top-btn {
+  position: fixed;
+  right: var(--space-6);
+  bottom: var(--space-6);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-foreground);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.scroll-top-btn[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
    Scroll reveal (progressive enhancement, respects reduced motion)
    ========================================================================== */
 .reveal {
@@ -795,6 +937,11 @@ section {
   .contact-inner {
     grid-template-columns: 1fr;
   }
+
+  .hero-shape--dot,
+  .hero-shape--plus {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -809,5 +956,14 @@ section {
 
   .work-card-top h3 {
     font-size: 1.125rem;
+  }
+
+  .hero-decor {
+    display: none;
+  }
+
+  .scroll-top-btn {
+    right: var(--space-4);
+    bottom: var(--space-4);
   }
 }
