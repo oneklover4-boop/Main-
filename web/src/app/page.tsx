@@ -1,6 +1,7 @@
 import GlyphPortalDemo from "@/components/glyph-portal-demo";
 import WhoWeHelp from "@/components/who-we-help";
 import HowWeHelp from "@/components/how-we-help";
+import LaunchHealthCheck from "@/components/launch-health-check";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       </div>
       <WhoWeHelp />
       <HowWeHelp />
+      <LaunchHealthCheck />
     </div>
   );
 }
