@@ -156,8 +156,9 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             and prepare their organisations for successful commercialisation.
           </p>
           <div data-ld-cta>
-            <a data-ld-cta-primary href="launch-doctors.html#contact">Book a Launch Health Check</a>
-            <a data-ld-cta-ghost href="launch-doctors.html#how-we-help">See how we help</a>
+            {/* Point these at the real pages once they're built. */}
+            <a data-ld-cta-primary href="#">Book a Launch Health Check</a>
+            <a data-ld-cta-ghost href="#">See how we help</a>
           </div>
           <p data-ld-copy-disclaimer>Strategic consultancy — not a provider of medical advice or clinical services.</p>
         </div>
