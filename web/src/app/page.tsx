@@ -1,5 +1,6 @@
 import GlyphPortalDemo from "@/components/glyph-portal-demo";
 import WhoWeHelp from "@/components/who-we-help";
+import HowWeHelp from "@/components/how-we-help";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <GlyphPortalDemo />
       </div>
       <WhoWeHelp />
+      <HowWeHelp />
     </div>
   );
 }
