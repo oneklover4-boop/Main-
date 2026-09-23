@@ -121,7 +121,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               position: "absolute",
               inset: 0,
               transform: "scale(var(--gp-field-scale,1))",
-              background: `radial-gradient(circle 300px at 15% 12%, rgba(52,172,134,.5), transparent), radial-gradient(circle 300px at 85% 16%, rgba(18,98,193,.4), transparent), ${PAPER}`,
+              background: `radial-gradient(circle 440px at 12% 12%, rgba(52,172,134,.6), transparent), radial-gradient(circle 440px at 50% 8%, rgba(30,140,165,.45), transparent), radial-gradient(circle 440px at 88% 12%, rgba(18,98,193,.6), transparent), ${PAPER}`,
             }}
           />
         }
