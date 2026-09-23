@@ -143,6 +143,15 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               // top, which would sit above the letters and do nothing
               // for their legibility).
               background: "linear-gradient(180deg, rgba(30,140,165,.25) 0%, rgba(18,98,193,.4) 24%, rgba(4,53,128,.85) 38%, rgba(4,53,128,.82) 50%, rgba(18,98,193,.35) 63%, transparent 78%)",
+              // This layer is only for contrast behind the pre-zoom
+              // letters. Once zoomed in, the clip-path is dropped and the
+              // whole thing becomes visible as the backdrop for the
+              // *revealed content* too — which doesn't want a dark navy
+              // band sitting behind its paragraph text. --gp-reveal goes
+              // 0→1 as the content fades in, so fading this out over the
+              // same range means it's gone by the time there's any text
+              // to read against it, leaving just the plain fixed wash.
+              opacity: "calc(1 - var(--gp-reveal, 0))",
             }}
           />
         }
