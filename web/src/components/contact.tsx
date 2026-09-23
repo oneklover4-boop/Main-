@@ -6,6 +6,7 @@ const NAVY = "#043580";
 const BLUE = "#1262c1";
 const CARD_BG = "#e6e6e6";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
+const OFF_WHITE = "#fafbfa";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 const ERROR = "#c0392b";
@@ -28,7 +29,7 @@ const inputStyle: React.CSSProperties = {
   padding: "0.75rem 1rem",
   borderRadius: 8,
   border: "1px solid rgba(0,0,0,0.2)",
-  background: "#ffffff",
+  background: OFF_WHITE,
   color: INK,
   minHeight: 44,
   width: "100%",

@@ -1,3 +1,7 @@
+"use client";
+
+import { smoothScrollTo } from "@/lib/smooth-scroll";
+
 const NAVY = "#043580";
 const BLUE = "#1262c1";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
@@ -38,6 +42,7 @@ export default function Footer() {
         <div>
           <a
             href="#home"
+            onClick={(e) => { e.preventDefault(); smoothScrollTo("home"); }}
             style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", fontWeight: 700, textDecoration: "none", color: INK }}
           >
             <span
@@ -66,7 +71,12 @@ export default function Footer() {
 
         <nav data-footer-nav aria-label="Footer" style={{ display: "flex", flexWrap: "wrap", gap: "1.25rem" }}>
           {links.map((link) => (
-            <a key={link.href} href={link.href} style={{ fontSize: "0.875rem", fontWeight: 500, textDecoration: "none", color: INK }}>
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => { e.preventDefault(); smoothScrollTo(link.href.slice(1)); }}
+              style={{ fontSize: "0.875rem", fontWeight: 500, textDecoration: "none", color: INK }}
+            >
               {link.label}
             </a>
           ))}

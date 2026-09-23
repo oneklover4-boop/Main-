@@ -1,9 +1,12 @@
-import { Check } from "lucide-react";
+"use client";
+
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const NAVY = "#043580";
 const BLUE = "#1262c1";
 const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
+const OFF_WHITE = "#fafbfa";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = "Inter, Arial, sans-serif";
@@ -28,6 +31,8 @@ export default function LaunchHealthCheck() {
           @media (max-width: 900px) {
             .lhc-grid { grid-template-columns: 1fr !important; }
           }
+          [data-lhc-check]{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;}
+          [data-lhc-check]:hover{border-color:${TEAL} !important;box-shadow:0 8px 20px rgba(52,172,134,.18);transform:translateY(-2px);}
         `}</style>
 
         <div>
@@ -47,6 +52,7 @@ export default function LaunchHealthCheck() {
           </p>
           <a
             href="#contact"
+            onClick={(e) => { e.preventDefault(); smoothScrollTo("contact"); }}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -72,33 +78,19 @@ export default function LaunchHealthCheck() {
           {checks.map((item) => (
             <li
               key={item}
+              data-lhc-check
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                background: "#ffffff",
-                border: `1px solid ${CARD_BORDER}`,
+                background: OFF_WHITE,
+                borderTop: `1px solid ${CARD_BORDER}`,
+                borderRight: `1px solid ${CARD_BORDER}`,
+                borderBottom: `1px solid ${CARD_BORDER}`,
+                borderLeft: `3px solid ${TEAL}`,
                 borderRadius: 10,
                 padding: "1rem 1.25rem",
                 fontWeight: 500,
                 color: INK,
               }}
             >
-              <span
-                aria-hidden="true"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: 26,
-                  height: 26,
-                  borderRadius: "50%",
-                  background: "rgba(52, 172, 134, 0.12)",
-                  flexShrink: 0,
-                }}
-              >
-                <Check size={15} strokeWidth={2.75} color={TEAL} />
-              </span>
               {item}
             </li>
           ))}

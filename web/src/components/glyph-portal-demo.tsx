@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import GlyphPortal from "@/components/ui/glyph-portal";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true, annotations: false };
 
@@ -137,7 +138,11 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(180deg, rgba(4,53,128,.4) 0%, rgba(30,140,165,.28) 32%, rgba(18,98,193,.14) 52%, transparent 70%)",
+              // Measured: the word sits roughly 40-52% down the box, so
+              // the strong navy band is centered there (not at the very
+              // top, which would sit above the letters and do nothing
+              // for their legibility).
+              background: "linear-gradient(180deg, rgba(30,140,165,.25) 0%, rgba(18,98,193,.4) 24%, rgba(4,53,128,.85) 38%, rgba(4,53,128,.82) 50%, rgba(18,98,193,.35) 63%, transparent 78%)",
             }}
           />
         }
@@ -162,8 +167,12 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           </p>
           <div data-ld-cta>
             {/* No destination page yet — wire these up once it exists. */}
-            <a href="#contact" data-ld-cta-primary>Book a Launch Health Check</a>
-            <a href="#how-we-help" data-ld-cta-ghost>See how we help</a>
+            <a href="#contact" data-ld-cta-primary onClick={(e) => { e.preventDefault(); smoothScrollTo("contact"); }}>
+              Book a Launch Health Check
+            </a>
+            <a href="#how-we-help" data-ld-cta-ghost onClick={(e) => { e.preventDefault(); smoothScrollTo("how-we-help"); }}>
+              See how we help
+            </a>
           </div>
           <p data-ld-copy-disclaimer>Strategic consultancy — not a provider of medical advice or clinical services.</p>
         </div>
