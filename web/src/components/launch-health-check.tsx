@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+
 const NAVY = "#043580";
 const BLUE = "#1262c1";
 const TEAL = "#34ac86";
@@ -88,16 +90,14 @@ export default function LaunchHealthCheck() {
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: 24,
-                  height: 24,
+                  width: 26,
+                  height: 26,
                   borderRadius: "50%",
-                  background: TEAL,
-                  color: "#fff",
-                  fontSize: "0.8125rem",
+                  background: "rgba(52, 172, 134, 0.12)",
                   flexShrink: 0,
                 }}
               >
-                ✓
+                <Check size={15} strokeWidth={2.75} color={TEAL} />
               </span>
               {item}
             </li>

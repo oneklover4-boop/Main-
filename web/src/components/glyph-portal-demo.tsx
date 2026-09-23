@@ -8,7 +8,6 @@ const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true,
 // Launch Doctors palette (see globals for the shared token set).
 const NAVY = "#043580";
 const BLUE = "#1262c1";
-const PAPER = "#f2f2f2";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 
@@ -65,10 +64,14 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
       <style>{`
         [data-ld-portal-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 82px) 24px auto;justify-content:center;}
         [data-ld-portal-demo] [data-gp-hint]{display:none;}
-        [data-ld-portal-demo] [data-gp-enter]{min-height:46px;padding:0 20px;gap:16px;background:${NAVY};border:1px solid ${NAVY};border-radius:10px;color:#fff;font-size:13px;font-weight:600;box-shadow:0 1px 2px rgba(4,53,128,.15);transition:background .18s,box-shadow .18s,transform .18s;}
-        [data-ld-portal-demo] [data-gp-enter]:hover{background:${BLUE};box-shadow:0 6px 16px rgba(18,98,193,.28);transform:translateY(-1px);}
+        [data-ld-portal-demo] [data-gp-enter]{min-height:46px;padding:0 22px;gap:10px;background:${NAVY};border:1px solid ${NAVY};border-radius:999px;color:#fff;font-size:13px;font-weight:600;letter-spacing:.01em;box-shadow:0 1px 2px rgba(4,53,128,.15);transition:background .18s ease,box-shadow .18s ease,transform .18s ease;}
+        [data-ld-portal-demo] [data-gp-enter]:hover{background:${BLUE};box-shadow:0 8px 20px rgba(18,98,193,.3);transform:translateY(-1px);}
         [data-ld-portal-demo] [data-gp-enter]:focus-visible{outline:2px solid ${BLUE};outline-offset:4px;background:${NAVY} !important;color:#fff !important;}
+        [data-ld-portal-demo] [data-gp-enter] > span{display:none;}
+        [data-ld-portal-demo] [data-gp-enter]::after{content:"";width:15px;height:15px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .18s ease;}
+        [data-ld-portal-demo] [data-gp-enter]:hover::after{transform:translateX(3px);}
         [data-ld-portal-demo] [data-gp-touch-picker]{display:none !important;}
+        [data-ld-portal-demo] [data-gp-letter]:focus-visible{outline-color:${NAVY} !important;}
         [data-ld-header]{position:absolute;inset:clamp(24px,4.5cqw,48px) clamp(24px,5cqw,64px) auto;display:flex;align-items:center;justify-content:space-between;gap:20px;}
         [data-ld-logo]{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.02em;color:${INK};}
         [data-ld-logo-mark]{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:${NAVY};color:#fff;font-size:11px;font-weight:700;}
@@ -99,9 +102,19 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         fontWeight={900}
         style={{
           fontFamily: FONT_FAMILY,
-          "--gp-paper": PAPER,
+          // Transparent so the page's fixed wash (app/page.tsx) shows
+          // through everywhere this component would otherwise paint its
+          // own background — including [data-gp-content]'s fallback
+          // fill, which uses --gp-field directly and isn't always
+          // overridden to transparent by the motion-on state (e.g. the
+          // "Step inside" link's jump doesn't take the same path as a
+          // scroll interaction), so a solid color here reliably turns
+          // into a solid block covering the whole revealed content.
+          // The couple of vendored rules that actually need a visible
+          // color (a focus outline) are overridden separately below.
+          "--gp-paper": "transparent",
           "--gp-ink": INK,
-          "--gp-field": PAPER,
+          "--gp-field": "transparent",
           "--gp-foreground": INK,
         }}
         scrollLength={s.scrollLength}
@@ -110,18 +123,21 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         enterLabel="Step inside"
         background={
           // The letters are a literal clip-path cutout of this layer, so
-          // it can't be fully transparent (there'd be nothing for the
-          // letter shapes to reveal) — but it fades to flat paper well
-          // before the bottom of the box, so the box's own edge lands on
-          // plain paper and blends into the page wash below it instead of
-          // cutting off a still-colorful gradient at a hard boundary.
+          // it needs *some* local contrast against the page's fixed wash
+          // showing through everywhere else — a single top-to-bottom
+          // fade (not the blob shapes used before) so it's uniform
+          // across the full width of a wide word like "LAUNCH DOCTORS"
+          // instead of leaving gaps between blobs. It fades to fully
+          // transparent well before the bottom of the box, so there's
+          // nothing of this layer left to mismatch against the fixed
+          // wash by the time you reach the box's edge — both are simply
+          // the same fixed background there, with nothing layered on it.
           <div
             aria-hidden="true"
             style={{
               position: "absolute",
               inset: 0,
-              transform: "scale(var(--gp-field-scale,1))",
-              background: `radial-gradient(circle 480px at 12% 12%, rgba(52,172,134,.6), transparent), radial-gradient(circle 480px at 50% 8%, rgba(30,140,165,.45), transparent), radial-gradient(circle 480px at 88% 12%, rgba(18,98,193,.6), transparent), radial-gradient(circle 420px at 50% 78%, rgba(18,98,193,.16), transparent), ${PAPER}`,
+              background: "linear-gradient(180deg, rgba(4,53,128,.4) 0%, rgba(30,140,165,.28) 32%, rgba(18,98,193,.14) 52%, transparent 70%)",
             }}
           />
         }

@@ -6,10 +6,17 @@ import Experience from "@/components/experience";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
-// One continuous wash for the whole page, so nothing resets to flat
-// grey at a section boundary. The hero portal's own local gradient
-// (glyph-portal-demo.tsx) fades to flat paper well before its box
-// ends, matching this wash's base color there, so the two blend.
+// Same wash as before (colors untouched) — but now on a single fixed
+// layer pinned to the viewport instead of scrolling with the page.
+// The old approach put this on the scrolling wrapper AND gave the
+// hero portal its own separate local gradient faking a matching
+// fade; those were two independently-computed gradients, and however
+// closely tuned, they never matched pixel-for-pixel where they met —
+// there was always a faint kink in the color right at the portal's
+// box edge. A single fixed layer can't have that seam: it's the same
+// paint everywhere, inside the portal and out, permanently — pinned
+// so it doesn't need to change as you scroll (see glyph-portal-demo.tsx
+// for how the portal now draws its own letter contrast on top of it).
 const PAGE_WASH = [
   "radial-gradient(circle 380px at 15% 4%, rgba(52,172,134,.5), transparent)",
   "radial-gradient(circle 380px at 88% 9%, rgba(18,98,193,.4), transparent)",
@@ -24,7 +31,8 @@ const PAGE_WASH = [
 
 export default function Home() {
   return (
-    <div style={{ background: PAGE_WASH }}>
+    <div style={{ position: "relative" }}>
+      <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: -1, background: PAGE_WASH }} />
       <GlyphPortalDemo />
       <WhoWeHelp />
       <HowWeHelp />
