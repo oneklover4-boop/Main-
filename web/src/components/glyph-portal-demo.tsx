@@ -57,7 +57,6 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         width: "100%",
         height: "min(720px, 100svh)",
         overflowY: "auto",
-        background: PAPER,
         containerType: "inline-size",
         fontFamily: FONT_FAMILY,
       }}
@@ -67,7 +66,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-portal-demo] [data-gp-hint]{display:none;}
         [data-ld-portal-demo] [data-gp-enter]{min-height:46px;padding:0 20px;gap:16px;background:${NAVY};border:1px solid ${NAVY};border-radius:10px;color:#fff;font-size:13px;font-weight:600;box-shadow:0 1px 2px rgba(4,53,128,.15);transition:background .18s,box-shadow .18s,transform .18s;}
         [data-ld-portal-demo] [data-gp-enter]:hover{background:${BLUE};box-shadow:0 6px 16px rgba(18,98,193,.28);transform:translateY(-1px);}
-        [data-ld-portal-demo] [data-gp-enter]:focus-visible{outline:2px solid ${BLUE};outline-offset:4px;}
+        [data-ld-portal-demo] [data-gp-enter]:focus-visible{outline:2px solid ${BLUE};outline-offset:4px;background:${NAVY} !important;color:#fff !important;}
         [data-ld-portal-demo] [data-gp-touch-picker]{top:auto;bottom:18px;left:50%;}
         [data-ld-portal-demo] [data-gp-select]{border-color:rgba(0,0,0,.2);border-radius:8px;font-size:12px;color:${INK};}
         [data-ld-header]{position:absolute;inset:clamp(24px,4.5cqw,48px) clamp(24px,5cqw,64px) auto;display:flex;align-items:center;justify-content:space-between;gap:20px;}
@@ -110,13 +109,19 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         annotations={s.annotations}
         enterLabel="Step inside"
         background={
+          // The letters are a literal clip-path cutout of this layer, so
+          // it can't be fully transparent (there'd be nothing for the
+          // letter shapes to reveal) — but it fades to flat paper well
+          // before the bottom of the box, so the box's own edge lands on
+          // plain paper and blends into the page wash below it instead of
+          // cutting off a still-colorful gradient at a hard boundary.
           <div
             aria-hidden="true"
             style={{
               position: "absolute",
               inset: 0,
               transform: "scale(var(--gp-field-scale,1))",
-              background: `radial-gradient(circle at 15% 15%, rgba(52,172,134,.5), transparent 45%), radial-gradient(circle at 85% 20%, rgba(18,98,193,.4), transparent 45%), radial-gradient(circle at 50% 88%, rgba(4,53,128,.32), transparent 55%), ${PAPER}`,
+              background: `radial-gradient(circle 300px at 15% 12%, rgba(52,172,134,.5), transparent), radial-gradient(circle 300px at 85% 16%, rgba(18,98,193,.4), transparent), ${PAPER}`,
             }}
           />
         }
