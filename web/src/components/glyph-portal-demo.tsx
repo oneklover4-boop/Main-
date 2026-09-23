@@ -93,11 +93,11 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         @container(min-width:768px){[data-ld-features]{grid-template-columns:repeat(3,minmax(0,1fr));gap:3.5rem;}}
         [data-ld-copy] p{margin:0;color:rgba(242,242,242,.92);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
         [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
-        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;text-decoration:none;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
-        a[data-ld-cta-primary]{background:${PAPER};color:${NAVY};}
-        a[data-ld-cta-primary]:hover{background:${TEAL};color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(52,172,134,.32);}
-        a[data-ld-cta-ghost]{background:transparent;color:${PAPER};border-color:rgba(242,242,242,.55);}
-        a[data-ld-cta-ghost]:hover{background:rgba(242,242,242,.1);border-color:${PAPER};transform:translateY(-2px);}
+        [data-ld-cta] button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;font-family:inherit;cursor:pointer;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
+        button[data-ld-cta-primary]{background:${PAPER};color:${NAVY};}
+        button[data-ld-cta-primary]:hover{background:${TEAL};color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(52,172,134,.32);}
+        button[data-ld-cta-ghost]{background:transparent;color:${PAPER};border-color:rgba(242,242,242,.55);}
+        button[data-ld-cta-ghost]:hover{background:rgba(242,242,242,.1);border-color:${PAPER};transform:translateY(-2px);}
         [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:rgba(242,242,242,.7);}
       `}</style>
       {!ready ? (
@@ -156,9 +156,9 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             and prepare their organisations for successful commercialisation.
           </p>
           <div data-ld-cta>
-            {/* Point these at the real pages once they're built. */}
-            <a data-ld-cta-primary href="#">Book a Launch Health Check</a>
-            <a data-ld-cta-ghost href="#">See how we help</a>
+            {/* No destination page yet — wire these up once it exists. */}
+            <button type="button" data-ld-cta-primary>Book a Launch Health Check</button>
+            <button type="button" data-ld-cta-ghost>See how we help</button>
           </div>
           <p data-ld-copy-disclaimer>Strategic consultancy — not a provider of medical advice or clinical services.</p>
         </div>
