@@ -1,9 +1,13 @@
 import GlyphPortalDemo from "@/components/glyph-portal-demo";
+import WhoWeHelp from "@/components/who-we-help";
 
 export default function Home() {
   return (
-    <div style={{ display: "flex", minHeight: "100dvh", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
-      <GlyphPortalDemo />
+    <div style={{ background: "#f2f2f2" }}>
+      <div style={{ display: "flex", minHeight: "100dvh", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
+        <GlyphPortalDemo />
+      </div>
+      <WhoWeHelp />
     </div>
   );
 }
