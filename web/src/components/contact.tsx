@@ -68,7 +68,7 @@ export default function Contact() {
   }
 
   return (
-    <section style={{ background: "#f2f2f2", padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
+    <section style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
       <div
         style={{
           maxWidth: "1120px",

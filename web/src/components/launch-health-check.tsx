@@ -1,7 +1,6 @@
 const NAVY = "#043580";
 const BLUE = "#1262c1";
 const TEAL = "#34ac86";
-const CARD_BG = "#e6e6e6";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
@@ -11,7 +10,7 @@ const checks = ["Structured assessment", "Stakeholder interviews", "Risk heat ma
 
 export default function LaunchHealthCheck() {
   return (
-    <section style={{ background: CARD_BG, padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
+    <section style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
       <div
         style={{
           maxWidth: "1120px",

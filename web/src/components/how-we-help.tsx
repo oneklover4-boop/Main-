@@ -48,7 +48,7 @@ export default function HowWeHelp() {
   }
 
   return (
-    <section style={{ background: "#f2f2f2", padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
+    <section style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
         [data-hwh-track]{scrollbar-width:none;}
         [data-hwh-track]::-webkit-scrollbar{display:none;}
