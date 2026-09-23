@@ -48,7 +48,7 @@ export default function HowWeHelp() {
   }
 
   return (
-    <section style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
+    <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
         [data-hwh-track]{scrollbar-width:none;}
         [data-hwh-track]::-webkit-scrollbar{display:none;}
@@ -95,24 +95,6 @@ export default function HowWeHelp() {
                 padding: "1.75rem 1.5rem",
               }}
             >
-              {offer.featured && (
-                <span
-                  style={{
-                    display: "inline-block",
-                    marginBottom: "0.875rem",
-                    padding: "0.25rem 0.75rem",
-                    borderRadius: 999,
-                    border: `1px solid ${TEAL}`,
-                    color: TEAL,
-                    fontSize: "0.6875rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Start here
-                </span>
-              )}
               <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.1875rem", fontWeight: 700, color: INK }}>{offer.title}</h3>
               <p style={{ margin: 0, fontSize: "0.9375rem", lineHeight: 1.6, color: MUTED }}>{offer.body}</p>
             </article>

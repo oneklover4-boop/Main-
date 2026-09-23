@@ -48,6 +48,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
 
   return (
     <div
+      id="home"
       data-demo-scroll
       data-ld-portal-demo
       tabIndex={0}
@@ -67,8 +68,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-portal-demo] [data-gp-enter]{min-height:46px;padding:0 20px;gap:16px;background:${NAVY};border:1px solid ${NAVY};border-radius:10px;color:#fff;font-size:13px;font-weight:600;box-shadow:0 1px 2px rgba(4,53,128,.15);transition:background .18s,box-shadow .18s,transform .18s;}
         [data-ld-portal-demo] [data-gp-enter]:hover{background:${BLUE};box-shadow:0 6px 16px rgba(18,98,193,.28);transform:translateY(-1px);}
         [data-ld-portal-demo] [data-gp-enter]:focus-visible{outline:2px solid ${BLUE};outline-offset:4px;background:${NAVY} !important;color:#fff !important;}
-        [data-ld-portal-demo] [data-gp-touch-picker]{top:auto;bottom:18px;left:50%;}
-        [data-ld-portal-demo] [data-gp-select]{border-color:rgba(0,0,0,.2);border-radius:8px;font-size:12px;color:${INK};}
+        [data-ld-portal-demo] [data-gp-touch-picker]{display:none !important;}
         [data-ld-header]{position:absolute;inset:clamp(24px,4.5cqw,48px) clamp(24px,5cqw,64px) auto;display:flex;align-items:center;justify-content:space-between;gap:20px;}
         [data-ld-logo]{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.02em;color:${INK};}
         [data-ld-logo-mark]{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:${NAVY};color:#fff;font-size:11px;font-weight:700;}
@@ -81,11 +81,11 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
         [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
-        [data-ld-cta] button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;font-family:inherit;cursor:pointer;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
-        button[data-ld-cta-primary]{background:${NAVY};color:#fff;}
-        button[data-ld-cta-primary]:hover{background:${BLUE};transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,98,193,.28);}
-        button[data-ld-cta-ghost]{background:transparent;color:${NAVY};border-color:${NAVY};}
-        button[data-ld-cta-ghost]:hover{background:rgba(4,53,128,.06);transform:translateY(-2px);}
+        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;font-family:inherit;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
+        a[data-ld-cta-primary]{background:${NAVY};color:#fff;}
+        a[data-ld-cta-primary]:hover{background:${BLUE};transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,98,193,.28);}
+        a[data-ld-cta-ghost]{background:transparent;color:${NAVY};border-color:${NAVY};}
+        a[data-ld-cta-ghost]:hover{background:rgba(4,53,128,.06);transform:translateY(-2px);}
         [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:${MUTED};}
       `}</style>
       {!ready ? (
@@ -121,7 +121,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               position: "absolute",
               inset: 0,
               transform: "scale(var(--gp-field-scale,1))",
-              background: `radial-gradient(circle 440px at 12% 12%, rgba(52,172,134,.6), transparent), radial-gradient(circle 440px at 50% 8%, rgba(30,140,165,.45), transparent), radial-gradient(circle 440px at 88% 12%, rgba(18,98,193,.6), transparent), ${PAPER}`,
+              background: `radial-gradient(circle 480px at 12% 12%, rgba(52,172,134,.6), transparent), radial-gradient(circle 480px at 50% 8%, rgba(30,140,165,.45), transparent), radial-gradient(circle 480px at 88% 12%, rgba(18,98,193,.6), transparent), radial-gradient(circle 420px at 50% 78%, rgba(18,98,193,.16), transparent), ${PAPER}`,
             }}
           />
         }
@@ -146,8 +146,8 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           </p>
           <div data-ld-cta>
             {/* No destination page yet — wire these up once it exists. */}
-            <button type="button" data-ld-cta-primary>Book a Launch Health Check</button>
-            <button type="button" data-ld-cta-ghost>See how we help</button>
+            <a href="#contact" data-ld-cta-primary>Book a Launch Health Check</a>
+            <a href="#how-we-help" data-ld-cta-ghost>See how we help</a>
           </div>
           <p data-ld-copy-disclaimer>Strategic consultancy — not a provider of medical advice or clinical services.</p>
         </div>

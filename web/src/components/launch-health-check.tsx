@@ -10,7 +10,7 @@ const checks = ["Structured assessment", "Stakeholder interviews", "Risk heat ma
 
 export default function LaunchHealthCheck() {
   return (
-    <section style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
+    <section id="health-check" style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
       <div
         style={{
           maxWidth: "1120px",
@@ -43,8 +43,8 @@ export default function LaunchHealthCheck() {
             to work with us, and often the natural first step into a larger
             engagement.
           </p>
-          <button
-            type="button"
+          <a
+            href="#contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -58,11 +58,12 @@ export default function LaunchHealthCheck() {
               fontWeight: 600,
               fontSize: "0.9375rem",
               fontFamily: "inherit",
+              textDecoration: "none",
               cursor: "pointer",
             }}
           >
             Book a Launch Health Check
-          </button>
+          </a>
         </div>
 
         <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "1rem" }}>
