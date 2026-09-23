@@ -54,6 +54,8 @@ export default function HowWeHelp() {
         [data-hwh-track]::-webkit-scrollbar{display:none;}
         [data-hwh-arrow]{transition:background-color .18s ease,color .18s ease;}
         [data-hwh-arrow]:hover{background:${NAVY};color:#fff;}
+        [data-hwh-card]{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;}
+        [data-hwh-card]:hover,[data-hwh-card]:focus-within{border-color:${TEAL} !important;box-shadow:0 8px 20px rgba(52,172,134,.18);transform:translateY(-2px);}
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>

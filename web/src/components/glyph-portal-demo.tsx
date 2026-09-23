@@ -8,9 +8,9 @@ const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true,
 // Launch Doctors palette (see globals for the shared token set).
 const NAVY = "#043580";
 const BLUE = "#1262c1";
-const TEAL = "#34ac86";
 const PAPER = "#f2f2f2";
 const INK = "#000000";
+const MUTED = "#4a4a4a";
 
 // Inter is loaded via the plain Google Fonts <link> in app/layout.tsx
 // (same font already used across the rest of the site) rather than a
@@ -78,22 +78,16 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         @container(max-height:479px){[data-ld-header]{top:18px;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 60px);}}
         [data-ld-portal-demo] [data-gp-content]{padding:5.5rem clamp(1.25rem,5cqw,5rem) 6.5rem;font-family:inherit;}
         [data-ld-portal-demo] section,[data-ld-portal-demo] [data-gp-caption]{font-family:inherit;}
-        [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(2rem,5svh,3.5rem);}
+        [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(1.5rem,4svh,2.5rem);}
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
-        [data-ld-features]{display:grid;width:100%;grid-template-columns:1fr;gap:1.75rem;}
-        [data-ld-feature]{border-top:1px solid rgba(242,242,242,.25);padding-top:1.1rem;}
-        [data-ld-feature] h3{margin:0;color:inherit;font-size:1.125rem;font-weight:600;line-height:1.2;letter-spacing:0;}
-        [data-ld-feature] p{margin:.55rem 0 0;color:rgba(242,242,242,.85);font-size:.9375rem;line-height:1.55;}
-        [data-ld-no]{display:inline-block;margin-right:.7rem;color:${TEAL};font:700 .75rem ui-monospace,monospace;letter-spacing:.08em;transform:translateY(-.1em);}
-        @container(min-width:768px){[data-ld-features]{grid-template-columns:repeat(3,minmax(0,1fr));gap:3.5rem;}}
-        [data-ld-copy] p{margin:0;color:rgba(242,242,242,.92);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
+        [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
         [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
         [data-ld-cta] button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;font-family:inherit;cursor:pointer;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
-        button[data-ld-cta-primary]{background:${PAPER};color:${NAVY};}
-        button[data-ld-cta-primary]:hover{background:${TEAL};color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(52,172,134,.32);}
-        button[data-ld-cta-ghost]{background:transparent;color:${PAPER};border-color:rgba(242,242,242,.55);}
-        button[data-ld-cta-ghost]:hover{background:rgba(242,242,242,.1);border-color:${PAPER};transform:translateY(-2px);}
-        [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:rgba(242,242,242,.7);}
+        button[data-ld-cta-primary]{background:${NAVY};color:#fff;}
+        button[data-ld-cta-primary]:hover{background:${BLUE};transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,98,193,.28);}
+        button[data-ld-cta-ghost]{background:transparent;color:${NAVY};border-color:${NAVY};}
+        button[data-ld-cta-ghost]:hover{background:rgba(4,53,128,.06);transform:translateY(-2px);}
+        [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:${MUTED};}
       `}</style>
       {!ready ? (
         <div role="status" style={{ height: "100%", display: "grid", placeItems: "center", color: "#555", fontSize: 12 }}>
@@ -108,8 +102,8 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           fontFamily: FONT_FAMILY,
           "--gp-paper": PAPER,
           "--gp-ink": INK,
-          "--gp-field": NAVY,
-          "--gp-foreground": PAPER,
+          "--gp-field": PAPER,
+          "--gp-foreground": INK,
         }}
         scrollLength={s.scrollLength}
         interactive={s.interactive}
@@ -122,7 +116,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               position: "absolute",
               inset: 0,
               transform: "scale(var(--gp-field-scale,1))",
-              background: `radial-gradient(circle at 18% 8%, rgba(52,172,134,.5), transparent 34%), radial-gradient(circle at 82% 20%, rgba(242,242,242,.12), transparent 28%), radial-gradient(circle at 48% 78%, rgba(18,98,193,.45), transparent 44%), linear-gradient(135deg, ${NAVY} 0%, #0a4a9e 48%, #02224f 100%)`,
+              background: `radial-gradient(circle at 15% 15%, rgba(52,172,134,.5), transparent 45%), radial-gradient(circle at 85% 20%, rgba(18,98,193,.4), transparent 45%), radial-gradient(circle at 50% 88%, rgba(4,53,128,.32), transparent 55%), ${PAPER}`,
             }}
           />
         }
