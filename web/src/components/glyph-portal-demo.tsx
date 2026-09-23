@@ -91,6 +91,14 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-feature] p{margin:.55rem 0 0;color:rgba(242,242,242,.85);font-size:.9375rem;line-height:1.55;}
         [data-ld-no]{display:inline-block;margin-right:.7rem;color:${TEAL};font:700 .75rem ui-monospace,monospace;letter-spacing:.08em;transform:translateY(-.1em);}
         @container(min-width:768px){[data-ld-features]{grid-template-columns:repeat(3,minmax(0,1fr));gap:3.5rem;}}
+        [data-ld-copy] p{margin:0;color:rgba(242,242,242,.92);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
+        [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
+        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;text-decoration:none;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
+        a[data-ld-cta-primary]{background:${PAPER};color:${NAVY};}
+        a[data-ld-cta-primary]:hover{background:${TEAL};color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(52,172,134,.32);}
+        a[data-ld-cta-ghost]{background:transparent;color:${PAPER};border-color:rgba(242,242,242,.55);}
+        a[data-ld-cta-ghost]:hover{background:rgba(242,242,242,.1);border-color:${PAPER};transform:translateY(-2px);}
+        [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:rgba(242,242,242,.7);}
       `}</style>
       {!ready ? (
         <div role="status" style={{ height: "100%", display: "grid", placeItems: "center", color: "#555", fontSize: 12 }}>
@@ -141,27 +149,17 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         }
       >
         <div data-ld-copy>
-          <h2>A launch roadmap built on three pillars</h2>
-          <div data-ld-features>
-            <div data-ld-feature>
-              <h3>
-                <span data-ld-no>01</span>Prepare the Market
-              </h3>
-              <p>Understand the landscape, the competition, and the access environment your brand will launch into.</p>
-            </div>
-            <div data-ld-feature>
-              <h3>
-                <span data-ld-no>02</span>Prepare the Organization
-              </h3>
-              <p>Align commercial, medical, and access teams around one launch plan — before day one.</p>
-            </div>
-            <div data-ld-feature>
-              <h3>
-                <span data-ld-no>03</span>Prepare the Brand
-              </h3>
-              <p>Sharpen positioning, messaging, and evidence so the brand is ready for its moment.</p>
-            </div>
+          <h2>Structure, Clarity, Momentum</h2>
+          <p>
+            At Launch Doctors, we help emerging and mid-sized biopharma
+            companies diagnose launch risks, build integrated launch plans,
+            and prepare their organisations for successful commercialisation.
+          </p>
+          <div data-ld-cta>
+            <a data-ld-cta-primary href="launch-doctors.html#contact">Book a Launch Health Check</a>
+            <a data-ld-cta-ghost href="launch-doctors.html#how-we-help">See how we help</a>
           </div>
+          <p data-ld-copy-disclaimer>Strategic consultancy — not a provider of medical advice or clinical services.</p>
         </div>
       </GlyphPortal>
       )}
