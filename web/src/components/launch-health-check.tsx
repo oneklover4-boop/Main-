@@ -6,7 +6,7 @@ const NAVY = "#043580";
 const BLUE = "#1262c1";
 const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
-const OFF_WHITE = "#f2f3f2";
+const CARD_BG = "#e6e6e6";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = "Inter, Arial, sans-serif";
@@ -80,7 +80,7 @@ export default function LaunchHealthCheck() {
               key={item}
               data-lhc-check
               style={{
-                background: OFF_WHITE,
+                background: CARD_BG,
                 borderTop: `1px solid ${CARD_BORDER}`,
                 borderRight: `1px solid ${CARD_BORDER}`,
                 borderBottom: `1px solid ${CARD_BORDER}`,

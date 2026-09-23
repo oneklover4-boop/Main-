@@ -144,14 +144,19 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               // for their legibility).
               background: "linear-gradient(180deg, rgba(30,140,165,.25) 0%, rgba(18,98,193,.4) 24%, rgba(4,53,128,.85) 38%, rgba(4,53,128,.82) 50%, rgba(18,98,193,.35) 63%, transparent 78%)",
               // This layer is only for contrast behind the pre-zoom
-              // letters. Once zoomed in, the clip-path is dropped and the
-              // whole thing becomes visible as the backdrop for the
-              // *revealed content* too — which doesn't want a dark navy
-              // band sitting behind its paragraph text. --gp-reveal goes
-              // 0→1 as the content fades in, so fading this out over the
-              // same range means it's gone by the time there's any text
-              // to read against it, leaving just the plain fixed wash.
-              opacity: "calc(1 - var(--gp-reveal, 0))",
+              // letters. The vendored component drops the clip-path
+              // (exposing this whole layer, not just the letter shapes)
+              // at p=0.78, then only starts fading --gp-reveal in after
+              // that (0.78→0.9) — fading this out on --gp-reveal alone
+              // left a window right at p=0.78 where the clip-path had
+              // already dropped but this hadn't started fading yet,
+              // flashing the full, still-opaque overlay across the whole
+              // box for a moment before it caught up. --gp-field-scale
+              // ramps continuously from 1→1.16 across roughly the same
+              // 0→0.82 span the clip-path drop sits inside, so deriving
+              // the fade from that instead reaches ~0 right as the
+              // clip-path comes off, with nothing left to flash.
+              opacity: "calc(1 - (var(--gp-field-scale, 1) - 1) / 0.16)",
             }}
           />
         }
