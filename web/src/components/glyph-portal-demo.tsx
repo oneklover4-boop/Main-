@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowDown } from "lucide-react";
 import GlyphPortal from "@/components/ui/glyph-portal";
 
 const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true, annotations: false };
@@ -75,12 +74,8 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-logo]{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.02em;color:${INK};}
         [data-ld-logo-mark]{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:${NAVY};color:#fff;font-size:11px;font-weight:700;}
         [data-ld-category]{font-size:12px;line-height:1.5;color:${INK};font-weight:500;}
-        [data-ld-eyebrow]{position:absolute;inset:auto 24px calc(100% - var(--gp-word-top,35%) + 32px);margin:0;text-align:center;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${BLUE};}
-        [data-ld-support]{position:absolute;inset:calc(var(--gp-word-bottom,50%) + 32px) 24px auto;margin:0;text-align:center;font-size:16px;font-weight:400;line-height:1.5;color:${INK};}
-        [data-ld-scroll]{position:absolute;inset:auto 24px 7%;display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;color:${INK};font-size:11px;letter-spacing:.01em;}
-        @media(any-pointer:coarse){[data-ld-scroll]{bottom:13%;}}
-        @container(max-width:450px){[data-ld-category]{max-width:12ch;text-align:right;}[data-ld-eyebrow]{font-size:12px;}[data-ld-support]{font-size:14px;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 76px);}}
-        @container(max-height:479px){[data-ld-header]{top:18px;}[data-ld-support]{top:calc(var(--gp-word-bottom,50%) + 16px);}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 60px);}[data-ld-scroll]{display:none;}}
+        @container(max-width:450px){[data-ld-category]{max-width:12ch;text-align:right;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 76px);}}
+        @container(max-height:479px){[data-ld-header]{top:18px;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 60px);}}
         [data-ld-portal-demo] [data-gp-content]{padding:5.5rem clamp(1.25rem,5cqw,5rem) 6.5rem;font-family:inherit;}
         [data-ld-portal-demo] section,[data-ld-portal-demo] [data-gp-caption]{font-family:inherit;}
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(2rem,5svh,3.5rem);}
@@ -140,11 +135,6 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               </span>
               <span data-ld-category>Strategic BioPharma Launch Consultancy</span>
             </div>
-            <p data-ld-eyebrow>Launch with lasting impact</p>
-            <p data-ld-support>From first insight to lasting impact.</p>
-            <span data-ld-scroll>
-              Scroll for a closer look <ArrowDown size={13} aria-hidden="true" />
-            </span>
           </>
         }
       >
