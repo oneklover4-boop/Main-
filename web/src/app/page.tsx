@@ -3,6 +3,7 @@ import WhoWeHelp from "@/components/who-we-help";
 import HowWeHelp from "@/components/how-we-help";
 import LaunchHealthCheck from "@/components/launch-health-check";
 import Experience from "@/components/experience";
+import Contact from "@/components/contact";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <HowWeHelp />
       <LaunchHealthCheck />
       <Experience />
+      <Contact />
     </div>
   );
 }
