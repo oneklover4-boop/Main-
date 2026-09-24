@@ -102,13 +102,13 @@ export default function Experience() {
             >
               <div
                 style={{
-                  flexShrink: 0,
-                  width: 72,
-                  height: 72,
-                  borderRadius: "50%",
+                  width: "100%",
+                  height: 200,
+                  borderRadius: 12,
                   overflow: "hidden",
                   background: NAVY,
-                  border: `3px solid ${TEAL}`,
+                  border: `2px solid ${TEAL}`,
+                  boxShadow: "0 8px 20px rgba(0,0,0,.08)",
                 }}
               >
                 {/* Relative path (no leading slash) so it still resolves once
