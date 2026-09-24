@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GlyphPortal from "@/components/ui/glyph-portal";
 import { AuroraBeam } from "@/components/ui/aurora-background";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
@@ -30,6 +30,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
   // demo's own font-loading gate, just pointed at a reliable Google Fonts
   // load instead of a third-party CDN mirror.
   const [ready, setReady] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let settled = false;
@@ -47,11 +48,60 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
     };
   }, []);
 
+  // This box scrolls internally (overflow-y: auto) to drive the letter
+  // zoom. Once you reach its bottom, the browser's native overscroll
+  // "bounce" plays out before handing scroll off to the page — on
+  // trackpads and touchscreens especially, that bounce visibly eats one
+  // scroll gesture, so continuing down needs a second, separate one.
+  // CSS overscroll-behavior can't fix this: contain/none stop the
+  // bounce but also block the hand-off entirely, trapping scroll inside
+  // the box. So instead, right at each edge, manually forward the
+  // remaining wheel/touch motion straight to the page — no bounce, no
+  // second gesture.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const atBottom = () => el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+    const atTop = () => el.scrollTop <= 0;
+
+    const handleWheel = (event: WheelEvent) => {
+      if ((event.deltaY > 0 && atBottom()) || (event.deltaY < 0 && atTop())) {
+        event.preventDefault();
+        window.scrollBy({ top: event.deltaY, behavior: "auto" });
+      }
+    };
+
+    let lastY = 0;
+    const handleTouchStart = (event: TouchEvent) => {
+      lastY = event.touches[0].clientY;
+    };
+    const handleTouchMove = (event: TouchEvent) => {
+      const currentY = event.touches[0].clientY;
+      const delta = lastY - currentY;
+      lastY = currentY;
+      if ((delta > 0 && atBottom()) || (delta < 0 && atTop())) {
+        event.preventDefault();
+        window.scrollBy({ top: delta, behavior: "auto" });
+      }
+    };
+
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    el.addEventListener("touchstart", handleTouchStart, { passive: true });
+    el.addEventListener("touchmove", handleTouchMove, { passive: false });
+    return () => {
+      el.removeEventListener("wheel", handleWheel);
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
   return (
     <div
       id="home"
       data-demo-scroll
       data-ld-portal-demo
+      ref={containerRef}
       tabIndex={0}
       role="region"
       aria-label="Launch Doctors. Scroll to step inside."
