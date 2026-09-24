@@ -9,7 +9,6 @@ const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true,
 
 // Launch Doctors palette (see globals for the shared token set).
 const NAVY = "#043580";
-const BLUE = "#1262c1";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 
@@ -94,13 +93,11 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
         [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
-        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.7rem 1.5rem;border-radius:999px;font-weight:600;font-size:.9375rem;letter-spacing:.01em;font-family:inherit;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease,border-color .15s ease;}
-        [data-ld-cta-arrow]{width:13px;height:13px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .15s ease;}
-        a[data-ld-cta-primary]{background:${NAVY};color:#fff;}
-        a[data-ld-cta-primary]:hover{background:${BLUE};box-shadow:0 4px 10px rgba(4,53,128,.18);}
-        a[data-ld-cta-primary]:hover [data-ld-cta-arrow]{transform:translateX(2px);}
-        a[data-ld-cta-ghost]{background:transparent;color:${NAVY};border-color:rgba(4,53,128,.3);}
-        a[data-ld-cta-ghost]:hover{background:rgba(4,53,128,.05);border-color:${NAVY};}
+        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.7rem 1.5rem;border-radius:14px;font-weight:600;font-size:.9375rem;letter-spacing:.01em;font-family:inherit;text-decoration:none;cursor:pointer;color:${NAVY};background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.08);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;}
+        [data-ld-cta] a:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
+        [data-ld-cta] a:hover [data-ld-cta-arrow]{transform:translateX(2px);}
+        a[data-ld-cta-primary]{font-weight:700;}
+        [data-ld-cta-arrow]{width:13px;height:13px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .2s ease;}
         [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:${MUTED};}
       `}</style>
       {!ready ? (

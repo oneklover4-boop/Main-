@@ -33,8 +33,8 @@ export default function LaunchHealthCheck() {
           }
           [data-lhc-check]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
           [data-lhc-check]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
-          [data-lhc-cta]{transition:background-color .15s ease,box-shadow .15s ease;}
-          [data-lhc-cta]:hover{background:${BLUE} !important;box-shadow:0 4px 10px rgba(4,53,128,.18);}
+          [data-lhc-cta]{transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+          [data-lhc-cta]:hover{background:rgba(0,0,0,.1) !important;box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
           [data-lhc-cta]:hover [data-lhc-cta-arrow]{transform:translateX(2px);}
           [data-lhc-cta-arrow]{width:13px;height:13px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .15s ease;}
         `}</style>
@@ -67,11 +67,11 @@ export default function LaunchHealthCheck() {
               gap: "0.4rem",
               minHeight: 44,
               padding: "0.7rem 1.5rem",
-              borderRadius: 999,
-              border: "1.5px solid transparent",
-              background: NAVY,
-              color: "#fff",
-              fontWeight: 600,
+              borderRadius: 14,
+              border: "1px solid rgba(0,0,0,.08)",
+              background: "rgba(0,0,0,.05)",
+              color: NAVY,
+              fontWeight: 700,
               fontSize: "0.9375rem",
               letterSpacing: "0.01em",
               fontFamily: "inherit",
