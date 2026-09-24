@@ -6,7 +6,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 const BLUE = "#1262c1";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = "Inter, Arial, sans-serif";
+const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const offers = [
   {

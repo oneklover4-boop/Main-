@@ -11,7 +11,7 @@ const INK = "#000000";
 const MUTED = "#4a4a4a";
 const ERROR = "#c0392b";
 const SUCCESS = "#1b7a4d";
-const FONT_FAMILY = "Inter, Arial, sans-serif";
+const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 type FieldKey = "name" | "email" | "message";
 

@@ -78,6 +78,15 @@
      sections. */
   --ld-aurora-teal: #34ac86;
   --ld-aurora-blue: #1262c1;
+
+  /* Typography: a serif for headings, matched to the reference
+     screenshot's heading (Georgia — a system serif, no extra font
+     load needed) and a humanist sans for body copy (PT Sans, loaded
+     alongside Inter in layout.tsx — Inter itself stays reserved for
+     the hero's interactive glyph-zoom word, which is calibrated to
+     its specific letterforms and metrics). */
+  --ld-font-heading: Georgia, "Times New Roman", serif;
+  --ld-font-body: "PT Sans", Arial, sans-serif;
 }
 
 @theme inline {
@@ -127,6 +136,14 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--ld-font-body);
+  }
+  /* Wins over any inherited font-family (e.g. a section wrapper's own
+     inline style) since inheritance is always the weakest source —
+     any rule targeting the element directly, even a bare type
+     selector, overrides it. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ld-font-heading);
   }
 }
 

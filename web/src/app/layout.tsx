@@ -39,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=PT+Sans:wght@400;700&display=swap"
           precedence="default"
         />
         {children}

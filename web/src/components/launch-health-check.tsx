@@ -9,7 +9,7 @@ const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = "Inter, Arial, sans-serif";
+const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const checks = ["Structured assessment", "Stakeholder interviews", "Risk heat map", "Executive recommendations"];
 

@@ -17,8 +17,16 @@ const MUTED = "#4a4a4a";
 // (same font already used across the rest of the site) rather than a
 // third-party CDN mirror — as a literal family name, not a next/font CSS
 // variable, since GlyphPortal checks every resolved font-family entry
-// independently via document.fonts.check().
+// independently via document.fonts.check(). Reserved for the giant
+// interactive word only — its zoom/clip-path is calibrated to Inter's
+// specific glyph shapes and measurements, so it doesn't follow the
+// site's heading/body font change below.
 const FONT_FAMILY = "Inter, Arial, sans-serif";
+// Everything else in the hero (header, hint, the revealed paragraph
+// and CTAs) uses the site's body font instead. The revealed h2 gets
+// the heading font automatically too, via the global h1-h6 rule in
+// globals.css.
+const BODY_FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 export default function GlyphPortalDemo(props: Partial<typeof settings>) {
   const s = { ...settings, ...props };
@@ -60,11 +68,12 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         height: "min(720px, 100svh)",
         overflowY: "auto",
         containerType: "inline-size",
-        fontFamily: FONT_FAMILY,
+        fontFamily: BODY_FONT_FAMILY,
         background: "#ffffff",
       }}
     >
       <style>{`
+        [data-ld-portal-demo] [data-gp-letter]{font-family:${FONT_FAMILY} !important;}
         [data-ld-portal-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 82px) 24px auto;justify-content:center;}
         [data-ld-portal-demo] [data-gp-hint]{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:${MUTED};}
         [data-ld-portal-demo] [data-gp-hint]::after{content:"";width:12px;height:12px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;animation:gp-hint-bounce 2.2s ease-in-out infinite;}
@@ -102,7 +111,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         fontFamily={FONT_FAMILY}
         fontWeight={900}
         style={{
-          fontFamily: FONT_FAMILY,
+          fontFamily: BODY_FONT_FAMILY,
           // Transparent so the wrapper's own flat white background
           // (deliberately plain — the aurora beam only applies to the
           // content sections below, not the hero) shows through

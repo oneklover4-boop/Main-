@@ -3,7 +3,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = "Inter, Arial, sans-serif";
+const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const items = [
   "Have an asset roughly 12–36 months from launch",
