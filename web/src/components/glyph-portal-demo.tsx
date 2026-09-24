@@ -60,6 +60,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         overflowY: "auto",
         containerType: "inline-size",
         fontFamily: FONT_FAMILY,
+        background: "#ffffff",
       }}
     >
       <style>{`
@@ -99,16 +100,15 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         fontWeight={900}
         style={{
           fontFamily: FONT_FAMILY,
-          // Transparent so the page's fixed wash (app/page.tsx) shows
-          // through everywhere this component would otherwise paint its
-          // own background — including [data-gp-content]'s fallback
-          // fill, which uses --gp-field directly and isn't always
-          // overridden to transparent by the motion-on state (e.g. the
-          // "Step inside" link's jump doesn't take the same path as a
-          // scroll interaction), so a solid color here reliably turns
-          // into a solid block covering the whole revealed content.
-          // The couple of vendored rules that actually need a visible
-          // color (a focus outline) are overridden separately below.
+          // Transparent so the wrapper's own flat white background
+          // shows through everywhere this component would otherwise
+          // paint its own background — including [data-gp-content]'s
+          // fallback fill, which uses --gp-field directly and isn't
+          // always overridden to transparent by the motion-on state,
+          // so a solid color here reliably turns into a solid block
+          // covering the whole revealed content. The couple of vendored
+          // rules that actually need a visible color (a focus outline)
+          // are overridden separately below.
           "--gp-paper": "transparent",
           "--gp-ink": INK,
           "--gp-field": "transparent",

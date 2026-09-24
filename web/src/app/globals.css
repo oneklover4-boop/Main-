@@ -72,7 +72,16 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+:root {
+  /* Aurora background tint stops — subtle brand teal/blue/navy, used by
+     the animated backdrop behind the content sections. */
+  --ld-aurora-teal: #34ac86;
+  --ld-aurora-blue: #1262c1;
+  --ld-aurora-navy: #043580;
+}
+
 @theme inline {
+  --animate-aurora: aurora 26s linear infinite;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -124,5 +133,14 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@keyframes aurora {
+  from {
+    background-position: 50% 50%;
+  }
+  to {
+    background-position: 350% 50%;
   }
 }
