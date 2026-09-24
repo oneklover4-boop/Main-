@@ -10,15 +10,15 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 export default function Home() {
   return (
     <div style={{ position: "relative" }}>
-      <GlyphPortalDemo />
       <AuroraBackground>
+        <GlyphPortalDemo />
         <WhoWeHelp />
-        <HowWeHelp />
-        <LaunchHealthCheck />
-        <Experience />
-        <Contact />
-        <Footer />
       </AuroraBackground>
+      <HowWeHelp />
+      <LaunchHealthCheck />
+      <Experience />
+      <Contact />
+      <Footer />
     </div>
   );
 }

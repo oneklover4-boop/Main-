@@ -5,25 +5,43 @@ import { cn } from "@/lib/utils";
 
 interface AuroraBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
+  showRadialGradient?: boolean;
 }
 
-// A slow-moving, low-opacity tinted gradient layer used as a shared
-// backdrop behind the content sections (everything after the hero).
-// One instance wraps all of them rather than one per section, so there's
-// a single continuous layer instead of several independently-positioned
-// ones that could show a seam where they meet (same lesson as the
-// page-wide wash this replaces).
-export function AuroraBackground({ children, className, ...props }: AuroraBackgroundProps) {
+// A soft, slowly shifting beam of light on a flat white background —
+// not a page-wide color wash. The beam itself is a moving repeating
+// gradient in brand teal/blue/navy, inverted and blended against a
+// striped white layer (the classic "aurora" trick) so the colour
+// visibly drifts and cycles rather than just sliding sideways, then
+// masked into an ellipse so it reads as a beam rather than a tint
+// covering the whole box.
+export function AuroraBackground({
+  children,
+  className,
+  showRadialGradient = true,
+  ...props
+}: AuroraBackgroundProps) {
   return (
-    <div className={cn("relative overflow-hidden", className)} {...props}>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div className={cn("relative overflow-hidden bg-white", className)} {...props}>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        style={
+          {
+            "--aurora":
+              "repeating-linear-gradient(100deg, var(--ld-aurora-blue) 10%, var(--ld-aurora-teal) 15%, var(--ld-aurora-navy) 20%, var(--ld-aurora-teal) 25%, var(--ld-aurora-blue) 30%)",
+            "--white-gradient":
+              "repeating-linear-gradient(100deg, #fff 0%, #fff 7%, transparent 10%, transparent 12%, #fff 16%)",
+          } as React.CSSProperties
+        }
+      >
         <div
-          className="animate-aurora absolute -inset-[20%] opacity-[0.16] blur-[70px] will-change-transform"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(100deg, var(--ld-aurora-teal) 0%, var(--ld-aurora-blue) 14%, var(--ld-aurora-navy) 28%, var(--ld-aurora-blue) 42%, var(--ld-aurora-teal) 56%)",
-            backgroundSize: "300% 300%",
-          }}
+          className={cn(
+            "animate-aurora absolute -inset-[10px] [background-image:var(--white-gradient),var(--aurora)] [background-size:300%,200%] [background-position:50%_50%,50%_50%] opacity-40 blur-[8px] invert will-change-transform",
+            "after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,100%] after:mix-blend-difference after:content-['']",
+            showRadialGradient &&
+              "[mask-image:radial-gradient(ellipse_at_50%_20%,black_10%,transparent_70%)]"
+          )}
         />
       </div>
       <div className="relative z-10">{children}</div>
