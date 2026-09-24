@@ -67,7 +67,9 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
       <style>{`
         [data-ld-portal-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 82px) 24px auto;justify-content:center;}
         [data-ld-portal-demo] [data-gp-hint]{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:${MUTED};}
-        [data-ld-portal-demo] [data-gp-hint]::after{content:"";width:12px;height:12px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;}
+        [data-ld-portal-demo] [data-gp-hint]::after{content:"";width:12px;height:12px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;animation:gp-hint-bounce 2.2s ease-in-out infinite;}
+        @keyframes gp-hint-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+        @media (prefers-reduced-motion: reduce){[data-ld-portal-demo] [data-gp-hint]::after{animation:none;}}
         [data-ld-portal-demo] [data-gp-enter]{display:none !important;}
         [data-ld-portal-demo] [data-gp-touch-picker]{display:none !important;}
         [data-ld-portal-demo] [data-gp-letter]:focus-visible{outline-color:${NAVY} !important;}

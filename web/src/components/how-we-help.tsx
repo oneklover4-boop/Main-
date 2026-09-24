@@ -54,7 +54,7 @@ export default function HowWeHelp() {
         </p>
       </div>
 
-      <TestimonialMarquee items={offerCards} variant="default" />
+      <TestimonialMarquee items={offerCards} variant="default" speed={70} />
     </section>
   );
 }
