@@ -60,6 +60,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         overflowY: "auto",
         containerType: "inline-size",
         fontFamily: FONT_FAMILY,
+        background: "#ffffff",
       }}
     >
       <style>{`
@@ -99,9 +100,11 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         fontWeight={900}
         style={{
           fontFamily: FONT_FAMILY,
-          // Transparent so the shared AuroraBackground (app/page.tsx)
-          // shows through everywhere this component would otherwise
-          // paint its own background — including [data-gp-content]'s
+          // Transparent so the wrapper's own flat white background
+          // (deliberately plain — the aurora beam only applies to the
+          // content sections below, not the hero) shows through
+          // everywhere this component would otherwise paint its own
+          // background — including [data-gp-content]'s
           // fallback fill, which uses --gp-field directly and isn't
           // always overridden to transparent by the motion-on state,
           // so a solid color here reliably turns into a solid block
