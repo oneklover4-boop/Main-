@@ -19,7 +19,7 @@ export default function Experience() {
           <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
         </p>
         <h2 style={{ margin: "0 0 2rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: INK }}>
-          <BlurReveal duration={0.5} delay={0.08}>Led by real launch experience, not theory</BlurReveal>
+          <BlurReveal duration={0.5} delay={0.08}>Led by real launch experience</BlurReveal>
         </h2>
 
         <div

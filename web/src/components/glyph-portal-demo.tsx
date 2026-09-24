@@ -102,6 +102,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-content-nav] a:hover{color:${BLUE};}
         [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-logo] img{height:28px;width:auto;display:block;}
+        [data-ld-content-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(0,0,0,.12);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
@@ -216,6 +217,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             </a>
           ))}
         </nav>
+        <div data-ld-content-topbar-line aria-hidden="true" />
         <div data-ld-copy>
           <h2>Structure, Clarity, Momentum</h2>
           <p>
