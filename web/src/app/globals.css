@@ -81,7 +81,7 @@
 }
 
 @theme inline {
-  --animate-aurora: aurora 60s linear infinite;
+  --animate-aurora: aurora 110s linear infinite;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import GlyphPortal from "@/components/ui/glyph-portal";
+import { AuroraBeam } from "@/components/ui/aurora-background";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true, annotations: false };
@@ -121,42 +122,54 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         annotations={s.annotations}
         enterLabel="Step inside"
         background={
-          // The letters are a literal clip-path cutout of this layer, so
-          // it needs *some* local contrast against the page's fixed wash
-          // showing through everywhere else — a single top-to-bottom
-          // fade (not the blob shapes used before) so it's uniform
-          // across the full width of a wide word like "LAUNCH DOCTORS"
-          // instead of leaving gaps between blobs. It fades to fully
-          // transparent well before the bottom of the box, so there's
-          // nothing of this layer left to mismatch against the fixed
-          // wash by the time you reach the box's edge — both are simply
-          // the same fixed background there, with nothing layered on it.
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              inset: 0,
-              // Measured: the word sits roughly 40-52% down the box, so
-              // the strong navy band is centered there (not at the very
-              // top, which would sit above the letters and do nothing
-              // for their legibility).
-              background: "linear-gradient(180deg, rgba(30,140,165,.25) 0%, rgba(18,98,193,.4) 24%, rgba(4,53,128,.85) 38%, rgba(4,53,128,.82) 50%, rgba(18,98,193,.35) 63%, transparent 78%)",
-              // This layer is only for contrast behind the pre-zoom
-              // letters. The vendored component drops the clip-path
-              // (exposing this whole layer, not just the letter shapes)
-              // at p=0.78, then only starts fading --gp-reveal in after
-              // that (0.78→0.9) — fading this out on --gp-reveal alone
-              // left a window right at p=0.78 where the clip-path had
-              // already dropped but this hadn't started fading yet,
-              // flashing the full, still-opaque overlay across the whole
-              // box for a moment before it caught up. --gp-field-scale
-              // ramps continuously from 1→1.16 across roughly the same
-              // 0→0.82 span the clip-path drop sits inside, so deriving
-              // the fade from that instead reaches ~0 right as the
-              // clip-path comes off, with nothing left to flash.
-              opacity: "calc(1 - (var(--gp-field-scale, 1) - 1) / 0.16)",
-            }}
-          />
+          // The letters are a literal clip-path cutout of this layer.
+          // Two sub-layers, stacked: the aurora beam (same pattern used
+          // by every content section below) fades IN as the content
+          // reveals via --gp-reveal — invisible on the pre-zoom title
+          // screen, which stays flat white, but present once you've
+          // scrolled into "Structure, Clarity, Momentum" so that first
+          // revealed screen matches every section after it. On top of
+          // it, the existing top-to-bottom navy fade gives the pre-zoom
+          // letters contrast, and fades itself out as the clip-path
+          // comes off so nothing's left over it by the time you reach
+          // the revealed content.
+          <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                overflow: "hidden",
+                opacity: "calc(var(--gp-reveal, 0))",
+              }}
+            >
+              <AuroraBeam />
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                // Measured: the word sits roughly 40-52% down the box, so
+                // the strong navy band is centered there (not at the very
+                // top, which would sit above the letters and do nothing
+                // for their legibility).
+                background: "linear-gradient(180deg, rgba(30,140,165,.25) 0%, rgba(18,98,193,.4) 24%, rgba(4,53,128,.85) 38%, rgba(4,53,128,.82) 50%, rgba(18,98,193,.35) 63%, transparent 78%)",
+                // This layer is only for contrast behind the pre-zoom
+                // letters. The vendored component drops the clip-path
+                // (exposing this whole layer, not just the letter shapes)
+                // at p=0.78, then only starts fading --gp-reveal in after
+                // that (0.78→0.9) — fading this out on --gp-reveal alone
+                // left a window right at p=0.78 where the clip-path had
+                // already dropped but this hadn't started fading yet,
+                // flashing the full, still-opaque overlay across the whole
+                // box for a moment before it caught up. --gp-field-scale
+                // ramps continuously from 1→1.16 across roughly the same
+                // 0→0.82 span the clip-path drop sits inside, so deriving
+                // the fade from that instead reaches ~0 right as the
+                // clip-path comes off, with nothing left to flash.
+                opacity: "calc(1 - (var(--gp-field-scale, 1) - 1) / 0.16)",
+              }}
+            />
+          </div>
         }
         front={
           <>
