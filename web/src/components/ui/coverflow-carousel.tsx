@@ -195,7 +195,7 @@ const CoverflowCarousel = ({
                     }
               }
               aria-hidden={!isActive}
-              className="absolute h-[220px] w-[280px] overflow-hidden rounded-2xl border border-foreground/10 bg-background shadow-xl"
+              className="absolute h-[220px] w-[280px] overflow-hidden rounded-2xl border border-black/[0.08] bg-black/5"
               key={item.id}
               style={{
                 transformStyle: "preserve-3d",
@@ -227,6 +227,7 @@ const CoverflowCarousel = ({
       <div className="mt-4 flex items-center justify-center gap-4">
         <SmoothButton
           aria-label="Previous slide"
+          className="border-black/[0.08] bg-black/5 text-[#043580] shadow-none hover:bg-black/10 hover:text-[#043580]"
           disabled={!loop && activeIndex === 0}
           onClick={() => goTo(activeIndex - 1)}
           shape="pill"
@@ -237,6 +238,7 @@ const CoverflowCarousel = ({
         </SmoothButton>
         <SmoothButton
           aria-label="Next slide"
+          className="border-black/[0.08] bg-black/5 text-[#043580] shadow-none hover:bg-black/10 hover:text-[#043580]"
           disabled={!loop && activeIndex === total - 1}
           onClick={() => goTo(activeIndex + 1)}
           shape="pill"
