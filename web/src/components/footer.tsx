@@ -3,7 +3,6 @@
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
-const NAVY = "#043580";
 const BLUE = "#1262c1";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
@@ -54,14 +53,9 @@ export default function Footer() {
                 justifyContent: "center",
                 width: 36,
                 height: 36,
-                borderRadius: 8,
-                background: NAVY,
-                color: "#fff",
-                fontSize: "0.8rem",
-                fontWeight: 700,
               }}
             >
-              LD
+              <img src="images/logo-mark.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
             </span>
             Launch Doctors
           </a>
