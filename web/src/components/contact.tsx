@@ -5,6 +5,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const NAVY = "#043580";
 const BLUE = "#1262c1";
+const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const OFF_WHITE = "#f2f3f2";
 const INK = "#000000";
@@ -12,6 +13,12 @@ const MUTED = "#4a4a4a";
 const ERROR = "#c0392b";
 const SUCCESS = "#1b7a4d";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
+
+const steps = [
+  "Send a short message about your launch and where things stand.",
+  "We'll arrange a call to understand your situation and goals.",
+  "You'll get a clear view of how we could help — no obligation.",
+];
 
 type FieldKey = "name" | "email" | "message";
 
@@ -92,6 +99,8 @@ export default function Contact() {
           }
           [data-contact-submit]{background:rgba(18,98,193,0.35);background-clip:padding-box;border:1.5px solid rgba(18,98,193,0.35);color:${NAVY};transition:background-color .2s ease,border-color .2s ease;}
           [data-contact-submit]:hover{background:transparent;border-color:${BLUE};}
+          [data-contact-step]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+          [data-contact-step]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
         `}</style>
 
         <div>
@@ -106,15 +115,46 @@ export default function Contact() {
               Start with a conversation — or book a Launch Health Check directly.
             </BlurReveal>
           </p>
-          <ul style={{ listStyle: "none", margin: "1.5rem 0 0", padding: 0 }}>
+
+          <p style={{ margin: "2.25rem 0 0.875rem", fontWeight: 700, fontSize: "0.9375rem", color: INK }}>
+            <BlurReveal duration={0.5} delay={0.2}>What happens next</BlurReveal>
+          </p>
+          <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "0.75rem" }}>
+            {steps.map((step, i) => (
+              <li
+                key={step}
+                data-contact-step
+                style={{
+                  borderTop: `1px solid ${CARD_BORDER}`,
+                  borderRight: `1px solid ${CARD_BORDER}`,
+                  borderBottom: `1px solid ${CARD_BORDER}`,
+                  borderLeft: `3px solid ${TEAL}`,
+                  borderRadius: 10,
+                  padding: "0.875rem 1.125rem",
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: "0.75rem",
+                }}
+              >
+                <span style={{ flexShrink: 0, fontWeight: 700, color: TEAL, fontSize: "0.9375rem" }} aria-hidden="true">
+                  {i + 1}
+                </span>
+                <span style={{ color: MUTED, fontSize: "0.9375rem", lineHeight: 1.5 }}>
+                  <BlurReveal duration={0.5} delay={0.26 + i * 0.06}>{step}</BlurReveal>
+                </span>
+              </li>
+            ))}
+          </ol>
+
+          <ul style={{ listStyle: "none", margin: "1.75rem 0 0", padding: 0 }}>
             <li>
               <a href="mailto:hello@launchdoctors.com" style={{ fontWeight: 600, color: BLUE, textDecoration: "none" }}>
-                <BlurReveal duration={0.5} delay={0.24}>hello@launchdoctors.com</BlurReveal>
+                <BlurReveal duration={0.5} delay={0.5}>hello@launchdoctors.com</BlurReveal>
               </a>
             </li>
           </ul>
           <p style={{ margin: "1.5rem 0 0", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
-            <BlurReveal duration={0.5} delay={0.32}>
+            <BlurReveal duration={0.5} delay={0.56}>
               Strategic consultancy — not a provider of medical advice or clinical services.
             </BlurReveal>
           </p>
