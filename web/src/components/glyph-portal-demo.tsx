@@ -64,13 +64,9 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
     >
       <style>{`
         [data-ld-portal-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 82px) 24px auto;justify-content:center;}
-        [data-ld-portal-demo] [data-gp-hint]{display:none;}
-        [data-ld-portal-demo] [data-gp-enter]{min-height:46px;padding:0 22px;gap:10px;background:${NAVY};border:1px solid ${NAVY};border-radius:999px;color:#fff;font-size:13px;font-weight:600;letter-spacing:.01em;box-shadow:0 1px 2px rgba(4,53,128,.15);transition:background .18s ease,box-shadow .18s ease,transform .18s ease;}
-        [data-ld-portal-demo] [data-gp-enter]:hover{background:${BLUE};box-shadow:0 8px 20px rgba(18,98,193,.3);transform:translateY(-1px);}
-        [data-ld-portal-demo] [data-gp-enter]:focus-visible{outline:2px solid ${BLUE};outline-offset:4px;background:${NAVY} !important;color:#fff !important;}
-        [data-ld-portal-demo] [data-gp-enter] > span{display:none;}
-        [data-ld-portal-demo] [data-gp-enter]::after{content:"";width:15px;height:15px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .18s ease;}
-        [data-ld-portal-demo] [data-gp-enter]:hover::after{transform:translateX(3px);}
+        [data-ld-portal-demo] [data-gp-hint]{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:${MUTED};}
+        [data-ld-portal-demo] [data-gp-hint]::after{content:"";width:12px;height:12px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>') center/contain no-repeat;}
+        [data-ld-portal-demo] [data-gp-enter]{display:none !important;}
         [data-ld-portal-demo] [data-gp-touch-picker]{display:none !important;}
         [data-ld-portal-demo] [data-gp-letter]:focus-visible{outline-color:${NAVY} !important;}
         [data-ld-header]{position:absolute;inset:clamp(24px,4.5cqw,48px) clamp(24px,5cqw,64px) auto;display:flex;align-items:center;justify-content:space-between;gap:20px;}

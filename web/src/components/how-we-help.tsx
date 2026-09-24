@@ -16,7 +16,6 @@ const offers = [
   {
     title: "Launch Health Check",
     body: "A structured assessment of your launch readiness: stakeholder interviews, a risk heat map, and clear recommendations for your leadership team.",
-    featured: true,
   },
   {
     title: "Launch Strategy Blueprint",
@@ -89,8 +88,7 @@ export default function HowWeHelp() {
                 scrollSnapAlign: "start",
                 width: "min(80vw, 320px)",
                 background: CARD,
-                border: offer.featured ? `1.5px solid ${TEAL}` : `1px solid ${CARD_BORDER}`,
-                borderLeft: offer.featured ? `4px solid ${TEAL}` : undefined,
+                border: `1px solid ${CARD_BORDER}`,
                 borderRadius: 14,
                 padding: "1.75rem 1.5rem",
               }}
