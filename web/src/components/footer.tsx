@@ -43,21 +43,9 @@ export default function Footer() {
           <a
             href="#home"
             onClick={(e) => { e.preventDefault(); smoothScrollTo("home"); }}
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", fontWeight: 700, textDecoration: "none", color: INK }}
+            style={{ display: "inline-flex", alignItems: "center", textDecoration: "none" }}
           >
-            <span
-              aria-hidden="true"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 36,
-                height: 36,
-              }}
-            >
-              <img src="images/logo-mark.png" alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
-            </span>
-            Launch Doctors
+            <img src="images/logo-full.png" alt="Launch Doctors" style={{ height: 38, width: "auto", display: "block" }} />
           </a>
           <p style={{ margin: "0.875rem 0 0", maxWidth: "40ch", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
             <BlurReveal duration={0.5}>

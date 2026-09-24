@@ -82,9 +82,8 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-portal-demo] [data-gp-touch-picker]{display:none !important;}
         [data-ld-portal-demo] [data-gp-letter]:focus-visible{outline-color:${NAVY} !important;}
         [data-ld-header]{position:absolute;inset:clamp(24px,4.5cqw,48px) clamp(24px,5cqw,64px) auto;display:flex;align-items:center;justify-content:space-between;gap:20px;}
-        [data-ld-logo]{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:700;letter-spacing:-.02em;color:${INK};}
-        [data-ld-logo-mark]{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;}
-        [data-ld-logo-mark] img{width:100%;height:100%;object-fit:contain;}
+        [data-ld-logo]{display:inline-flex;align-items:center;}
+        [data-ld-logo] img{height:32px;width:auto;display:block;}
         [data-ld-category]{font-size:12px;line-height:1.5;color:${INK};font-weight:500;}
         @container(max-width:450px){[data-ld-category]{max-width:12ch;text-align:right;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 76px);}}
         @container(max-height:479px){[data-ld-header]{top:18px;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 60px);}}
@@ -186,8 +185,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           <>
             <div data-ld-header>
               <span data-ld-logo>
-                <span data-ld-logo-mark aria-hidden="true"><img src="images/logo-mark.png" alt="" /></span>
-                Launch Doctors
+                <img src="images/logo-full.png" alt="Launch Doctors" />
               </span>
               <span data-ld-category>Strategic BioPharma Launch Consultancy</span>
             </div>
