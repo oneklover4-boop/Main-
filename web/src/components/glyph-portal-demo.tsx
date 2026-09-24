@@ -94,11 +94,13 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
         [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
-        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.75rem 1.375rem;border-radius:10px;font-weight:600;font-size:.9375rem;font-family:inherit;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,border-color .18s ease;}
+        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.7rem 1.5rem;border-radius:999px;font-weight:600;font-size:.9375rem;letter-spacing:.01em;font-family:inherit;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease,border-color .15s ease;}
+        [data-ld-cta-arrow]{width:13px;height:13px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .15s ease;}
         a[data-ld-cta-primary]{background:${NAVY};color:#fff;}
-        a[data-ld-cta-primary]:hover{background:${BLUE};transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,98,193,.28);}
-        a[data-ld-cta-ghost]{background:transparent;color:${NAVY};border-color:${NAVY};}
-        a[data-ld-cta-ghost]:hover{background:rgba(4,53,128,.06);transform:translateY(-2px);}
+        a[data-ld-cta-primary]:hover{background:${BLUE};box-shadow:0 4px 10px rgba(4,53,128,.18);}
+        a[data-ld-cta-primary]:hover [data-ld-cta-arrow]{transform:translateX(2px);}
+        a[data-ld-cta-ghost]{background:transparent;color:${NAVY};border-color:rgba(4,53,128,.3);}
+        a[data-ld-cta-ghost]:hover{background:rgba(4,53,128,.05);border-color:${NAVY};}
         [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:${MUTED};}
       `}</style>
       {!ready ? (
@@ -205,6 +207,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             {/* No destination page yet — wire these up once it exists. */}
             <a href="#contact" data-ld-cta-primary onClick={(e) => { e.preventDefault(); smoothScrollTo("contact"); }}>
               Book a Launch Health Check
+              <span data-ld-cta-arrow aria-hidden="true" />
             </a>
             <a href="#how-we-help" data-ld-cta-ghost onClick={(e) => { e.preventDefault(); smoothScrollTo("how-we-help"); }}>
               See how we help
