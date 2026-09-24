@@ -90,6 +90,8 @@ export default function Contact() {
             outline-offset: 1px;
             border-color: ${BLUE};
           }
+          [data-contact-submit]{background:rgba(18,98,193,0.15);border:1.5px solid rgba(18,98,193,0.35);color:${NAVY};transition:background-color .2s ease,border-color .2s ease;}
+          [data-contact-submit]:hover{background:transparent;border-color:${BLUE};}
         `}</style>
 
         <div>
@@ -210,6 +212,7 @@ export default function Contact() {
 
           <button
             type="submit"
+            data-contact-submit
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -217,9 +220,6 @@ export default function Contact() {
               minHeight: 44,
               padding: "0.75rem 1.375rem",
               borderRadius: 10,
-              border: "1.5px solid transparent",
-              background: NAVY,
-              color: "#fff",
               fontWeight: 600,
               fontSize: "0.9375rem",
               fontFamily: "inherit",
