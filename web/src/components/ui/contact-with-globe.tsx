@@ -18,6 +18,9 @@ import type { GeoPermissibleObjects } from "d3";
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
+// The site's primary blue (see globals for the shared token set).
+const BLUE = "#1262c1";
+
 const CONTACT_LINKS = [
   {
     icon: Mail,
@@ -788,6 +791,9 @@ export default function ContactWithGlobe({
                 autoRotateSpeed={0.45}
                 strokeWidth={0.6}
                 graticuleOpacity={0.12}
+                strokeColor={BLUE}
+                sphereOutlineColor={BLUE}
+                graticuleColor={BLUE}
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-white dark:from-zinc-950 to-transparent" />
             </div>
@@ -859,7 +865,7 @@ export default function ContactWithGlobe({
               />
             </div>
 
-            <Button className="w-fit h-11 px-8 rounded-xl font-semibold text-sm bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-900 group">
+            <Button className="w-fit h-11 px-8 rounded-xl font-semibold text-sm bg-[#1262c1]/35 bg-clip-padding border border-[#1262c1]/35 text-[#043580] hover:bg-transparent hover:border-[#1262c1] transition-colors duration-200 group">
               Submit
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
