@@ -100,16 +100,9 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-content-nav]{position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:${INK};transition:color .15s ease;}
         [data-ld-content-nav] a:hover{color:${BLUE};}
-        [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
-        [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
+        [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
+        [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
-        [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}
-        [data-ld-cta] a{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;min-height:44px;padding:.7rem 1.5rem;border-radius:14px;font-weight:600;font-size:.9375rem;letter-spacing:.01em;font-family:inherit;text-decoration:none;cursor:pointer;color:${NAVY};background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.08);transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;}
-        [data-ld-cta] a:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
-        [data-ld-cta] a:hover [data-ld-cta-arrow]{transform:translateX(2px);}
-        a[data-ld-cta-primary]{font-weight:700;}
-        [data-ld-cta-arrow]{width:13px;height:13px;flex-shrink:0;background-color:currentColor;-webkit-mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>') center/contain no-repeat;transition:transform .2s ease;}
-        [data-ld-copy-disclaimer]{margin:0;font-size:.8125rem;font-style:italic;color:${MUTED};}
       `}</style>
       {!ready ? (
         <div role="status" style={{ height: "100%", display: "grid", placeItems: "center", color: "#555", fontSize: 12 }}>
@@ -217,21 +210,10 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         <div data-ld-copy>
           <h2>Structure, Clarity, Momentum</h2>
           <p>
-            At Launch Doctors, we help emerging and mid-sized biopharma
-            companies diagnose launch risks, build integrated launch plans,
-            and prepare their organisations for successful commercialisation.
+            We help emerging and mid-sized biopharma companies diagnose
+            launch risks and build integrated plans for a successful
+            commercial launch.
           </p>
-          <div data-ld-cta>
-            {/* No destination page yet — wire these up once it exists. */}
-            <a href="#contact" data-ld-cta-primary onClick={(e) => { e.preventDefault(); smoothScrollTo("contact"); }}>
-              Book a Launch Health Check
-              <span data-ld-cta-arrow aria-hidden="true" />
-            </a>
-            <a href="#how-we-help" data-ld-cta-ghost onClick={(e) => { e.preventDefault(); smoothScrollTo("how-we-help"); }}>
-              See how we help
-            </a>
-          </div>
-          <p data-ld-copy-disclaimer>Strategic consultancy — not a provider of medical advice or clinical services.</p>
         </div>
       </GlyphPortal>
       )}
