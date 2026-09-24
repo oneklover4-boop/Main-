@@ -36,22 +36,23 @@ export default function Experience() {
           }}
         >
           <div
-            aria-hidden="true"
             style={{
               flexShrink: 0,
               width: 64,
               height: 64,
               borderRadius: "50%",
+              overflow: "hidden",
               background: NAVY,
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "1.5rem",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
-            A
+            {/* Relative path (no leading slash) so it still resolves once
+                the deploy step's basePath ("/Main-") is in front of it —
+                an absolute "/images/..." path would 404 there. */}
+            <img
+              src="images/avi-founder.jpg"
+              alt="Avi, Founder"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </div>
           <div>
             <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>
