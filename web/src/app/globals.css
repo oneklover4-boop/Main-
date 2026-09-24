@@ -36,9 +36,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --brand: oklch(0.72 0.2 352.53);
+  --brand-secondary: oklch(0.66 0.21 354.31);
 }
 
 .dark {
+  --shadow-custom: 0px -1px 0px 0px hsla(0, 0%, 100%, 0.06),
+    0px 0px 0px 1px hsla(0, 0%, 100%, 0.06), 0px 0px 0px 1px #27272a,
+    0px 1px 2px 0px rgba(0, 0, 0, 0.32), 0px 2px 4px 0px rgba(0, 0, 0, 0.32);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -91,6 +96,9 @@
 
 @theme inline {
   --animate-aurora: aurora 110s linear infinite;
+  --shadow-custom: var(--shadow-custom);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand: var(--brand);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);

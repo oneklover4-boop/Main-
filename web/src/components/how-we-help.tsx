@@ -1,6 +1,6 @@
 "use client";
 
-import { TestimonialMarquee, type Testimonial } from "@/components/ui/testimonial-marquee";
+import CoverflowCarousel, { type CoverflowCarouselItem } from "@/components/ui/coverflow-carousel";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const BLUE = "#1262c1";
@@ -31,9 +31,14 @@ const offers = [
   },
 ];
 
-const offerCards: Testimonial[] = offers.map((offer) => ({
-  name: offer.title,
-  text: offer.body,
+const offerCards: CoverflowCarouselItem[] = offers.map((offer, i) => ({
+  id: String(i),
+  content: (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem", textAlign: "left", width: "100%", fontFamily: FONT_FAMILY }}>
+      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: INK }}>{offer.title}</h3>
+      <p style={{ margin: 0, fontSize: "0.875rem", lineHeight: 1.5, color: MUTED }}>{offer.body}</p>
+    </div>
+  ),
 }));
 
 export default function HowWeHelp() {
@@ -54,7 +59,9 @@ export default function HowWeHelp() {
         </p>
       </div>
 
-      <TestimonialMarquee items={offerCards} variant="default" speed={70} />
+      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
+        <CoverflowCarousel items={offerCards} loop autoplay autoplayDelay={4000} />
+      </div>
     </section>
   );
 }
