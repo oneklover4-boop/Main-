@@ -6,7 +6,6 @@ const NAVY = "#043580";
 const BLUE = "#1262c1";
 const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
-const CARD_BG = "#e6e6e6";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = "Inter, Arial, sans-serif";
@@ -31,8 +30,8 @@ export default function LaunchHealthCheck() {
           @media (max-width: 900px) {
             .lhc-grid { grid-template-columns: 1fr !important; }
           }
-          [data-lhc-check]{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;}
-          [data-lhc-check]:hover{border-color:${TEAL} !important;box-shadow:0 8px 20px rgba(52,172,134,.18);transform:translateY(-2px);}
+          [data-lhc-check]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+          [data-lhc-check]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
         `}</style>
 
         <div>
@@ -80,7 +79,6 @@ export default function LaunchHealthCheck() {
               key={item}
               data-lhc-check
               style={{
-                background: CARD_BG,
                 borderTop: `1px solid ${CARD_BORDER}`,
                 borderRight: `1px solid ${CARD_BORDER}`,
                 borderBottom: `1px solid ${CARD_BORDER}`,

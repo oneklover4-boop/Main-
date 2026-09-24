@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react";
 
 const NAVY = "#043580";
 const BLUE = "#1262c1";
-const CARD_BG = "#e6e6e6";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const OFF_WHITE = "#f2f3f2";
 const INK = "#000000";
@@ -123,7 +122,7 @@ export default function Contact() {
             padding: "2rem",
             border: `1px solid ${CARD_BORDER}`,
             borderRadius: 14,
-            background: CARD_BG,
+            background: "rgba(0,0,0,.05)",
           }}
         >
           <div style={fieldRowStyle}>

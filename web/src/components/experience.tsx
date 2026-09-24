@@ -1,7 +1,5 @@
 const NAVY = "#043580";
 const BLUE = "#1262c1";
-const TEAL = "#34ac86";
-const CARD_BG = "#e6e6e6";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
@@ -11,8 +9,8 @@ export default function Experience() {
   return (
     <section id="experience" style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
       <style>{`
-        [data-exp-quote]{transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;}
-        [data-exp-quote]:hover{border-color:${TEAL} !important;box-shadow:0 8px 20px rgba(52,172,134,.18);transform:translateY(-2px);}
+        [data-glass-card]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+        [data-glass-card]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
@@ -23,11 +21,11 @@ export default function Experience() {
         </h2>
 
         <div
+          data-glass-card
           style={{
             display: "flex",
             gap: "1.5rem",
             alignItems: "flex-start",
-            background: CARD_BG,
             border: `1px solid ${CARD_BORDER}`,
             borderRadius: 14,
             padding: "2rem",
@@ -65,10 +63,10 @@ export default function Experience() {
         </div>
 
         <div
+          data-glass-card
           style={{
             display: "flex",
             flexDirection: "column",
-            background: CARD_BG,
             border: `1px solid ${CARD_BORDER}`,
             borderRadius: 14,
             padding: "2rem",
@@ -112,13 +110,12 @@ export default function Experience() {
         </div>
 
         <blockquote
-          data-exp-quote
+          data-glass-card
           style={{
             maxWidth: 760,
             margin: 0,
             padding: "2rem",
             borderLeft: `4px solid ${BLUE}`,
-            background: CARD_BG,
             borderRadius: "0 14px 14px 0",
           }}
         >

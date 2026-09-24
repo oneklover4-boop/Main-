@@ -1,4 +1,3 @@
-const CARD = "#e6e6e6";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
@@ -19,11 +18,15 @@ export default function WhoWeHelp() {
         padding: "2.5rem clamp(1.25rem, 5vw, 1.5rem) 4rem",
       }}
     >
+      <style>{`
+        [data-glass-card]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
+        [data-glass-card]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
+      `}</style>
       <div
+        data-glass-card
         style={{
           maxWidth: "1120px",
           margin: "0 auto",
-          background: CARD,
           border: `1px solid ${CARD_BORDER}`,
           borderRadius: 14,
           padding: "2rem 2.25rem",
