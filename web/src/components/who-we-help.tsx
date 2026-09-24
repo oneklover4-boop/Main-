@@ -39,9 +39,9 @@ export default function WhoWeHelp() {
           <BlurReveal duration={0.5}>Built for teams who:</BlurReveal>
         </p>
         <ul style={{ margin: 0, paddingLeft: "1.25rem", listStyle: "disc", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          {items.map((item) => (
+          {items.map((item, i) => (
             <li key={item} style={{ color: MUTED, fontSize: "1.0625rem", lineHeight: 1.5 }}>
-              {item}
+              <BlurReveal duration={0.5} delay={i * 0.06}>{item}</BlurReveal>
             </li>
           ))}
         </ul>

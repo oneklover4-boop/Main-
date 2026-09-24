@@ -107,12 +107,14 @@ export default function Contact() {
           <ul style={{ listStyle: "none", margin: "1.5rem 0 0", padding: 0 }}>
             <li>
               <a href="mailto:hello@launchdoctors.com" style={{ fontWeight: 600, color: BLUE, textDecoration: "none" }}>
-                hello@launchdoctors.com
+                <BlurReveal duration={0.5} delay={0.24}>hello@launchdoctors.com</BlurReveal>
               </a>
             </li>
           </ul>
           <p style={{ margin: "1.5rem 0 0", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
-            Strategic consultancy — not a provider of medical advice or clinical services.
+            <BlurReveal duration={0.5} delay={0.32}>
+              Strategic consultancy — not a provider of medical advice or clinical services.
+            </BlurReveal>
           </p>
         </div>
 

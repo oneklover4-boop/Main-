@@ -72,12 +72,12 @@ export default function LaunchHealthCheck() {
               cursor: "pointer",
             }}
           >
-            Book a Launch Health Check
+            <BlurReveal duration={0.5} delay={0.24}>Book a Launch Health Check</BlurReveal>
           </a>
         </div>
 
         <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "1rem" }}>
-          {checks.map((item) => (
+          {checks.map((item, i) => (
             <li
               key={item}
               data-lhc-check
@@ -92,7 +92,7 @@ export default function LaunchHealthCheck() {
                 color: INK,
               }}
             >
-              {item}
+              <BlurReveal duration={0.5} delay={i * 0.06}>{item}</BlurReveal>
             </li>
           ))}
         </ul>

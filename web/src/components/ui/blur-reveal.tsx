@@ -19,13 +19,20 @@ export function BlurReveal({
   duration = 1,
 }: BlurRevealProps) {
   const spanRef = React.useRef<HTMLSpanElement | null>(null)
-  const isInView: boolean = useInView(spanRef, { once: true })
+  // once: false — replays every time this scrolls back into view, not
+  // just the first time, so it fades in again on a re-visit rather than
+  // just staying visible once revealed.
+  const isInView: boolean = useInView(spanRef, { once: false })
 
   return (
     <motion.span
       ref={spanRef}
       initial={{ opacity: 0, filter: "blur(10px)", y: "20%" }}
-      animate={isInView ? { opacity: 1, filter: "blur(0px)", y: "0%" } : {}}
+      animate={
+        isInView
+          ? { opacity: 1, filter: "blur(0px)", y: "0%" }
+          : { opacity: 0, filter: "blur(10px)", y: "20%" }
+      }
       transition={{ duration: duration, delay: delay }}
       className={cn("inline-block", className)}
     >

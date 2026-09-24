@@ -54,12 +54,16 @@ export default function Experience() {
             A
           </div>
           <div>
-            <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>Avi, Founder</h3>
+            <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>
+              <BlurReveal duration={0.5}>Avi, Founder</BlurReveal>
+            </h3>
             <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>
-              25+ years of experience in global, regional and local roles
-              across large, medium and small pharmaceutical companies, with
-              deep expertise launching, commercialising and building growth
-              for product portfolios.
+              <BlurReveal duration={0.5} delay={0.08}>
+                25+ years of experience in global, regional and local roles
+                across large, medium and small pharmaceutical companies, with
+                deep expertise launching, commercialising and building growth
+                for product portfolios.
+              </BlurReveal>
             </p>
           </div>
         </div>
@@ -93,21 +97,27 @@ export default function Experience() {
               border: "1px solid rgba(0,0,0,0.2)",
             }}
           >
-            Illustrative example
+            <BlurReveal duration={0.5}>Illustrative example</BlurReveal>
           </span>
-          <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>A representative engagement</h3>
+          <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>
+            <BlurReveal duration={0.5} delay={0.06}>A representative engagement</BlurReveal>
+          </h3>
           <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>
-            A mid-sized biopharma company approaching its first commercial
-            launch in years engaged Launch Doctors for a Launch Health Check
-            roughly 24 months ahead of anticipated approval. The assessment
-            surfaced gaps in cross-functional alignment between medical,
-            market access and commercial teams, along with unclear ownership
-            across key launch milestones. The resulting recommendations
-            informed an Integrated Launch Plan, giving leadership a single,
-            governed view of the path to launch.
+            <BlurReveal duration={0.5} delay={0.12}>
+              A mid-sized biopharma company approaching its first commercial
+              launch in years engaged Launch Doctors for a Launch Health Check
+              roughly 24 months ahead of anticipated approval. The assessment
+              surfaced gaps in cross-functional alignment between medical,
+              market access and commercial teams, along with unclear ownership
+              across key launch milestones. The resulting recommendations
+              informed an Integrated Launch Plan, giving leadership a single,
+              governed view of the path to launch.
+            </BlurReveal>
           </p>
           <p style={{ margin: "1rem 0 0", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
-            Composite example for illustration — ask us for real client references.
+            <BlurReveal duration={0.5} delay={0.18}>
+              Composite example for illustration — ask us for real client references.
+            </BlurReveal>
           </p>
         </div>
 
@@ -122,11 +132,15 @@ export default function Experience() {
           }}
         >
           <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
-            &ldquo;Launch Doctors provided excellent strategic direction for
-            the brand and leadership to the team, which has ensured an
-            excellent foundation for the business moving forward.&rdquo;
+            <BlurReveal duration={0.5}>
+              &ldquo;Launch Doctors provided excellent strategic direction for
+              the brand and leadership to the team, which has ensured an
+              excellent foundation for the business moving forward.&rdquo;
+            </BlurReveal>
           </p>
-          <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>— Client testimonial</cite>
+          <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
+            <BlurReveal duration={0.5} delay={0.08}>— Client testimonial</BlurReveal>
+          </cite>
         </blockquote>
       </div>
     </section>

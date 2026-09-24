@@ -79,7 +79,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         @container(max-height:479px){[data-ld-header]{top:18px;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 60px);}}
         [data-ld-portal-demo] [data-gp-content]{padding:5.5rem clamp(1.25rem,5cqw,5rem) 6.5rem;font-family:inherit;}
         [data-ld-portal-demo] section,[data-ld-portal-demo] [data-gp-caption]{font-family:inherit;}
-        [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(1.5rem,4svh,2.5rem);}
+        [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
         [data-ld-cta]{display:flex;flex-wrap:wrap;gap:1rem;}

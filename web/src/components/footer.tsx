@@ -1,6 +1,7 @@
 "use client";
 
 import { smoothScrollTo } from "@/lib/smooth-scroll";
+import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const NAVY = "#043580";
 const BLUE = "#1262c1";
@@ -65,7 +66,9 @@ export default function Footer() {
             Launch Doctors
           </a>
           <p style={{ margin: "0.875rem 0 0", maxWidth: "40ch", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
-            Strategic consultancy — not a provider of medical advice or clinical services.
+            <BlurReveal duration={0.5}>
+              Strategic consultancy — not a provider of medical advice or clinical services.
+            </BlurReveal>
           </p>
         </div>
 
@@ -84,7 +87,9 @@ export default function Footer() {
       </div>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <p style={{ margin: 0, fontSize: "0.8125rem", color: MUTED }}>© {year} Launch Doctors. All rights reserved.</p>
+        <p style={{ margin: 0, fontSize: "0.8125rem", color: MUTED }}>
+          <BlurReveal duration={0.5}>© {year} Launch Doctors. All rights reserved.</BlurReveal>
+        </p>
       </div>
     </footer>
   );
