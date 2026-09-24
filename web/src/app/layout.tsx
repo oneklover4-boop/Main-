@@ -42,6 +42,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=PT+Sans:wght@400;700&display=swap"
           precedence="default"
         />
+        {/* Safari (desktop and iOS) only activates :hover/:active styles on
+            tap/click once at least one touch listener exists somewhere in
+            the document — otherwise a tap never shows the pressed state at
+            all. This is the standard no-op listener that unlocks it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.addEventListener('touchstart', function(){}, {passive:true});",
+          }}
+        />
         {children}
       </body>
     </html>
