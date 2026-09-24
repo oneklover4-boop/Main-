@@ -3,4 +3,12 @@
 :HL["/Main-/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=PT+Sans:wght@400;700&display=swap","style"]
 :HL["images/avi-founder.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"8D4Lp2wAPG8p4b9-AJNkF"}
+:HL["images/clients/galapagos.png","image"]
+:HL["images/clients/novartis.png","image"]
+:HL["images/clients/allergan.png","image"]
+:HL["images/clients/sanofi.png","image"]
+:HL["images/clients/regeneron.png","image"]
+:HL["images/clients/janssen.png","image"]
+:HL["images/clients/gsk.png","image"]
+:HL["images/clients/ipsen.png","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"E8JY4Fryd68tSOt5PcXus"}
