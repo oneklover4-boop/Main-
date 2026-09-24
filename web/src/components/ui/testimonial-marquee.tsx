@@ -64,9 +64,27 @@ const MarqueeRow = React.memo(
     className?: string;
     pauseOnHover?: boolean;
   }) => {
+    // group-hover (below) only fires on pointer devices that actually
+    // support hover — on a touchscreen there's no hover state at all, so
+    // pressing and holding a card wouldn't pause anything without this.
+    // Track it in state instead, driven by touch, so holding a card
+    // pauses the row and lifting off resumes it, matching what hover
+    // already does with a mouse.
+    const [touchHeld, setTouchHeld] = React.useState(false);
+    const hold = () => { if (pauseOnHover) setTouchHeld(true); };
+    const release = () => { if (pauseOnHover) setTouchHeld(false); };
+
+    const rowStyle = {
+      "--duration": `${speed}s`,
+      animationPlayState: touchHeld ? "paused" : undefined,
+    } as React.CSSProperties;
+
     return (
       <div
         className={cn("group flex overflow-hidden p-2 [--gap:1rem]", className)}
+        onTouchStart={hold}
+        onTouchEnd={release}
+        onTouchCancel={release}
       >
         <div
           className={cn(
@@ -76,11 +94,7 @@ const MarqueeRow = React.memo(
               : "animate-marquee-right",
             pauseOnHover && "group-hover:[animation-play-state:paused]",
           )}
-          style={
-            {
-              "--duration": `${speed}s`,
-            } as React.CSSProperties
-          }
+          style={rowStyle}
         >
           {children}
         </div>
@@ -93,11 +107,7 @@ const MarqueeRow = React.memo(
               : "animate-marquee-right",
             pauseOnHover && "group-hover:[animation-play-state:paused]",
           )}
-          style={
-            {
-              "--duration": `${speed}s`,
-            } as React.CSSProperties
-          }
+          style={rowStyle}
         >
           {children}
         </div>
