@@ -3,4 +3,4 @@
 :HL["/Main-/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=PT+Sans:wght@400;700&display=swap","style"]
 :HL["images/avi-founder.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"JmlmH8PZ_Slgv3Gup6ewG"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"pqr2jXUN1ZKlTgvNf0OEE"}
