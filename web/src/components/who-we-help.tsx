@@ -1,3 +1,5 @@
+import { BlurReveal } from "@/components/ui/blur-reveal";
+
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
@@ -34,7 +36,7 @@ export default function WhoWeHelp() {
         }}
       >
         <p style={{ margin: "0 0 0.875rem", fontWeight: 700, fontSize: "1.125rem", color: INK }}>
-          Built for teams who:
+          <BlurReveal duration={0.5}>Built for teams who:</BlurReveal>
         </p>
         <ul style={{ margin: 0, paddingLeft: "1.25rem", listStyle: "disc", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           {items.map((item) => (

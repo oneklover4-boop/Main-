@@ -1,3 +1,5 @@
+import { BlurReveal } from "@/components/ui/blur-reveal";
+
 const NAVY = "#043580";
 const BLUE = "#1262c1";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
@@ -14,10 +16,10 @@ export default function Experience() {
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
-          Experience &amp; Case Studies
+          <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
         </p>
         <h2 style={{ margin: "0 0 2rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: INK }}>
-          Led by real launch experience, not theory
+          <BlurReveal duration={0.5} delay={0.08}>Led by real launch experience, not theory</BlurReveal>
         </h2>
 
         <div
