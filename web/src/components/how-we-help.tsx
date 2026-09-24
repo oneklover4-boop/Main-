@@ -4,7 +4,7 @@ import CoverflowCarousel, { type CoverflowCarouselItem } from "@/components/ui/c
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const NAVY = "#043580";
-const BLUE = "#1262c1";
+const TEAL = "#34ac86";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
@@ -45,7 +45,7 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
+        <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: TEAL }}>
           <BlurReveal duration={0.5}>How We Help</BlurReveal>
         </p>
         <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>

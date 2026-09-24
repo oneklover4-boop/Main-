@@ -130,9 +130,9 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: smoothEase }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-400/30"
+            className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#34ac86]/10 border border-[#34ac86]/30"
           >
-            <span className="text-sm text-rose-500 font-medium">
+            <span className="text-sm text-[#34ac86] font-medium">
               {subtitle}
             </span>
           </motion.div>

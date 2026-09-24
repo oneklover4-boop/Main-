@@ -4,7 +4,6 @@ import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const NAVY = "#043580";
-const BLUE = "#1262c1";
 const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
@@ -12,45 +11,6 @@ const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const checks = ["Structured assessment", "Stakeholder interviews", "Risk heat map", "Executive recommendations"];
-
-// A small on-brand illustration (clipboard + checklist + a pulse of
-// momentum) standing in for a photo — built from the site's own
-// palette so it sits naturally next to the glass cards rather than
-// looking like a dropped-in stock image.
-function HealthCheckIllustration() {
-  return (
-    <svg viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", display: "block" }}>
-      <rect x="64" y="18" width="150" height="184" rx="14" fill="#ffffff" stroke={NAVY} strokeOpacity="0.15" strokeWidth="2" />
-      <rect x="112" y="8" width="54" height="18" rx="6" fill={BLUE} />
-      <rect x="122" y="13" width="34" height="8" rx="3" fill="#ffffff" fillOpacity="0.85" />
-
-      <circle cx="90" cy="58" r="9" fill={TEAL} fillOpacity="0.15" />
-      <path d="M86 58l3 3 6-6" stroke={TEAL} strokeWidth="2.25" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="110" y="53" width="86" height="8" rx="4" fill={NAVY} fillOpacity="0.08" />
-
-      <circle cx="90" cy="90" r="9" fill={TEAL} fillOpacity="0.15" />
-      <path d="M86 90l3 3 6-6" stroke={TEAL} strokeWidth="2.25" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="110" y="85" width="70" height="8" rx="4" fill={NAVY} fillOpacity="0.08" />
-
-      <circle cx="90" cy="122" r="9" fill={TEAL} fillOpacity="0.15" />
-      <path d="M86 122l3 3 6-6" stroke={TEAL} strokeWidth="2.25" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="110" y="117" width="78" height="8" rx="4" fill={NAVY} fillOpacity="0.08" />
-
-      <path
-        d="M78 165h20l8-24 10 46 10-34 8 12h48"
-        stroke={BLUE}
-        strokeWidth="3"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      <circle cx="238" cy="168" r="30" fill={TEAL} fillOpacity="0.12" />
-      <circle cx="238" cy="168" r="30" stroke={TEAL} strokeOpacity="0.35" strokeWidth="1.5" />
-      <path d="M226 168l9 9 17-19" stroke={TEAL} strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function LaunchHealthCheck() {
   return (
@@ -70,10 +30,6 @@ export default function LaunchHealthCheck() {
           @media (max-width: 900px) {
             .lhc-grid { grid-template-columns: 1fr !important; }
           }
-          [data-lhc-check]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
-          [data-lhc-check]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
-          [data-lhc-visual]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
-          [data-lhc-visual]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
           [data-lhc-cta]{transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
           [data-lhc-cta]:hover{background:rgba(0,0,0,.1) !important;box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
           [data-lhc-cta]:hover [data-lhc-cta-arrow]{transform:translateX(2px);}
@@ -81,7 +37,7 @@ export default function LaunchHealthCheck() {
         `}</style>
 
         <div>
-          <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
+          <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: TEAL }}>
             <BlurReveal duration={0.5}>The Entry Point</BlurReveal>
           </p>
           <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
@@ -125,42 +81,46 @@ export default function LaunchHealthCheck() {
           </a>
         </div>
 
-        <div style={{ display: "grid", gap: "1rem" }}>
-          <div
-            data-lhc-visual
-            style={{
-              border: `1px solid ${CARD_BORDER}`,
-              borderRadius: 14,
-              padding: "1.5rem 1.5rem 0.75rem",
-            }}
-          >
-            <HealthCheckIllustration />
-          </div>
-          <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-            {checks.map((item, i) => (
-              <li
-                key={item}
-                data-lhc-check
+        <div
+          style={{
+            border: `1px solid ${CARD_BORDER}`,
+            borderRadius: 16,
+            background: "rgba(0,0,0,.03)",
+            padding: "0.5rem 1.75rem",
+          }}
+        >
+          {checks.map((item, i) => (
+            <div
+              key={item}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1.125rem",
+                padding: "1.25rem 0",
+                borderBottom: i < checks.length - 1 ? `1px solid ${CARD_BORDER}` : "none",
+              }}
+            >
+              <span
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  border: `1px solid ${CARD_BORDER}`,
-                  borderRadius: 10,
-                  padding: "0.75rem 0.875rem",
-                  fontWeight: 500,
-                  fontSize: "0.875rem",
-                  color: INK,
+                  flexShrink: 0,
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  background: NAVY,
+                  color: "#ffffff",
+                  display: "grid",
+                  placeItems: "center",
+                  fontWeight: 700,
+                  fontSize: "0.9375rem",
                 }}
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0 }}>
-                  <circle cx="8" cy="8" r="8" fill={TEAL} fillOpacity="0.15" />
-                  <path d="M5 8.2l1.8 1.8L11 6" stroke={TEAL} strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span style={{ fontWeight: 600, fontSize: "1.0625rem", color: INK }}>
                 <BlurReveal duration={0.5} delay={i * 0.06}>{item}</BlurReveal>
-              </li>
-            ))}
-          </ul>
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

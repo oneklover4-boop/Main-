@@ -2,6 +2,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const NAVY = "#043580";
 const BLUE = "#1262c1";
+const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
@@ -15,7 +16,7 @@ export default function Experience() {
         [data-glass-card]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
+        <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: TEAL }}>
           <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
         </p>
         <h2 style={{ margin: "0 0 2rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
