@@ -32,7 +32,7 @@ export function AuroraBeam({ className, showBeamMask = true, ...props }: AuroraB
     >
       <div
         className={cn(
-          "animate-aurora absolute -inset-[10px] [background-image:var(--white-gradient),var(--aurora)] [background-size:300%,200%] [background-position:50%_50%,50%_50%] [background-attachment:fixed,fixed] opacity-[0.18] blur-[14px] invert will-change-transform",
+          "animate-aurora absolute -inset-[10px] [background-image:var(--white-gradient),var(--aurora)] [background-size:300%,200%] [background-position:50%_50%,50%_50%] [background-attachment:fixed,fixed] opacity-[0.2] blur-[14px] invert will-change-transform",
           "after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,100%] after:[background-attachment:fixed,fixed] after:mix-blend-difference after:content-['']",
           showBeamMask &&
             "[mask-image:linear-gradient(90deg,transparent_0%,transparent_15%,black_55%,black_85%,transparent_100%)]"
