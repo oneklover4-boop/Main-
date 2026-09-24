@@ -11,6 +11,14 @@ const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true,
 const NAVY = "#043580";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
+const BLUE = "#1262c1";
+
+const navLinks = [
+  { href: "#how-we-help", label: "How We Help" },
+  { href: "#health-check", label: "Launch Health Check" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
+];
 
 // Inter is loaded via the plain Google Fonts <link> in app/layout.tsx
 // (same font already used across the rest of the site) rather than a
@@ -89,6 +97,9 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         @container(max-height:479px){[data-ld-header]{top:18px;}[data-ld-portal-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 60px);}}
         [data-ld-portal-demo] [data-gp-content]{padding:5.5rem clamp(1.25rem,5cqw,5rem) 6.5rem;font-family:inherit;}
         [data-ld-portal-demo] section,[data-ld-portal-demo] [data-gp-caption]{font-family:inherit;}
+        [data-ld-content-nav]{position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
+        [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:${INK};transition:color .15s ease;}
+        [data-ld-content-nav] a:hover{color:${BLUE};}
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:flex-start;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy] h2{max-width:48rem;margin:0;color:inherit;font-size:clamp(1.75rem,1.1rem + 2.1cqw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
@@ -192,6 +203,17 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           </>
         }
       >
+        <nav data-ld-content-nav aria-label="Page sections">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => { e.preventDefault(); smoothScrollTo(link.href.slice(1)); }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
         <div data-ld-copy>
           <h2>Structure, Clarity, Momentum</h2>
           <p>
