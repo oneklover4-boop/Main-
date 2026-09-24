@@ -3,8 +3,8 @@
 import CoverflowCarousel, { type CoverflowCarouselItem } from "@/components/ui/coverflow-carousel";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
+const NAVY = "#043580";
 const BLUE = "#1262c1";
-const INK = "#000000";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
@@ -35,7 +35,7 @@ const offerCards: CoverflowCarouselItem[] = offers.map((offer, i) => ({
   id: String(i),
   content: (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem", textAlign: "left", width: "100%", fontFamily: FONT_FAMILY }}>
-      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: INK }}>{offer.title}</h3>
+      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: NAVY }}>{offer.title}</h3>
       <p style={{ margin: 0, fontSize: "0.875rem", lineHeight: 1.5, color: MUTED }}>{offer.body}</p>
     </div>
   ),
@@ -48,7 +48,7 @@ export default function HowWeHelp() {
         <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
           <BlurReveal duration={0.5}>How We Help</BlurReveal>
         </p>
-        <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: INK }}>
+        <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
           <BlurReveal duration={0.5} delay={0.08}>Five focused offers</BlurReveal>
         </h2>
         <p style={{ margin: "0 0 0.5rem", maxWidth: "56ch", fontSize: "1.0625rem", lineHeight: 1.6, color: MUTED }}>

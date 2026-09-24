@@ -18,7 +18,7 @@ export default function Experience() {
         <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: BLUE }}>
           <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
         </p>
-        <h2 style={{ margin: "0 0 2rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: INK }}>
+        <h2 style={{ margin: "0 0 2rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
           <BlurReveal duration={0.5} delay={0.08}>Led by real launch experience</BlurReveal>
         </h2>
 
@@ -55,7 +55,7 @@ export default function Experience() {
             />
           </div>
           <div>
-            <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>
+            <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: NAVY }}>
               <BlurReveal duration={0.5}>Avi, Founder</BlurReveal>
             </h3>
             <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>
@@ -100,7 +100,7 @@ export default function Experience() {
           >
             <BlurReveal duration={0.5}>Illustrative example</BlurReveal>
           </span>
-          <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: INK }}>
+          <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: NAVY }}>
             <BlurReveal duration={0.5} delay={0.06}>A representative engagement</BlurReveal>
           </h3>
           <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>

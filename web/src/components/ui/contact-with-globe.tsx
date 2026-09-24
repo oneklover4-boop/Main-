@@ -142,7 +142,7 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: smoothEase }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#043580] dark:text-[#043580]"
           >
             {title}
           </motion.h2>
@@ -166,7 +166,7 @@ export default function ContactWithGlobe({
           className="flex flex-col items-center text-center gap-6 mb-12"
         >
           <div className="flex flex-col items-center gap-1">
-            <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
+            <h3 className="text-xl font-semibold text-[#043580] dark:text-[#043580]">
               Get in touch
             </h3>
             <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs">
@@ -212,7 +212,7 @@ export default function ContactWithGlobe({
           className="w-full max-w-4xl mx-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-black/5 dark:bg-white/5 p-6 sm:p-10 flex flex-col gap-5"
         >
           <div>
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-0.5">
+            <h3 className="text-lg font-semibold text-[#043580] dark:text-[#043580] mb-0.5">
               Send a message
             </h3>
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
