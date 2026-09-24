@@ -90,7 +90,7 @@ export default function Contact() {
             outline-offset: 1px;
             border-color: ${BLUE};
           }
-          [data-contact-submit]{background:rgba(18,98,193,0.15);border:1.5px solid rgba(18,98,193,0.35);color:${NAVY};transition:background-color .2s ease,border-color .2s ease;}
+          [data-contact-submit]{background:rgba(18,98,193,0.35);border:1.5px solid rgba(18,98,193,0.35);color:${NAVY};transition:background-color .2s ease,border-color .2s ease;}
           [data-contact-submit]:hover{background:transparent;border-color:${BLUE};}
         `}</style>
 
