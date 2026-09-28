@@ -47,8 +47,20 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
   const [ready, setReady] = useState(false);
   // On narrow screens the four nav links wrap onto a second line and
   // collide with the logo in the opposite corner, so below that width
-  // the links collapse behind a dot-menu toggle instead.
+  // the links collapse behind a hamburger-menu toggle instead.
   const [navOpen, setNavOpen] = useState(false);
+
+  useEffect(() => {
+    if (!navOpen) return;
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest("[data-ld-content-nav]") && !target.closest("[data-ld-content-nav-toggle]")) {
+        setNavOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [navOpen]);
 
   useEffect(() => {
     let settled = false;
@@ -104,12 +116,34 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-content-nav]{position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:${INK};transition:color .15s ease;}
         [data-ld-content-nav] a:hover{color:${BLUE};}
-        [data-ld-content-nav-toggle]{display:none;position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);align-items:center;justify-content:center;gap:4px;width:40px;height:40px;padding:0;border:none;background:transparent;cursor:pointer;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
-        [data-ld-content-nav-toggle] span{width:4px;height:4px;border-radius:50%;background:${INK};display:block;}
+        [data-ld-content-nav-toggle]{display:none;position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;padding:0;border:none;background:transparent;cursor:pointer;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
+        [data-ld-content-nav-toggle] span{width:20px;height:2px;border-radius:1px;background:${INK};display:block;}
         @container(max-width:560px){
           [data-ld-content-nav-toggle]{display:flex;}
-          [data-ld-content-nav]{display:none;}
-          [data-ld-content-nav][data-open="true"]{display:flex;flex-direction:column;align-items:flex-end;top:calc(clamp(24px,4.5cqw,48px) + 48px);background:#ffffff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:0.85rem 1.1rem;box-shadow:0 16px 32px rgba(0,0,0,.12);gap:0.85rem;z-index:20;filter:none;}
+          [data-ld-content-nav]{
+            flex-direction:column;
+            align-items:flex-end;
+            top:calc(clamp(24px,4.5cqw,48px) + 48px);
+            white-space:nowrap;
+            background:#ffffff;
+            border:1px solid rgba(0,0,0,.08);
+            border-radius:12px;
+            padding:0.85rem 1.1rem;
+            box-shadow:0 16px 32px rgba(0,0,0,.12);
+            gap:0.85rem;
+            z-index:20;
+            opacity:0;
+            filter:blur(10px);
+            transform:translateY(-8px);
+            pointer-events:none;
+            transition:opacity .35s ease, filter .35s ease, transform .35s ease;
+          }
+          [data-ld-content-nav][data-open="true"]{
+            opacity:1;
+            filter:blur(0px);
+            transform:translateY(0);
+            pointer-events:auto;
+          }
         }
         [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-logo] img{height:28px;width:auto;display:block;}
@@ -173,7 +207,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
                 // an image to actually notice — fades in alongside the
                 // rest of the reveal and stays very dim even at full
                 // reveal.
-                opacity: "calc(var(--gp-reveal, 0) * 0.08)",
+                opacity: "calc(var(--gp-reveal, 0) * 0.14)",
               }}
             />
             <div
