@@ -34,9 +34,9 @@ const offers = [
 const offerCards: CoverflowCarouselItem[] = offers.map((offer, i) => ({
   id: String(i),
   content: (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem", textAlign: "left", width: "100%", fontFamily: FONT_FAMILY }}>
-      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: NAVY }}>{offer.title}</h3>
-      <p style={{ margin: 0, fontSize: "0.875rem", lineHeight: 1.5, color: MUTED }}>{offer.body}</p>
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem", textAlign: "left", width: "100%", fontFamily: FONT_FAMILY }}>
+      <h3 style={{ margin: 0, fontSize: "1.375rem", fontWeight: 700, color: NAVY }}>{offer.title}</h3>
+      <p style={{ margin: 0, fontSize: "1rem", lineHeight: 1.55, color: MUTED }}>{offer.body}</p>
     </div>
   ),
 }));
@@ -51,7 +51,7 @@ export default function HowWeHelp() {
             overflow: "hidden",
             borderRadius: 6,
             background: "rgba(52, 172, 134, 0.08)",
-            padding: "4rem clamp(1.5rem, 4vw, 3rem) 2.5rem",
+            padding: "4.5rem clamp(1.5rem, 4vw, 3rem) 3rem",
           }}
         >
           <div
@@ -83,10 +83,10 @@ export default function HowWeHelp() {
           >
             <BlurReveal duration={0.5}>How We Help</BlurReveal>
           </span>
-          <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
+          <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(2.25rem, 1.5rem + 3vw, 3.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
             <BlurReveal duration={0.5} delay={0.08}>Five focused offers</BlurReveal>
           </h2>
-          <p style={{ margin: 0, maxWidth: "56ch", fontSize: "1.0625rem", lineHeight: 1.6, color: MUTED }}>
+          <p style={{ margin: 0, maxWidth: "56ch", fontSize: "1.1875rem", lineHeight: 1.6, color: MUTED }}>
             <BlurReveal duration={0.5} delay={0.16}>
               Each one solves a specific problem on the journey to launch. Start
               with a Launch Health Check, or go straight to the support you need.
@@ -95,7 +95,7 @@ export default function HowWeHelp() {
         </div>
       </div>
 
-      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
+      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "3.5rem 0" }}>
         <CoverflowCarousel items={offerCards} loop autoplay autoplayDelay={3400} />
       </div>
     </section>
