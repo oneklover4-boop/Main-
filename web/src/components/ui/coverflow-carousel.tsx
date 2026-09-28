@@ -151,6 +151,9 @@ const CoverflowCarousel = ({
       onKeyDown={handleKeyDown}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+      onTouchCancel={() => setIsPaused(false)}
       role="region"
       style={{ perspective: shouldReduceMotion ? undefined : 1200 }}
       // biome-ignore lint/a11y/noNoninteractiveTabindex: this WAI-ARIA APG carousel widget intentionally accepts focus so ArrowLeft/ArrowRight can move slides while the region is focused (in addition to the Previous/Next buttons below); removing tabIndex would remove that keyboard-navigation path entirely.

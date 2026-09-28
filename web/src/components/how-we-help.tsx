@@ -60,7 +60,7 @@ export default function HowWeHelp() {
       </div>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
-        <CoverflowCarousel items={offerCards} loop autoplay autoplayDelay={4000} />
+        <CoverflowCarousel items={offerCards} loop autoplay autoplayDelay={3400} />
       </div>
     </section>
   );
