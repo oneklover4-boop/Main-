@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { motion } from "framer-motion";
 
-import type { HTMLAttributes, MouseEvent, KeyboardEvent } from "react";
+import type { HTMLAttributes, MouseEvent, KeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -34,6 +34,11 @@ const VISIBLE_OFFSETS = [-4, -3, -2, -1, 0, 1, 2, 3, 4] as const;
 // button before autoplay picks back up on its own.
 const RESUME_AFTER_INTERACTION = 2500;
 
+// Horizontal drag distance (px) that counts as one card of swipe.
+const SWIPE_STEP = 90;
+// Movement (px) before a press is treated as a drag rather than a tap.
+const DRAG_LOCK_THRESHOLD = 10;
+
 const TRANSITION_SPRING = {
   type: "spring",
   stiffness: 220,
@@ -53,6 +58,8 @@ export function CalendlyCarousel({
   const lastTimeRef = useRef<number | null>(null);
   const elapsedRef = useRef<number>(0);
   const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dragRef = useRef<{ startX: number; startY: number; locked: boolean; horizontal: boolean } | null>(null);
+  const justDraggedRef = useRef<boolean>(false);
 
   // State
   const [page, setPage] = useState<number>(0);
@@ -187,6 +194,14 @@ export function CalendlyCarousel({
   };
 
   const handleSelectCard = (event: MouseEvent<HTMLDivElement>) => {
+    // A swipe that just ended fires a click right after it on most
+    // browsers — ignore that one so a drag doesn't also jump via
+    // whatever card ended up under the pointer.
+    if (justDraggedRef.current) {
+      justDraggedRef.current = false;
+      return;
+    }
+
     const offsetStr = event.currentTarget.dataset.offset;
 
     if (offsetStr !== undefined) {
@@ -203,6 +218,58 @@ export function CalendlyCarousel({
         setPage((curr) => curr + offset);
       }
     }
+  };
+
+  // Lets visitors swipe/drag across the carousel to move through cards,
+  // instead of only being able to click one card at a time.
+  const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    dragRef.current = { startX: event.clientX, startY: event.clientY, locked: false, horizontal: false };
+  };
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+
+    if (!drag.locked) {
+      if (Math.abs(dx) > DRAG_LOCK_THRESHOLD || Math.abs(dy) > DRAG_LOCK_THRESHOLD) {
+        drag.locked = true;
+        drag.horizontal = Math.abs(dx) > Math.abs(dy);
+        if (drag.horizontal) {
+          justDraggedRef.current = true;
+          markInteraction();
+        }
+      }
+    }
+  };
+
+  const endDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    dragRef.current = null;
+    if (!drag || !drag.horizontal) return;
+
+    const dx = event.clientX - drag.startX;
+    const steps = Math.round(-dx / SWIPE_STEP);
+
+    if (steps !== 0) {
+      elapsedRef.current = 0;
+      lastTimeRef.current = null;
+      setProgress(0);
+      setPage((curr) => curr + steps);
+    }
+
+    markInteraction();
+  };
+
+  const handlePointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    endDrag(event);
+  };
+
+  const handlePointerCancel = () => {
+    dragRef.current = null;
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -227,6 +294,11 @@ export function CalendlyCarousel({
       aria-label="Customer stories"
       tabIndex={0}
       onKeyDown={handleKeyDown}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerCancel}
+      style={{ touchAction: "pan-y" }}
       className={cn(
         "relative w-full max-w-[1240px] mx-auto flex flex-col items-center select-none outline-none py-4 overflow-hidden",
         className

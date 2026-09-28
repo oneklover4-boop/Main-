@@ -3,7 +3,6 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const TEAL = "#34ac86";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const items = [
@@ -44,7 +43,7 @@ export default function WhoWeHelp() {
             <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", color: MUTED, fontSize: "1.0625rem", lineHeight: 1.5 }}>
               <span
                 aria-hidden="true"
-                style={{ flexShrink: 0, width: 7, height: 7, borderRadius: "50%", background: TEAL, marginTop: "0.55em" }}
+                style={{ flexShrink: 0, width: 7, height: 7, borderRadius: "50%", background: INK, marginTop: "0.55em" }}
               />
               <span><BlurReveal duration={0.5} delay={i * 0.06}>{item}</BlurReveal></span>
             </li>

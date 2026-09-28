@@ -10,8 +10,8 @@ import type { FormEvent } from "react";
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
-const TEAL = "#34ac86";
 const NAVY = "#043580";
+const GREY = "#6b7280";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 
 interface ContactWithGlobeProps {
@@ -67,8 +67,8 @@ export default function ContactWithGlobe({
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
         <SectionTabHeader
           label={title}
-          accent={TEAL}
-          tint="rgba(52, 172, 134, 0.08)"
+          accent={GREY}
+          tint="rgba(107, 114, 128, 0.08)"
           description={description}
         />
 
@@ -172,8 +172,7 @@ export default function ContactWithGlobe({
           <div className="flex flex-col items-center gap-3 mt-2">
             <Button
               type="submit"
-              className="w-fit h-11 px-9 rounded-full font-semibold text-sm text-white border-0 transition-transform duration-200 group touch-manipulation hover:brightness-110 active:scale-[0.98]"
-              style={{ background: TEAL }}
+              className="w-fit h-11 px-9 rounded-full font-semibold text-sm bg-[#34ac86] hover:bg-[#34ac86] text-white border-2 border-[#34ac86] transition-colors duration-150 group touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#34ac86]"
             >
               Send
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-active:translate-x-1" />
