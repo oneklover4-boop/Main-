@@ -21,8 +21,8 @@ export default function WhoWeHelp() {
       }}
     >
       <style>{`
-        [data-glass-card]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
-        [data-glass-card]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
+        [data-glass-card]{background:#ffffff;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:box-shadow .2s ease,transform .2s ease;}
+        [data-glass-card]:hover{box-shadow:0 16px 28px -8px rgba(0,0,0,.12);transform:translateY(-4px);}
       `}</style>
       <div
         data-glass-card
@@ -30,7 +30,7 @@ export default function WhoWeHelp() {
           maxWidth: "1120px",
           margin: "0 auto",
           border: `1px solid ${CARD_BORDER}`,
-          borderRadius: 14,
+          borderRadius: 4,
           padding: "2rem 2.25rem",
           fontFamily: FONT_FAMILY,
         }}

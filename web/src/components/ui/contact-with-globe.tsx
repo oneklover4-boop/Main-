@@ -130,7 +130,7 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: smoothEase }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#34ac86]/10 border border-[#34ac86]/30"
+            className="inline-flex items-center px-4 py-1.5 rounded-sm bg-[#34ac86]/10 border border-[#34ac86]/30"
           >
             <span className="text-sm text-[#34ac86] font-medium">
               {subtitle}
@@ -190,7 +190,7 @@ export default function ContactWithGlobe({
                 }}
                 className="group flex items-center gap-3 w-fit text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 group-hover:border-rose-300 dark:group-hover:border-rose-500/40 group-hover:bg-rose-50 dark:group-hover:bg-rose-500/10 flex items-center justify-center shrink-0 transition-all duration-200">
+                <div className="w-8 h-8 rounded-sm bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 group-hover:border-rose-300 dark:group-hover:border-rose-500/40 group-hover:bg-rose-50 dark:group-hover:bg-rose-500/10 flex items-center justify-center shrink-0 transition-all duration-200">
                   <Icon className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-rose-500 dark:group-hover:text-rose-400 transition-colors duration-200" />
                 </div>
                 {label}
@@ -209,7 +209,7 @@ export default function ContactWithGlobe({
           // See-through grey, same translucent tone used for every
           // other card on the site, so the moving aurora background
           // shows through it rather than sitting on a solid fill.
-          className="w-full max-w-4xl mx-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-black/5 dark:bg-white/5 p-6 sm:p-10 flex flex-col gap-5"
+          className="w-full max-w-4xl mx-auto rounded-sm border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm p-6 sm:p-10 flex flex-col gap-5"
         >
           <div>
             <h3 className="text-lg font-semibold text-[#043580] dark:text-[#043580] mb-0.5">
@@ -238,7 +238,7 @@ export default function ContactWithGlobe({
                 onChange={(e) => setFormValues((v) => ({ ...v, name: e.target.value }))}
                 onBlur={() => handleFieldBlur("name")}
                 className={cn(
-                  "w-full bg-zinc-50 dark:bg-zinc-800/60 border rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200",
+                  "w-full bg-zinc-50 dark:bg-zinc-800/60 border rounded-sm px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200",
                   formErrors.name ? "border-red-400" : "border-zinc-200 dark:border-zinc-700",
                 )}
               />
@@ -256,7 +256,7 @@ export default function ContactWithGlobe({
                 placeholder="Company name"
                 value={formValues.company}
                 onChange={(e) => setFormValues((v) => ({ ...v, company: e.target.value }))}
-                className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200"
+                className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-sm px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200"
               />
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function ContactWithGlobe({
               onChange={(e) => setFormValues((v) => ({ ...v, email: e.target.value }))}
               onBlur={() => handleFieldBlur("email")}
               className={cn(
-                "w-full bg-zinc-50 dark:bg-zinc-800/60 border rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200",
+                "w-full bg-zinc-50 dark:bg-zinc-800/60 border rounded-sm px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200",
                 formErrors.email ? "border-red-400" : "border-zinc-200 dark:border-zinc-700",
               )}
             />
@@ -297,7 +297,7 @@ export default function ContactWithGlobe({
               onChange={(e) => setFormValues((v) => ({ ...v, message: e.target.value }))}
               onBlur={() => handleFieldBlur("message")}
               className={cn(
-                "w-full bg-zinc-50 dark:bg-zinc-800/60 border rounded-xl px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 resize-none transition-all duration-200",
+                "w-full bg-zinc-50 dark:bg-zinc-800/60 border rounded-sm px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 resize-none transition-all duration-200",
                 formErrors.message ? "border-red-400" : "border-zinc-200 dark:border-zinc-700",
               )}
             />
@@ -306,7 +306,7 @@ export default function ContactWithGlobe({
 
           <Button
             type="submit"
-            className="w-fit h-11 px-8 rounded-xl font-semibold text-sm bg-[#1262c1]/35 bg-clip-padding border border-[#1262c1]/35 text-[#043580] hover:bg-transparent active:bg-transparent hover:border-[#1262c1] active:border-[#1262c1] transition-colors duration-200 group touch-manipulation"
+            className="w-fit h-11 px-8 rounded-sm font-semibold text-sm bg-[#1262c1]/35 bg-clip-padding border border-[#1262c1]/35 text-[#043580] hover:bg-transparent active:bg-transparent hover:border-[#1262c1] active:border-[#1262c1] transition-colors duration-200 group touch-manipulation"
           >
             Submit
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-active:translate-x-1" />

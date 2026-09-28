@@ -12,8 +12,8 @@ export default function Experience() {
   return (
     <section id="experience" style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
       <style>{`
-        [data-glass-card]{background:rgba(0,0,0,.05);transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;}
-        [data-glass-card]:hover{background:rgba(0,0,0,.1);box-shadow:0 20px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.05);transform:translateY(-4px);}
+        [data-glass-card]{background:#ffffff;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:box-shadow .2s ease,transform .2s ease;}
+        [data-glass-card]:hover{box-shadow:0 16px 28px -8px rgba(0,0,0,.12);transform:translateY(-4px);}
         @media (max-width: 860px) {
           .exp-grid { grid-template-columns: 1fr !important; }
         }
@@ -23,7 +23,7 @@ export default function Experience() {
           style={{
             position: "relative",
             overflow: "hidden",
-            borderRadius: 20,
+            borderRadius: 6,
             background: "rgba(18, 98, 193, 0.07)",
             padding: "4rem clamp(1.5rem, 4vw, 3rem) 2.5rem",
             marginBottom: "1.5rem",
@@ -54,7 +54,6 @@ export default function Experience() {
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               padding: "0.65rem 1.5rem",
-              borderRadius: "20px 0 16px 0",
             }}
           >
             <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
@@ -79,7 +78,7 @@ export default function Experience() {
               display: "flex",
               flexDirection: "column",
               border: `1px solid ${CARD_BORDER}`,
-              borderRadius: 14,
+              borderRadius: 4,
               padding: "2.25rem",
             }}
           >
@@ -135,7 +134,7 @@ export default function Experience() {
                 gap: "1rem",
                 border: `1px solid ${CARD_BORDER}`,
                 borderTop: `4px solid ${BLUE}`,
-                borderRadius: 14,
+                borderRadius: 4,
                 padding: "2rem",
               }}
             >
@@ -184,7 +183,7 @@ export default function Experience() {
                 margin: 0,
                 padding: "2rem",
                 borderLeft: `4px solid ${BLUE}`,
-                borderRadius: "0 14px 14px 0",
+                borderRadius: "0 4px 4px 0",
               }}
             >
               <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>

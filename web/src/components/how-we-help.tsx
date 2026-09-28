@@ -49,7 +49,7 @@ export default function HowWeHelp() {
           style={{
             position: "relative",
             overflow: "hidden",
-            borderRadius: 20,
+            borderRadius: 6,
             background: "rgba(52, 172, 134, 0.08)",
             padding: "4rem clamp(1.5rem, 4vw, 3rem) 2.5rem",
           }}
@@ -79,7 +79,6 @@ export default function HowWeHelp() {
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               padding: "0.65rem 1.5rem",
-              borderRadius: "20px 0 16px 0",
             }}
           >
             <BlurReveal duration={0.5}>How We Help</BlurReveal>
