@@ -19,12 +19,50 @@ export default function Experience() {
         }
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: TEAL }}>
-          <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
-        </p>
-        <h2 style={{ margin: "0 0 2rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
-          <BlurReveal duration={0.5} delay={0.08}>Led by real launch experience</BlurReveal>
-        </h2>
+        <div
+          style={{
+            position: "relative",
+            overflow: "hidden",
+            borderRadius: 20,
+            background: "rgba(18, 98, 193, 0.07)",
+            padding: "4rem clamp(1.5rem, 4vw, 3rem) 2.5rem",
+            marginBottom: "1.5rem",
+          }}
+        >
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 0,
+              height: 0,
+              borderStyle: "solid",
+              borderWidth: "0 56px 56px 0",
+              borderColor: `transparent ${BLUE} transparent transparent`,
+            }}
+          />
+          <span
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              background: BLUE,
+              color: "#ffffff",
+              fontWeight: 700,
+              fontSize: "0.8125rem",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              padding: "0.65rem 1.5rem",
+              borderRadius: "20px 0 16px 0",
+            }}
+          >
+            <BlurReveal duration={0.5}>Experience &amp; Case Studies</BlurReveal>
+          </span>
+          <h2 style={{ margin: 0, fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
+            <BlurReveal duration={0.5} delay={0.08}>Led by real launch experience</BlurReveal>
+          </h2>
+        </div>
 
         <div
           className="exp-grid"
@@ -96,6 +134,7 @@ export default function Experience() {
                 alignItems: "flex-start",
                 gap: "1rem",
                 border: `1px solid ${CARD_BORDER}`,
+                borderTop: `4px solid ${BLUE}`,
                 borderRadius: 14,
                 padding: "2rem",
               }}

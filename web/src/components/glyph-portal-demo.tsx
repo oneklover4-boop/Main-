@@ -15,7 +15,6 @@ const TEAL = "#34ac86";
 
 const navLinks = [
   { href: "#how-we-help", label: "How We Help" },
-  { href: "#health-check", label: "Launch Health Check" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];

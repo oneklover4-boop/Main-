@@ -45,18 +45,55 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <p style={{ margin: "0 0 0.75rem", fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: TEAL }}>
-          <BlurReveal duration={0.5}>How We Help</BlurReveal>
-        </p>
-        <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
-          <BlurReveal duration={0.5} delay={0.08}>Five focused offers</BlurReveal>
-        </h2>
-        <p style={{ margin: "0 0 0.5rem", maxWidth: "56ch", fontSize: "1.0625rem", lineHeight: 1.6, color: MUTED }}>
-          <BlurReveal duration={0.5} delay={0.16}>
-            Each one solves a specific problem on the journey to launch. Start
-            with a Launch Health Check, or go straight to the support you need.
-          </BlurReveal>
-        </p>
+        <div
+          style={{
+            position: "relative",
+            overflow: "hidden",
+            borderRadius: 20,
+            background: "rgba(52, 172, 134, 0.08)",
+            padding: "4rem clamp(1.5rem, 4vw, 3rem) 2.5rem",
+          }}
+        >
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 0,
+              height: 0,
+              borderStyle: "solid",
+              borderWidth: "0 56px 56px 0",
+              borderColor: `transparent ${TEAL} transparent transparent`,
+            }}
+          />
+          <span
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              background: TEAL,
+              color: "#ffffff",
+              fontWeight: 700,
+              fontSize: "0.8125rem",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              padding: "0.65rem 1.5rem",
+              borderRadius: "20px 0 16px 0",
+            }}
+          >
+            <BlurReveal duration={0.5}>How We Help</BlurReveal>
+          </span>
+          <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
+            <BlurReveal duration={0.5} delay={0.08}>Five focused offers</BlurReveal>
+          </h2>
+          <p style={{ margin: 0, maxWidth: "56ch", fontSize: "1.0625rem", lineHeight: 1.6, color: MUTED }}>
+            <BlurReveal duration={0.5} delay={0.16}>
+              Each one solves a specific problem on the journey to launch. Start
+              with a Launch Health Check, or go straight to the support you need.
+            </BlurReveal>
+          </p>
+        </div>
       </div>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>

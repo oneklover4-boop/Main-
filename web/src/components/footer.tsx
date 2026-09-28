@@ -11,7 +11,6 @@ const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const links = [
   { href: "#how-we-help", label: "How We Help" },
-  { href: "#health-check", label: "Launch Health Check" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
