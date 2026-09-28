@@ -21,6 +21,16 @@ interface ContactWithGlobeProps {
 
 type ContactFieldKey = "name" | "phone" | "email" | "message";
 
+// Mobile: transparent field, underline only, white text (matches the
+// reference). Desktop (sm+): solid white box, as before.
+function fieldClass(hasError: boolean): string {
+  return cn(
+    "w-full bg-transparent border-0 border-b rounded-none px-1 pb-3 pt-2 text-base text-white placeholder:text-white/60 outline-none transition-colors duration-200",
+    "sm:bg-white sm:border sm:rounded-sm sm:px-4 sm:py-3 sm:text-sm sm:text-zinc-800 sm:placeholder:text-zinc-500 sm:focus:ring-2 sm:focus:ring-[#34ac86]/20",
+    hasError ? "border-red-400" : "border-white/25 focus:border-[#34ac86] sm:border-transparent",
+  );
+}
+
 function validateContactField(key: ContactFieldKey, value: string): string {
   const trimmed = value.trim();
   if (key === "name") return trimmed ? "" : "Please enter your name.";
@@ -93,7 +103,7 @@ export default function ContactWithGlobe({
             <BlurReveal duration={0.5}>{title}</BlurReveal>
           </span>
 
-          <div className="flex flex-col items-center text-center gap-2 mb-8 sm:mb-10">
+          <div className="hidden sm:flex flex-col items-center text-center gap-2 mb-8 sm:mb-10">
             <p className="text-sm sm:text-base text-white/70 max-w-md">{description}</p>
             <a
               href="mailto:hello@launchdoctors.com"
@@ -104,8 +114,8 @@ export default function ContactWithGlobe({
             </a>
           </div>
 
-          <form onSubmit={handleContactSubmit} noValidate className="flex flex-col gap-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <form onSubmit={handleContactSubmit} noValidate className="flex flex-col gap-6 sm:gap-4 mt-6 sm:mt-0">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
               <div className="flex flex-col gap-1">
                 <label htmlFor="cwg-name" className="sr-only">Full Name</label>
                 <input
@@ -118,10 +128,7 @@ export default function ContactWithGlobe({
                   value={formValues.name}
                   onChange={(e) => setFormValues((v) => ({ ...v, name: e.target.value }))}
                   onBlur={() => handleFieldBlur("name")}
-                  className={cn(
-                    "w-full bg-white border rounded-sm px-4 py-3 text-sm text-zinc-800 placeholder:text-zinc-500 outline-none focus:border-[#34ac86] focus:ring-2 focus:ring-[#34ac86]/20 transition-all duration-200",
-                    formErrors.name ? "border-red-400" : "border-transparent",
-                  )}
+                  className={fieldClass(Boolean(formErrors.name))}
                 />
                 <p role="alert" className="min-h-[1.1em] text-xs text-red-300">{formErrors.name}</p>
               </div>
@@ -138,10 +145,7 @@ export default function ContactWithGlobe({
                   value={formValues.phone}
                   onChange={(e) => setFormValues((v) => ({ ...v, phone: e.target.value }))}
                   onBlur={() => handleFieldBlur("phone")}
-                  className={cn(
-                    "w-full bg-white border rounded-sm px-4 py-3 text-sm text-zinc-800 placeholder:text-zinc-500 outline-none focus:border-[#34ac86] focus:ring-2 focus:ring-[#34ac86]/20 transition-all duration-200",
-                    formErrors.phone ? "border-red-400" : "border-transparent",
-                  )}
+                  className={fieldClass(Boolean(formErrors.phone))}
                 />
                 <p role="alert" className="min-h-[1.1em] text-xs text-red-300">{formErrors.phone}</p>
               </div>
@@ -158,10 +162,7 @@ export default function ContactWithGlobe({
                   value={formValues.email}
                   onChange={(e) => setFormValues((v) => ({ ...v, email: e.target.value }))}
                   onBlur={() => handleFieldBlur("email")}
-                  className={cn(
-                    "w-full bg-white border rounded-sm px-4 py-3 text-sm text-zinc-800 placeholder:text-zinc-500 outline-none focus:border-[#34ac86] focus:ring-2 focus:ring-[#34ac86]/20 transition-all duration-200",
-                    formErrors.email ? "border-red-400" : "border-transparent",
-                  )}
+                  className={fieldClass(Boolean(formErrors.email))}
                 />
                 <p role="alert" className="min-h-[1.1em] text-xs text-red-300">{formErrors.email}</p>
               </div>
@@ -178,10 +179,7 @@ export default function ContactWithGlobe({
                 value={formValues.message}
                 onChange={(e) => setFormValues((v) => ({ ...v, message: e.target.value }))}
                 onBlur={() => handleFieldBlur("message")}
-                className={cn(
-                  "w-full bg-white border rounded-sm px-4 py-3 text-sm text-zinc-800 placeholder:text-zinc-500 outline-none focus:border-[#34ac86] focus:ring-2 focus:ring-[#34ac86]/20 resize-none transition-all duration-200",
-                  formErrors.message ? "border-red-400" : "border-transparent",
-                )}
+                className={cn(fieldClass(Boolean(formErrors.message)), "resize-none")}
               />
               <p role="alert" className="min-h-[1.1em] text-xs text-red-300">{formErrors.message}</p>
             </div>
@@ -189,7 +187,7 @@ export default function ContactWithGlobe({
             <div className="flex flex-col items-center gap-3 mt-2">
               <Button
                 type="submit"
-                className="w-fit h-11 px-10 rounded-full font-semibold text-sm tracking-[0.04em] uppercase bg-[#34ac86] hover:bg-[#34ac86] text-white border-2 border-[#34ac86] transition-colors duration-150 touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#34ac86]"
+                className="w-full sm:w-fit h-12 sm:h-11 px-10 rounded-full font-semibold text-sm tracking-[0.04em] uppercase bg-[#34ac86] hover:bg-[#34ac86] text-white border-2 border-[#34ac86] transition-colors duration-150 touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#34ac86]"
               >
                 Send
               </Button>
