@@ -11,7 +11,6 @@ const settings = { word: "LAUNCH DOCTORS", scrollLength: 2.4, interactive: true,
 const NAVY = "#043580";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const BLUE = "#1262c1";
 const TEAL = "#34ac86";
 
 const navLinks = [
@@ -126,11 +125,13 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             align-items:flex-end;
             top:calc(clamp(24px,4.5cqw,48px) + 48px);
             white-space:nowrap;
-            background:#ffffff;
-            border:1px solid rgba(0,0,0,.08);
+            background:rgba(4,53,128,.55);
+            backdrop-filter:blur(14px);
+            -webkit-backdrop-filter:blur(14px);
+            border:1px solid rgba(255,255,255,.18);
             border-radius:12px;
             padding:0.85rem 1.1rem;
-            box-shadow:0 16px 32px rgba(0,0,0,.12);
+            box-shadow:0 16px 32px rgba(0,0,0,.28);
             gap:0.85rem;
             z-index:20;
             opacity:0;
@@ -145,10 +146,8 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             transform:translateY(0);
             pointer-events:auto;
           }
-          [data-ld-content-nav] a{color:${INK};}
-          [data-ld-content-nav] a:hover{color:${BLUE};}
         }
-        [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:10px;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
+        [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-logo] img{height:28px;width:auto;display:block;}
         [data-ld-content-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(255,255,255,.25);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
@@ -282,7 +281,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           data-ld-content-logo
           onClick={(e) => { e.preventDefault(); smoothScrollTo("home"); }}
         >
-          <img src="images/logo-full.png" alt="Launch Doctors" />
+          <img src="images/logo-full-white.png" alt="Launch Doctors" />
         </a>
         <button
           type="button"
