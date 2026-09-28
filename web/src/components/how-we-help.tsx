@@ -1,9 +1,8 @@
 "use client";
 
 import { CalendlyCarousel, type CarouselItem } from "@/components/ui/connected-carousel";
-import { BlurReveal } from "@/components/ui/blur-reveal";
+import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const NAVY = "#043580";
 const TEAL = "#34ac86";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
@@ -36,9 +35,6 @@ const offers = [
   },
 ];
 
-// Placeholder images only (plain brand-colour gradients) until real
-// photos are supplied for each offer — same field, just swap the
-// `image` path above once they're ready.
 const offerCards: CarouselItem[] = offers.map((offer, i) => ({
   id: String(i),
   stat: offer.title,
@@ -54,54 +50,13 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div
-          style={{
-            position: "relative",
-            overflow: "hidden",
-            borderRadius: 6,
-            background: "rgba(52, 172, 134, 0.08)",
-            padding: "4rem clamp(1.5rem, 4vw, 3rem) 2.5rem",
-          }}
-        >
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              width: 0,
-              height: 0,
-              borderStyle: "solid",
-              borderWidth: "0 56px 56px 0",
-              borderColor: `transparent ${TEAL} transparent transparent`,
-            }}
-          />
-          <span
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              background: TEAL,
-              color: "#ffffff",
-              fontWeight: 700,
-              fontSize: "0.8125rem",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              padding: "0.65rem 1.5rem",
-            }}
-          >
-            <BlurReveal duration={0.5}>How We Help</BlurReveal>
-          </span>
-          <h2 style={{ margin: "0 0 1rem", fontSize: "clamp(1.75rem, 1.3rem + 1.8vw, 2.25rem)", fontWeight: 700, letterSpacing: "-0.01em", color: NAVY }}>
-            <BlurReveal duration={0.5} delay={0.08}>Five focused offers</BlurReveal>
-          </h2>
-          <p style={{ margin: 0, maxWidth: "56ch", fontSize: "1.0625rem", lineHeight: 1.6, color: MUTED }}>
-            <BlurReveal duration={0.5} delay={0.16}>
-              Each one solves a specific problem on the journey to launch. Start
-              with a Launch Health Check, or go straight to the support you need.
-            </BlurReveal>
-          </p>
-        </div>
+        <SectionTabHeader
+          label="Five Focused Offers"
+          accent={TEAL}
+          tint="rgba(52, 172, 134, 0.08)"
+          description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
+          descriptionColor={MUTED}
+        />
       </div>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
