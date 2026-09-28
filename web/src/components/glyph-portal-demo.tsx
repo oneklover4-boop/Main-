@@ -122,17 +122,11 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           [data-ld-content-nav-toggle]{display:flex;}
           [data-ld-content-nav]{
             flex-direction:column;
-            align-items:flex-end;
+            align-items:stretch;
             top:calc(clamp(24px,4.5cqw,48px) + 48px);
             white-space:nowrap;
-            background:rgba(4,53,128,.55);
-            backdrop-filter:blur(14px);
-            -webkit-backdrop-filter:blur(14px);
-            border:1px solid rgba(255,255,255,.18);
-            border-radius:12px;
-            padding:0.85rem 1.1rem;
-            box-shadow:0 16px 32px rgba(0,0,0,.28);
-            gap:0.85rem;
+            min-width:180px;
+            gap:0;
             z-index:20;
             opacity:0;
             filter:blur(10px);
@@ -146,12 +140,18 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             transform:translateY(0);
             pointer-events:auto;
           }
+          [data-ld-content-nav] a{
+            padding:0.7rem 0;
+            text-align:right;
+            border-bottom:1px solid rgba(255,255,255,.3);
+          }
+          [data-ld-content-nav] a:last-child{border-bottom:none;}
         }
         [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-logo] img{height:28px;width:auto;display:block;}
         [data-ld-content-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(255,255,255,.25);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
-        [data-ld-copy] h2{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
+        [data-ld-copy] h2{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
       {!ready ? (
@@ -281,7 +281,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
           data-ld-content-logo
           onClick={(e) => { e.preventDefault(); smoothScrollTo("home"); }}
         >
-          <img src="images/logo-full-white.png" alt="Launch Doctors" />
+          <img src="images/logo-white-text.png" alt="Launch Doctors" />
         </a>
         <button
           type="button"
