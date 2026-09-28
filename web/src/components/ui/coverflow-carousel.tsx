@@ -33,9 +33,9 @@ interface DragInfo {
   velocity: { x: number; y: number };
 }
 
-const DEFAULT_DEPTH = 220;
+const DEFAULT_DEPTH = 180;
 const DEFAULT_ROTATION = 45;
-const DEFAULT_SPACING = 300;
+const DEFAULT_SPACING = 220;
 const DEFAULT_SCALE_STEP = 0.15;
 const DEFAULT_AUTOPLAY_DELAY = 4000;
 const SWIPE_VELOCITY_THRESHOLD = 500;
@@ -160,7 +160,7 @@ const CoverflowCarousel = ({
       tabIndex={0}
     >
       <motion.div
-        className="relative mx-auto flex h-[440px] items-center justify-center"
+        className="relative mx-auto flex h-[320px] items-center justify-center"
         drag={total > 1 && !shouldReduceMotion ? "x" : false}
         dragConstraints={{ left: 0, right: 0 }}
         dragElastic={0.12}
@@ -198,7 +198,7 @@ const CoverflowCarousel = ({
                     }
               }
               aria-hidden={!isActive}
-              className="absolute h-[320px] w-[400px] overflow-hidden rounded-md border border-black/[0.1] bg-white shadow-md"
+              className="absolute h-[220px] w-[280px] overflow-hidden rounded-md border border-black/[0.1] bg-white shadow-sm"
               key={item.id}
               style={{
                 transformStyle: "preserve-3d",
@@ -218,7 +218,7 @@ const CoverflowCarousel = ({
                   src={item.image}
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center p-8 text-sm">
+                <div className="flex h-full w-full items-center justify-center p-4 text-sm">
                   {item.content}
                 </div>
               )}
