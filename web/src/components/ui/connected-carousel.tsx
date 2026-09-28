@@ -24,7 +24,6 @@ export interface CarouselItem {
 export interface CalendlyCarouselProps extends HTMLAttributes<HTMLDivElement> {
   items: CarouselItem[];
   autoPlayInterval?: number;
-  pauseOnHover?: boolean;
 }
 
 type ScreenTier = "mobile" | "tablet" | "desktop";
@@ -45,7 +44,6 @@ const TRANSITION_SPRING = {
 export function CalendlyCarousel({
   items,
   autoPlayInterval = 6000,
-  pauseOnHover = false,
   className,
   ...props
 }: CalendlyCarouselProps) {
@@ -59,7 +57,6 @@ export function CalendlyCarousel({
   // State
   const [page, setPage] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const [tier, setTier] = useState<ScreenTier>("desktop");
   const [viewportWidth, setViewportWidth] = useState<number>(1200);
@@ -91,7 +88,7 @@ export function CalendlyCarousel({
   }, []);
 
   useEffect(() => {
-    if ((pauseOnHover && isHovered) || isInteracting) {
+    if (isInteracting) {
       lastTimeRef.current = null;
       return;
     }
@@ -125,7 +122,7 @@ export function CalendlyCarousel({
       }
       lastTimeRef.current = null;
     };
-  }, [page, pauseOnHover, isHovered, isInteracting, autoPlayInterval]);
+  }, [page, isInteracting, autoPlayInterval]);
 
   useEffect(() => {
     return () => {
@@ -208,14 +205,6 @@ export function CalendlyCarousel({
     }
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "ArrowLeft") {
       handlePrev();
@@ -238,8 +227,6 @@ export function CalendlyCarousel({
       aria-label="Customer stories"
       tabIndex={0}
       onKeyDown={handleKeyDown}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       className={cn(
         "relative w-full max-w-[1240px] mx-auto flex flex-col items-center select-none outline-none py-4 overflow-hidden",
         className
