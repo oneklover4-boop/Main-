@@ -31,6 +31,10 @@ type ScreenTier = "mobile" | "tablet" | "desktop";
 
 const VISIBLE_OFFSETS = [-4, -3, -2, -1, 0, 1, 2, 3, 4] as const;
 
+// How long after the visitor last clicked/tapped a card, dot, or nav
+// button before autoplay picks back up on its own.
+const RESUME_AFTER_INTERACTION = 2500;
+
 const TRANSITION_SPRING = {
   type: "spring",
   stiffness: 220,
@@ -50,11 +54,13 @@ export function CalendlyCarousel({
   const animationFrameRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
   const elapsedRef = useRef<number>(0);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // State
   const [page, setPage] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isInteracting, setIsInteracting] = useState<boolean>(false);
   const [tier, setTier] = useState<ScreenTier>("desktop");
   const [viewportWidth, setViewportWidth] = useState<number>(1200);
 
@@ -85,7 +91,7 @@ export function CalendlyCarousel({
   }, []);
 
   useEffect(() => {
-    if (pauseOnHover && isHovered) {
+    if ((pauseOnHover && isHovered) || isInteracting) {
       lastTimeRef.current = null;
       return;
     }
@@ -119,22 +125,48 @@ export function CalendlyCarousel({
       }
       lastTimeRef.current = null;
     };
-  }, [page, pauseOnHover, isHovered, autoPlayInterval]);
+  }, [page, pauseOnHover, isHovered, isInteracting, autoPlayInterval]);
+
+  useEffect(() => {
+    return () => {
+      if (resumeTimeoutRef.current !== null) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // Handlers
+
+  // Marks that the visitor just took manual control (clicked/tapped a
+  // card, a dot, or a nav button) — autoplay holds until this much time
+  // has passed with no further interaction, then picks back up on its
+  // own, whether that click moved the carousel or just held it in place.
+  const markInteraction = useCallback(() => {
+    if (resumeTimeoutRef.current !== null) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    setIsInteracting(true);
+    resumeTimeoutRef.current = setTimeout(() => {
+      setIsInteracting(false);
+      resumeTimeoutRef.current = null;
+    }, RESUME_AFTER_INTERACTION);
+  }, []);
+
   const handlePrev = useCallback(() => {
     elapsedRef.current = 0;
     lastTimeRef.current = null;
     setProgress(0);
+    markInteraction();
     setPage((curr) => curr - 1);
-  }, []);
+  }, [markInteraction]);
 
   const handleNext = useCallback(() => {
     elapsedRef.current = 0;
     lastTimeRef.current = null;
     setProgress(0);
+    markInteraction();
     setPage((curr) => curr + 1);
-  }, []);
+  }, [markInteraction]);
 
   const handleSelectTab = (event: MouseEvent<HTMLButtonElement>) => {
     const indexStr = event.currentTarget.dataset.index;
@@ -152,6 +184,7 @@ export function CalendlyCarousel({
       elapsedRef.current = 0;
       lastTimeRef.current = null;
       setProgress(0);
+      markInteraction();
       setPage((curr) => curr + diff);
     }
   };
@@ -161,6 +194,10 @@ export function CalendlyCarousel({
 
     if (offsetStr !== undefined) {
       const offset = Number.parseInt(offsetStr, 10);
+
+      // Clicking/tapping the active card just holds it in place;
+      // clicking a side card also moves the carousel to that card.
+      markInteraction();
 
       if (offset !== 0) {
         elapsedRef.current = 0;
@@ -538,7 +575,7 @@ export function CalendlyCarousel({
                       fill
                       unoptimized
                       draggable={false}
-                      style={{ objectFit: "cover", filter: "brightness(0.92)" }}
+                      style={{ objectFit: "cover", filter: "brightness(0.82)" }}
                       className="size-full object-cover"
                     />
                   </div>
@@ -619,7 +656,7 @@ export function CalendlyCarousel({
                         fill
                         unoptimized
                         draggable={false}
-                        style={{ objectFit: "cover", filter: "brightness(0.92)" }}
+                        style={{ objectFit: "cover", filter: "brightness(0.82)" }}
                         className="size-full object-cover"
                       />
                     </div>
