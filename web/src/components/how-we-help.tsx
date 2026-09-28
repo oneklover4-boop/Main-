@@ -1,6 +1,6 @@
 "use client";
 
-import CoverflowCarousel, { type CoverflowCarouselItem } from "@/components/ui/coverflow-carousel";
+import { CalendlyCarousel, type CarouselItem } from "@/components/ui/connected-carousel";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
 const NAVY = "#043580";
@@ -12,33 +12,42 @@ const offers = [
   {
     title: "Launch Health Check",
     body: "A structured assessment of your launch readiness: stakeholder interviews, a risk heat map, and clear recommendations for your leadership team.",
+    image: "images/offers/offer-1.jpg",
   },
   {
     title: "Launch Strategy Blueprint",
     body: "The strategic imperatives, critical success factors, positioning and stakeholder priorities that shape your launch roadmap.",
+    image: "images/offers/offer-2.jpg",
   },
   {
     title: "Integrated Launch Plan",
     body: "One cross-functional plan — activities, milestones, dependencies, owners, budget and governance — in a single place.",
+    image: "images/offers/offer-3.jpg",
   },
   {
     title: "Launch Readiness Programme",
     body: "A readiness framework with scorecards, workshops and structured gap closure, with regular reporting to leadership.",
+    image: "images/offers/offer-4.jpg",
   },
   {
     title: "Launch Office Support",
     body: "Fractional launch leadership and PMO support: decision management and day-to-day cross-functional coordination.",
+    image: "images/offers/offer-5.jpg",
   },
 ];
 
-const offerCards: CoverflowCarouselItem[] = offers.map((offer, i) => ({
+// Placeholder images only (plain brand-colour gradients) until real
+// photos are supplied for each offer — same field, just swap the
+// `image` path above once they're ready.
+const offerCards: CarouselItem[] = offers.map((offer, i) => ({
   id: String(i),
-  content: (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem", textAlign: "left", width: "100%", fontFamily: FONT_FAMILY }}>
-      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: NAVY }}>{offer.title}</h3>
-      <p style={{ margin: 0, fontSize: "0.875rem", lineHeight: 1.5, color: MUTED }}>{offer.body}</p>
-    </div>
-  ),
+  stat: offer.title,
+  quote: offer.body,
+  author: "Launch Doctors",
+  role: "Strategic BioPharma Launch Consultancy",
+  defaultImage: offer.image,
+  selectedImage: offer.image,
+  alt: offer.title,
 }));
 
 export default function HowWeHelp() {
@@ -96,7 +105,7 @@ export default function HowWeHelp() {
       </div>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
-        <CoverflowCarousel items={offerCards} loop autoplay autoplayDelay={3400} />
+        <CalendlyCarousel items={offerCards} autoPlayInterval={4500} />
       </div>
     </section>
   );
