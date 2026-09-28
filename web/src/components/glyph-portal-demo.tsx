@@ -12,6 +12,7 @@ const NAVY = "#043580";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 const BLUE = "#1262c1";
+const TEAL = "#34ac86";
 
 const navLinks = [
   { href: "#how-we-help", label: "How We Help" },
@@ -114,10 +115,10 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         [data-ld-portal-demo] [data-gp-content]{padding:5.5rem clamp(1.25rem,5cqw,5rem) 6.5rem;font-family:inherit;}
         [data-ld-portal-demo] section,[data-ld-portal-demo] [data-gp-caption]{font-family:inherit;}
         [data-ld-content-nav]{position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
-        [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:${INK};transition:color .15s ease;}
-        [data-ld-content-nav] a:hover{color:${BLUE};}
+        [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:#ffffff;transition:color .15s ease;}
+        [data-ld-content-nav] a:hover{color:${TEAL};}
         [data-ld-content-nav-toggle]{display:none;position:absolute;top:clamp(24px,4.5cqw,48px);right:clamp(1.25rem,5cqw,5rem);flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;padding:0;border:none;background:transparent;cursor:pointer;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
-        [data-ld-content-nav-toggle] span{width:20px;height:2px;border-radius:1px;background:${INK};display:block;}
+        [data-ld-content-nav-toggle] span{width:20px;height:2px;border-radius:1px;background:#ffffff;display:block;}
         @container(max-width:560px){
           [data-ld-content-nav-toggle]{display:flex;}
           [data-ld-content-nav]{
@@ -144,13 +145,15 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
             transform:translateY(0);
             pointer-events:auto;
           }
+          [data-ld-content-nav] a{color:${INK};}
+          [data-ld-content-nav] a:hover{color:${BLUE};}
         }
-        [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
+        [data-ld-content-logo]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;background:rgba(255,255,255,.92);padding:6px 12px;border-radius:10px;filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-content-logo] img{height:28px;width:auto;display:block;}
-        [data-ld-content-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(0,0,0,.12);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
+        [data-ld-content-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(255,255,255,.25);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);filter:blur(calc((1 - var(--gp-reveal, 0)) * 10px));}
-        [data-ld-copy] h2{max-width:48rem;margin:0;color:${NAVY};font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
-        [data-ld-copy] p{margin:0;color:${MUTED};font-size:1.0625rem;line-height:1.6;max-width:38rem;}
+        [data-ld-copy] h2{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
+        [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
       {!ready ? (
         <div role="status" style={{ height: "100%", display: "grid", placeItems: "center", color: "#555", fontSize: 12 }}>
@@ -200,16 +203,32 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
               style={{
                 position: "absolute",
                 inset: 0,
-                backgroundImage: "url(images/hero-rocket-bg.jpg)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                // Just a faint presence behind the revealed content, not
-                // an image to actually notice — fades in alongside the
-                // rest of the reveal and stays very dim even at full
-                // reveal.
-                opacity: "calc(var(--gp-reveal, 0) * 0.14)",
+                // Now the actual background of the revealed content — toned
+                // into the site's navy (rather than shown in its own
+                // colours) via a multiply blend, fading in as a group
+                // alongside the rest of the reveal so it's still plain
+                // white on the pre-zoom title screen.
+                opacity: "calc(var(--gp-reveal, 0) * 0.92)",
               }}
-            />
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  backgroundImage: "url(images/hero-rocket-bg.jpg)",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: NAVY,
+                  mixBlendMode: "multiply",
+                }}
+              />
+            </div>
             <div
               style={{
                 position: "absolute",
