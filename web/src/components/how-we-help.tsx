@@ -105,7 +105,7 @@ export default function HowWeHelp() {
       </div>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
-        <CalendlyCarousel items={offerCards} autoPlayInterval={4500} />
+        <CalendlyCarousel items={offerCards} autoPlayInterval={4500} pauseOnHover />
       </div>
     </section>
   );

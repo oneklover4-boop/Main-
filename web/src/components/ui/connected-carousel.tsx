@@ -538,7 +538,7 @@ export function CalendlyCarousel({
                       fill
                       unoptimized
                       draggable={false}
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover", filter: "brightness(0.92)" }}
                       className="size-full object-cover"
                     />
                   </div>
@@ -575,15 +575,8 @@ export function CalendlyCarousel({
                       </h3>
 
                       <div className="relative w-full min-w-0 my-auto py-1">
-                        <span
-                          aria-hidden="true"
-                          className="font-serif text-2xl sm:text-3xl lg:text-4xl text-foreground/40 absolute right-full top-0 pr-1 select-none pointer-events-none hidden md:inline"
-                        >
-                          &ldquo;
-                        </span>
-
                         <p className="font-serif text-xs sm:text-base md:text-lg text-foreground/85 leading-snug">
-                          &ldquo;{item.quote}&rdquo;
+                          {item.quote}
                         </p>
                       </div>
 
@@ -626,7 +619,7 @@ export function CalendlyCarousel({
                         fill
                         unoptimized
                         draggable={false}
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "cover", filter: "brightness(0.92)" }}
                         className="size-full object-cover"
                       />
                     </div>
