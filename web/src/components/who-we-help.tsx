@@ -6,6 +6,9 @@ const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const items = [
+  "Have an asset roughly 12–36 months from launch",
+  "Have limited in-house launch capability",
+  "Are preparing for a first or second commercial launch",
   "Need alignment across key functions, including medical, market access, marketing, regulatory, supply and comms",
   "Want experienced support",
 ];
