@@ -665,26 +665,27 @@ export function CalendlyCarousel({
                     <div className="flex-1 min-w-0 flex flex-col items-center md:items-start text-center md:text-left justify-between py-1 gap-2 sm:gap-3">
                       <h3
                         title={item.stat}
-                        className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground leading-tight w-full"
+                        className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight w-full"
+                        style={{ color: "#043580" }}
                       >
                         {item.stat}
                       </h3>
 
                       <div className="relative w-full min-w-0 my-auto py-1">
-                        <p className="font-serif text-xs sm:text-base md:text-lg text-foreground/85 leading-snug">
+                        <p className="text-xs sm:text-base md:text-lg leading-snug" style={{ color: "#4a4a4a" }}>
                           {item.quote}
                         </p>
                       </div>
 
                       <div className="flex min-w-0 w-full max-w-full overflow-hidden items-center md:items-start justify-center md:justify-start">
                         <div className="flex flex-col items-center md:items-start min-w-0 max-w-full">
-                          <span className="w-fit inline-flex items-center justify-center rounded-[4px] font-medium py-1 px-2.5 text-[11px] sm:text-xs bg-secondary text-secondary-foreground shrink-0 select-none">
-                            <span className="whitespace-nowrap font-semibold">
+                          <span className="w-fit inline-flex items-center justify-center rounded-[4px] font-medium py-1 px-2.5 text-[11px] sm:text-xs bg-[#34ac86]/10 shrink-0 select-none">
+                            <span className="whitespace-nowrap font-semibold" style={{ color: "#043580" }}>
                               {item.author}
                             </span>
                           </span>
 
-                          <div className="shrink-0 flex items-center justify-center md:justify-start px-3 h-[6px] -my-[1px] text-secondary relative z-10">
+                          <div className="shrink-0 flex items-center justify-center md:justify-start px-3 h-[6px] -my-[1px] text-[#34ac86]/10 relative z-10">
                             <svg
                               className="block shrink-0 fill-current overflow-visible"
                               preserveAspectRatio="none"
@@ -696,10 +697,11 @@ export function CalendlyCarousel({
                             </svg>
                           </div>
 
-                          <span className="w-fit inline-flex items-center justify-center rounded-[4px] font-medium py-1 px-2.5 text-[10px] sm:text-xs bg-secondary text-muted-foreground max-w-full select-none">
+                          <span className="w-fit inline-flex items-center justify-center rounded-[4px] font-medium py-1 px-2.5 text-[10px] sm:text-xs bg-[#34ac86]/10 max-w-full select-none">
                             <span
                               title={item.role}
                               className="truncate"
+                              style={{ color: "#4a4a4a" }}
                             >
                               {item.role}
                             </span>
