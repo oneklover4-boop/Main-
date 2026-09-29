@@ -6,11 +6,8 @@ const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 
 const items = [
-  "Have an asset roughly 12–36 months from launch",
-  "Have limited in-house launch capability",
-  "Are preparing for a first or second commercial launch",
-  "Need alignment across medical, market access, marketing, regulatory, supply and sales",
-  "Want experienced support without the overhead of a large consultancy",
+  "Need alignment across key functions, including medical, market access, marketing, regulatory, supply and comms",
+  "Want experienced support",
 ];
 
 export default function WhoWeHelp() {
@@ -36,7 +33,7 @@ export default function WhoWeHelp() {
         }}
       >
         <p style={{ margin: "0 0 0.875rem", fontWeight: 700, fontSize: "1.125rem", color: INK }}>
-          <BlurReveal duration={0.5}>Built for teams who:</BlurReveal>
+          <BlurReveal duration={0.5}>Built for teams who have one or more of the following:</BlurReveal>
         </p>
         <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           {items.map((item, i) => (

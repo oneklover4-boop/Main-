@@ -313,7 +313,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
         <div data-ld-copy>
           <h2>Structure, Clarity, Momentum</h2>
           <p>
-            We help emerging and mid-sized biopharma companies diagnose
+            We help emerging and mid-sized BioPharma companies diagnose
             launch risks and build integrated plans for a successful
             commercial launch.
           </p>
