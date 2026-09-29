@@ -15,7 +15,6 @@ const GREY = "#6b7280";
 
 interface ContactWithGlobeProps {
   title?: string;
-  description?: string;
   className?: string;
 }
 
@@ -43,7 +42,6 @@ function validateContactField(key: ContactFieldKey, value: string): string {
 
 export default function ContactWithGlobe({
   title = "Contact Us",
-  description = "Start with a conversation, or send a message below.",
   className,
 }: ContactWithGlobeProps) {
   const [formValues, setFormValues] = useState({ name: "", phone: "", email: "", message: "" });
@@ -104,7 +102,6 @@ export default function ContactWithGlobe({
           </span>
 
           <div className="hidden sm:flex flex-col items-center text-center gap-2 mb-8 sm:mb-10">
-            <p className="text-sm sm:text-base text-white/70 max-w-md">{description}</p>
             <a
               href="mailto:hello@launchdoctors.com"
               className="inline-flex items-center gap-2 text-sm font-medium text-white/90 hover:text-white transition-colors duration-200"
