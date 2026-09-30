@@ -48,6 +48,26 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
   // collide with the logo in the opposite corner, so below that width
   // the links collapse behind a hamburger-menu toggle instead.
   const [navOpen, setNavOpen] = useState(false);
+  // This wrapper owns its own internal scroll (overflow-y: auto) so the
+  // glyph zoom can play out independently of the rest of the page. Left
+  // on all the time, that causes a jarring bug once you've scrolled past
+  // it into the sections below: if the mouse happens to still be hovering
+  // this box (it's always full width/height in the layout, even once
+  // scrolled out of view above), an upward scroll gets captured here
+  // first and snaps the hero straight back to its front "LAUNCH DOCTORS"
+  // state — even though the page barely moved. Only let this box capture
+  // scroll while the page itself is still at the very top; once you've
+  // scrolled past it, further wheel input always goes to the page, and
+  // this only re-engages once you're back at the top to scroll through
+  // it again on purpose.
+  const [heroScrollable, setHeroScrollable] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => setHeroScrollable(window.scrollY <= 0);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!navOpen) return;
@@ -88,7 +108,7 @@ export default function GlyphPortalDemo(props: Partial<typeof settings>) {
       style={{
         width: "100%",
         height: "min(720px, 100svh)",
-        overflowY: "auto",
+        overflowY: heroScrollable ? "auto" : "hidden",
         containerType: "inline-size",
         fontFamily: BODY_FONT_FAMILY,
         background: "#ffffff",
