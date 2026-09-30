@@ -20,24 +20,18 @@ export interface CarouselItem {
   defaultImage: string;
   selectedImage: string;
   alt?: string;
-  // Real width/height ratio of selectedImage. On mobile the card sizes
-  // the (small, accent-sized) photo box around this so the whole photo
-  // shows with zero cropping; falls back to DEFAULT_IMAGE_ASPECT if
-  // omitted.
-  imageAspect?: number;
 }
 
-const DEFAULT_IMAGE_ASPECT = 0.6;
 // Generous estimate of title + quote + author/role + padding/gaps
 // above the photo on a mobile card, so the card is sized tall enough
-// that the photo never needs to be shrunk to fit.
+// to comfortably fit the text.
 const MOBILE_TEXT_ZONE_HEIGHT = 260;
-// Horizontal padding (p-4, both sides) eaten out of the card width
-// before the photo box gets what's left.
-const MOBILE_CARD_PADDING_X = 32;
-// The photo is a small design accent on mobile, not the main content —
-// this fraction of the (padded) card width is all it gets.
-const MOBILE_IMAGE_WIDTH_FRACTION = 0.61;
+// Fixed photo box on mobile — width matches the "Strategic BioPharma
+// Launch Consultancy" subtitle line (w-[61%] below); height is capped
+// so the card stays compact. At this width the narrower/taller photos
+// get their top and bottom cropped a bit via object-cover rather than
+// growing the box to show them fully uncropped.
+const MOBILE_IMAGE_HEIGHT = 230;
 
 export interface CalendlyCarouselProps extends HTMLAttributes<HTMLDivElement> {
   items: CarouselItem[];
@@ -283,12 +277,9 @@ export function CalendlyCarousel({
     }
   };
 
-  // Mobile card height follows the active item's own photo — wide
-  // enough to fill edge-to-edge, tall enough that nothing gets cropped.
+  // Mobile card height: a fixed, compact photo box under the text zone.
   const mobileWidth = Math.min(340, viewportWidth - 56);
-  const mobileImageWidth = (mobileWidth - MOBILE_CARD_PADDING_X) * MOBILE_IMAGE_WIDTH_FRACTION;
-  const mobileImageAspect = items[activeIndex]?.imageAspect ?? DEFAULT_IMAGE_ASPECT;
-  const mobileHeight = MOBILE_TEXT_ZONE_HEIGHT + mobileImageWidth / mobileImageAspect;
+  const mobileHeight = MOBILE_TEXT_ZONE_HEIGHT + MOBILE_IMAGE_HEIGHT;
 
   const activeDimensions = {
     desktop: { width: 762, height: 513 },
@@ -705,10 +696,7 @@ export function CalendlyCarousel({
                       </div>
                     </div>
 
-                    <div
-                      className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-[61%] mx-auto md:w-[clamp(180px,44%,330px)] md:mx-0 md:flex-initial md:h-full"
-                      style={{ aspectRatio: item.imageAspect ?? DEFAULT_IMAGE_ASPECT }}
-                    >
+                    <div className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-[61%] h-[230px] mx-auto md:w-[clamp(180px,44%,330px)] md:h-full md:mx-0 md:flex-initial">
                       <Image
                         alt={item.alt || item.author}
                         src={item.selectedImage}
