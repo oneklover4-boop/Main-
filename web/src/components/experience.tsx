@@ -128,8 +128,8 @@ export default function Experience() {
                 </h3>
                 <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>
                   <BlurReveal duration={0.5} delay={0.08}>
-                    25+ years of experience in global, regional and local roles
-                    across large, medium and small pharmaceutical companies, with
+                    25+ years of global BioPharma and consulting experience
+                    across large, medium and small BioPharma companies, with
                     deep expertise launching, commercialising and building growth
                     for product portfolios.
                   </BlurReveal>

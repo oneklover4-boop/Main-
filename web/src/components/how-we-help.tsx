@@ -10,27 +10,28 @@ const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
 const offers = [
   {
     title: "Launch Health Check",
-    body: "A structured assessment of your launch readiness: stakeholder interviews, a risk heat map, and clear recommendations for your leadership team.",
+    body: "A structured assessment of your launch readiness: stakeholder interviews and clear recommendations for your team.",
     image: "images/offers/offer-1.jpg",
   },
   {
-    title: "Launch Strategy Blueprint",
-    body: "The strategic imperatives, critical success factors, positioning and stakeholder priorities that shape your launch roadmap.",
+    title: "Launch Strategy Support",
+    body: "Support to get the right strategic imperatives, critical success factors, positioning and stakeholder priorities that shape your launch roadmap.",
     image: "images/offers/offer-2.jpg",
   },
-  {
-    title: "Integrated Launch Plan",
-    body: "One cross-functional plan — activities, milestones, dependencies, owners, budget and governance — in a single place.",
-    image: "images/offers/offer-3.jpg",
-  },
+  // Integrated Launch Plan — hidden for now, keep for re-adding later.
+  // {
+  //   title: "Integrated Launch Plan",
+  //   body: "One cross-functional plan — activities, milestones, dependencies, owners, budget and governance — in a single place.",
+  //   image: "images/offers/offer-3.jpg",
+  // },
   {
     title: "Launch Readiness Programme",
-    body: "A readiness framework with scorecards, workshops and structured gap closure, with regular reporting to leadership.",
+    body: "A readiness framework with scorecards, workshops and structured gap closure.",
     image: "images/offers/offer-4.jpg",
   },
   {
     title: "Launch Office Support",
-    body: "Fractional launch leadership and PMO support: decision management and day-to-day cross-functional coordination.",
+    body: "Fractional launch leadership support: decision management and day-to-day cross-functional launch planning coordination.",
     image: "images/offers/offer-5.jpg",
   },
 ];
