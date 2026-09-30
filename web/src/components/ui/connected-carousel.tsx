@@ -37,7 +37,7 @@ const MOBILE_TEXT_ZONE_HEIGHT = 260;
 const MOBILE_CARD_PADDING_X = 32;
 // The photo is a small design accent on mobile, not the main content —
 // this fraction of the (padded) card width is all it gets.
-const MOBILE_IMAGE_WIDTH_FRACTION = 0.42;
+const MOBILE_IMAGE_WIDTH_FRACTION = 0.61;
 
 export interface CalendlyCarouselProps extends HTMLAttributes<HTMLDivElement> {
   items: CarouselItem[];
@@ -50,8 +50,13 @@ const VISIBLE_OFFSETS = [-4, -3, -2, -1, 0, 1, 2, 3, 4] as const;
 
 // Horizontal drag distance (px) that counts as one card of swipe.
 const SWIPE_STEP = 90;
-// Movement (px) before a press is treated as a drag rather than a tap.
-const DRAG_LOCK_THRESHOLD = 10;
+// Movement (px) before a press is treated as a drag/scroll rather than a tap.
+const DRAG_LOCK_THRESHOLD = 14;
+// How much more horizontal than vertical a gesture needs to be before
+// it's treated as a carousel swipe rather than a normal page scroll —
+// biased toward scroll so an ordinary thumb-scroll (which always drifts
+// a little sideways) doesn't get mistaken for swiping the cards.
+const HORIZONTAL_DOMINANCE = 1.75;
 
 const TRANSITION_SPRING = {
   type: "spring",
@@ -225,7 +230,7 @@ export function CalendlyCarousel({
     if (!drag.locked) {
       if (Math.abs(dx) > DRAG_LOCK_THRESHOLD || Math.abs(dy) > DRAG_LOCK_THRESHOLD) {
         drag.locked = true;
-        drag.horizontal = Math.abs(dx) > Math.abs(dy);
+        drag.horizontal = Math.abs(dx) > Math.abs(dy) * HORIZONTAL_DOMINANCE;
         if (drag.horizontal) {
           justDraggedRef.current = true;
         }
@@ -701,7 +706,7 @@ export function CalendlyCarousel({
                     </div>
 
                     <div
-                      className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-[42%] mx-auto md:w-[clamp(180px,44%,330px)] md:mx-0 md:flex-initial md:h-full"
+                      className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-[61%] mx-auto md:w-[clamp(180px,44%,330px)] md:mx-0 md:flex-initial md:h-full"
                       style={{ aspectRatio: item.imageAspect ?? DEFAULT_IMAGE_ASPECT }}
                     >
                       <Image
