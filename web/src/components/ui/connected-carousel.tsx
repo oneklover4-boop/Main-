@@ -627,15 +627,24 @@ export function CalendlyCarousel({
                 >
                   <div className="size-full rounded-[20px] sm:rounded-[24px] overflow-hidden bg-muted relative">
                     {tier !== "mobile" && (
-                      <Image
-                        alt={item.alt || item.author}
-                        src={item.selectedImage}
-                        fill
-                        unoptimized
-                        draggable={false}
-                        style={{ filter: "brightness(0.82)" }}
-                        className="size-full object-cover"
-                      />
+                      <>
+                        <Image
+                          alt={item.alt || item.author}
+                          src={item.selectedImage}
+                          fill
+                          unoptimized
+                          draggable={false}
+                          className="size-full object-cover"
+                        />
+                        {/* A plain dark overlay instead of a CSS filter on the
+                            image — Safari has a rendering bug where a
+                            `filter` on a descendant inside an ancestor this
+                            deeply nested in overflow:hidden + framer-motion's
+                            animated transforms can render outside its clip
+                            bounds, which showed up there as cards' photos
+                            flashing huge and overlapping across the page. */}
+                        <div className="absolute inset-0 bg-black/[0.18]" />
+                      </>
                     )}
                   </div>
                 </motion.div>
