@@ -42,7 +42,6 @@ const offerCards: CarouselItem[] = offers.map((offer, i) => ({
   quote: offer.body,
   author: "Launch Doctors",
   role: "Strategic BioPharma Launch Consultancy",
-  defaultImage: offer.image,
   selectedImage: offer.image,
   alt: offer.title,
 }));

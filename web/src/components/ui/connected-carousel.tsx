@@ -17,7 +17,6 @@ export interface CarouselItem {
   quote: string;
   author: string;
   role: string;
-  defaultImage: string;
   selectedImage: string;
   alt?: string;
 }
@@ -621,6 +620,11 @@ export function CalendlyCarousel({
                 className="size-full overflow-hidden relative"
                 style={{ borderRadius: "inherit" }}
               >
+                {/* Plain card back for non-active cards — deliberately no
+                    photo here. This layer is sized to the card's current
+                    (mid-transition) bounding box, which is much bigger
+                    than its settled peek size while animating, so a photo
+                    here would flash large every time a card slides past. */}
                 <motion.div
                   initial={false}
                   animate={{ opacity: isActive ? 0 : 1 }}
@@ -630,17 +634,7 @@ export function CalendlyCarousel({
                     isActive && "pointer-events-none"
                   )}
                 >
-                  <div className="size-full rounded-[20px] sm:rounded-[24px] overflow-hidden bg-muted relative">
-                    <Image
-                      alt={item.alt || item.author}
-                      src={item.defaultImage}
-                      fill
-                      unoptimized
-                      draggable={false}
-                      style={{ objectFit: "cover", filter: "brightness(0.82)" }}
-                      className="size-full object-cover"
-                    />
-                  </div>
+                  <div className="size-full rounded-[20px] sm:rounded-[24px] bg-muted" />
                 </motion.div>
 
                 <div
