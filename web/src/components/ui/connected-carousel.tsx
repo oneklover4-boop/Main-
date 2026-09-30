@@ -264,7 +264,7 @@ export function CalendlyCarousel({
   const activeDimensions = {
     desktop: { width: 762, height: 513 },
     tablet: { width: 560, height: 440 },
-    mobile: { width: Math.min(340, viewportWidth - 56), height: 760 },
+    mobile: { width: Math.min(340, viewportWidth - 56), height: 490 },
   }[tier];
 
   return (
@@ -684,7 +684,7 @@ export function CalendlyCarousel({
                         unoptimized
                         draggable={false}
                         style={{ filter: "brightness(0.82)" }}
-                        className="size-full object-contain md:object-cover"
+                        className="size-full object-cover"
                       />
                     </div>
                   </motion.div>
