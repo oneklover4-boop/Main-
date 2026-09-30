@@ -31,10 +31,6 @@ type ScreenTier = "mobile" | "tablet" | "desktop";
 
 const VISIBLE_OFFSETS = [-4, -3, -2, -1, 0, 1, 2, 3, 4] as const;
 
-// How long after the visitor last clicked/tapped a card, dot, or nav
-// button before autoplay picks back up on its own.
-const RESUME_AFTER_INTERACTION = 2500;
-
 // Horizontal drag distance (px) that counts as one card of swipe.
 const SWIPE_STEP = 90;
 // Movement (px) before a press is treated as a drag rather than a tap.
@@ -58,14 +54,17 @@ export function CalendlyCarousel({
   const animationFrameRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
   const elapsedRef = useRef<number>(0);
-  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dragRef = useRef<{ startX: number; startY: number; locked: boolean; horizontal: boolean } | null>(null);
   const justDraggedRef = useRef<boolean>(false);
 
   // State
   const [page, setPage] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
-  const [isInteracting, setIsInteracting] = useState<boolean>(false);
+  // Pure mouse hover (desktop/laptop) and an active press (any device,
+  // for the whole pointerdown-to-up span, tap or drag alike) — either
+  // one holds autoplay for as long as it lasts, no separate timer.
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isPressed, setIsPressed] = useState<boolean>(false);
   const [tier, setTier] = useState<ScreenTier>("desktop");
   const [viewportWidth, setViewportWidth] = useState<number>(1200);
 
@@ -96,7 +95,7 @@ export function CalendlyCarousel({
   }, []);
 
   useEffect(() => {
-    if (isInteracting) {
+    if (isHovered || isPressed) {
       lastTimeRef.current = null;
       return;
     }
@@ -130,48 +129,23 @@ export function CalendlyCarousel({
       }
       lastTimeRef.current = null;
     };
-  }, [page, isInteracting, autoPlayInterval]);
-
-  useEffect(() => {
-    return () => {
-      if (resumeTimeoutRef.current !== null) {
-        clearTimeout(resumeTimeoutRef.current);
-      }
-    };
-  }, []);
+  }, [page, isHovered, isPressed, autoPlayInterval]);
 
   // Handlers
-
-  // Marks that the visitor just took manual control (clicked/tapped a
-  // card, a dot, or a nav button) — autoplay holds until this much time
-  // has passed with no further interaction, then picks back up on its
-  // own, whether that click moved the carousel or just held it in place.
-  const markInteraction = useCallback(() => {
-    if (resumeTimeoutRef.current !== null) {
-      clearTimeout(resumeTimeoutRef.current);
-    }
-    setIsInteracting(true);
-    resumeTimeoutRef.current = setTimeout(() => {
-      setIsInteracting(false);
-      resumeTimeoutRef.current = null;
-    }, RESUME_AFTER_INTERACTION);
-  }, []);
 
   const handlePrev = useCallback(() => {
     elapsedRef.current = 0;
     lastTimeRef.current = null;
     setProgress(0);
-    markInteraction();
     setPage((curr) => curr - 1);
-  }, [markInteraction]);
+  }, []);
 
   const handleNext = useCallback(() => {
     elapsedRef.current = 0;
     lastTimeRef.current = null;
     setProgress(0);
-    markInteraction();
     setPage((curr) => curr + 1);
-  }, [markInteraction]);
+  }, []);
 
   const handleSelectTab = (event: MouseEvent<HTMLButtonElement>) => {
     const indexStr = event.currentTarget.dataset.index;
@@ -189,7 +163,6 @@ export function CalendlyCarousel({
       elapsedRef.current = 0;
       lastTimeRef.current = null;
       setProgress(0);
-      markInteraction();
       setPage((curr) => curr + diff);
     }
   };
@@ -208,10 +181,6 @@ export function CalendlyCarousel({
     if (offsetStr !== undefined) {
       const offset = Number.parseInt(offsetStr, 10);
 
-      // Clicking/tapping the active card just holds it in place;
-      // clicking a side card also moves the carousel to that card.
-      markInteraction();
-
       if (offset !== 0) {
         elapsedRef.current = 0;
         lastTimeRef.current = null;
@@ -225,6 +194,7 @@ export function CalendlyCarousel({
   // instead of only being able to click one card at a time.
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "mouse" && event.button !== 0) return;
+    setIsPressed(true);
     dragRef.current = { startX: event.clientX, startY: event.clientY, locked: false, horizontal: false };
   };
 
@@ -241,7 +211,6 @@ export function CalendlyCarousel({
         drag.horizontal = Math.abs(dx) > Math.abs(dy);
         if (drag.horizontal) {
           justDraggedRef.current = true;
-          markInteraction();
         }
       }
     }
@@ -261,16 +230,27 @@ export function CalendlyCarousel({
       setProgress(0);
       setPage((curr) => curr + steps);
     }
-
-    markInteraction();
   };
 
   const handlePointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    setIsPressed(false);
     endDrag(event);
   };
 
   const handlePointerCancel = () => {
+    setIsPressed(false);
     dragRef.current = null;
+  };
+
+  // Only real mouse hover engages the indefinite hover-pause — on touch,
+  // browsers can synthesize a "hover" after a tap that never gets a
+  // matching leave event, which would otherwise leave the carousel stuck
+  // paused until the visitor happens to touch something else.
+  const handlePointerEnter = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse") setIsHovered(true);
+  };
+  const handlePointerLeave = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse") setIsHovered(false);
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -284,7 +264,7 @@ export function CalendlyCarousel({
   const activeDimensions = {
     desktop: { width: 762, height: 513 },
     tablet: { width: 560, height: 440 },
-    mobile: { width: Math.min(340, viewportWidth - 56), height: 490 },
+    mobile: { width: Math.min(340, viewportWidth - 56), height: 760 },
   }[tier];
 
   return (
@@ -299,6 +279,8 @@ export function CalendlyCarousel({
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerCancel}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
       style={{ touchAction: "pan-y" }}
       className={cn(
         "relative w-full max-w-[1240px] mx-auto flex flex-col items-center select-none outline-none py-4 overflow-hidden",
@@ -694,7 +676,7 @@ export function CalendlyCarousel({
                       </div>
                     </div>
 
-                    <div className="relative shrink-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] flex-1 md:flex-initial md:h-full max-h-[300px] md:max-h-none">
+                    <div className="relative shrink-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] flex-1 md:flex-initial md:h-full">
                       <Image
                         alt={item.alt || item.author}
                         src={item.selectedImage}
