@@ -694,15 +694,15 @@ export function CalendlyCarousel({
                       </div>
                     </div>
 
-                    <div className="relative shrink-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] flex-1 md:flex-initial md:h-full max-h-[220px] md:max-h-none">
+                    <div className="relative shrink-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] flex-1 md:flex-initial md:h-full max-h-[300px] md:max-h-none">
                       <Image
                         alt={item.alt || item.author}
                         src={item.selectedImage}
                         fill
                         unoptimized
                         draggable={false}
-                        style={{ objectFit: "cover", filter: "brightness(0.82)" }}
-                        className="size-full object-cover"
+                        style={{ filter: "brightness(0.82)" }}
+                        className="size-full object-contain md:object-cover"
                       />
                     </div>
                   </motion.div>
