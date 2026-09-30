@@ -113,9 +113,9 @@ export default function Experience() {
                   border: `3px solid ${TEAL}`,
                 }}
               >
-                {/* Relative path (no leading slash) so it still resolves once
-                    the deploy step's basePath ("/Main-") is in front of it —
-                    an absolute "/images/..." path would 404 there. */}
+                {/* Relative path (no leading slash) so it resolves correctly
+                    whether the export is served from the site root (custom
+                    domain) or under a GitHub Pages project subpath. */}
                 <img
                   src="images/avi-founder.jpg"
                   alt="Avi, Founder"

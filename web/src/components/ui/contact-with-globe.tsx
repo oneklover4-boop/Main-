@@ -103,11 +103,11 @@ export default function ContactWithGlobe({
 
           <div className="hidden sm:flex flex-col items-center text-center gap-2 mb-8 sm:mb-10">
             <a
-              href="mailto:hello@launchdoctors.com"
+              href="mailto:avi@launch-doctors.com"
               className="inline-flex items-center gap-2 text-sm font-medium text-white/90 hover:text-white transition-colors duration-200"
             >
               <Mail className="w-4 h-4" />
-              hello@launchdoctors.com
+              avi@launch-doctors.com
             </a>
           </div>
 
