@@ -12,27 +12,34 @@ const offers = [
     title: "Launch Health Check",
     body: "A structured assessment of your launch readiness: stakeholder interviews and clear recommendations for your team.",
     image: "images/offers/offer-1.jpg",
+    // Real pixel dimensions of the photo (703x1400), so the mobile card
+    // can size itself to show the whole thing with no cropping.
+    imageAspect: 703 / 1400,
   },
   {
     title: "Launch Strategy Support",
     body: "Support to get the right strategic imperatives, critical success factors, positioning and stakeholder priorities that shape your launch roadmap.",
     image: "images/offers/offer-2.jpg",
+    imageAspect: 787 / 1400,
   },
   // Integrated Launch Plan — hidden for now, keep for re-adding later.
   // {
   //   title: "Integrated Launch Plan",
   //   body: "One cross-functional plan — activities, milestones, dependencies, owners, budget and governance — in a single place.",
   //   image: "images/offers/offer-3.jpg",
+  //   imageAspect: 787 / 1400,
   // },
   {
     title: "Launch Readiness Programme",
     body: "A readiness framework with scorecards, workshops and structured gap closure.",
     image: "images/offers/offer-4.jpg",
+    imageAspect: 896 / 1344,
   },
   {
     title: "Launch Office Support",
     body: "Fractional launch leadership support: decision management and day-to-day cross-functional launch planning coordination.",
     image: "images/offers/offer-5.jpg",
+    imageAspect: 832 / 1216,
   },
 ];
 
@@ -45,6 +52,7 @@ const offerCards: CarouselItem[] = offers.map((offer, i) => ({
   defaultImage: offer.image,
   selectedImage: offer.image,
   alt: offer.title,
+  imageAspect: offer.imageAspect,
 }));
 
 export default function HowWeHelp() {

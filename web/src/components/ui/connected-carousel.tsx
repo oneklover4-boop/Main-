@@ -20,7 +20,20 @@ export interface CarouselItem {
   defaultImage: string;
   selectedImage: string;
   alt?: string;
+  // Real width/height ratio of selectedImage. On mobile the card sizes
+  // itself around this so the photo can fill the card edge-to-edge
+  // with zero cropping; falls back to DEFAULT_IMAGE_ASPECT if omitted.
+  imageAspect?: number;
 }
+
+const DEFAULT_IMAGE_ASPECT = 0.6;
+// Generous estimate of title + quote + author/role + padding/gaps
+// above the photo on a mobile card, so the card is sized tall enough
+// that the photo never needs to be shrunk to fit.
+const MOBILE_TEXT_ZONE_HEIGHT = 260;
+// Horizontal padding (p-4, both sides) eaten out of the card width
+// before the photo box gets what's left.
+const MOBILE_CARD_PADDING_X = 32;
 
 export interface CalendlyCarouselProps extends HTMLAttributes<HTMLDivElement> {
   items: CarouselItem[];
@@ -261,10 +274,17 @@ export function CalendlyCarousel({
     }
   };
 
+  // Mobile card height follows the active item's own photo — wide
+  // enough to fill edge-to-edge, tall enough that nothing gets cropped.
+  const mobileWidth = Math.min(340, viewportWidth - 56);
+  const mobileImageWidth = mobileWidth - MOBILE_CARD_PADDING_X;
+  const mobileImageAspect = items[activeIndex]?.imageAspect ?? DEFAULT_IMAGE_ASPECT;
+  const mobileHeight = MOBILE_TEXT_ZONE_HEIGHT + mobileImageWidth / mobileImageAspect;
+
   const activeDimensions = {
     desktop: { width: 762, height: 513 },
     tablet: { width: 560, height: 440 },
-    mobile: { width: Math.min(340, viewportWidth - 56), height: 490 },
+    mobile: { width: mobileWidth, height: mobileHeight },
   }[tier];
 
   return (
@@ -676,7 +696,10 @@ export function CalendlyCarousel({
                       </div>
                     </div>
 
-                    <div className="relative shrink-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] flex-1 md:flex-initial md:h-full">
+                    <div
+                      className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] md:flex-initial md:h-full"
+                      style={{ aspectRatio: item.imageAspect ?? DEFAULT_IMAGE_ASPECT }}
+                    >
                       <Image
                         alt={item.alt || item.author}
                         src={item.selectedImage}
