@@ -51,7 +51,7 @@ export default function HowWeHelp() {
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <SectionTabHeader
-          label="Five Focused Offers"
+          label="Four Focused Offers"
           accent={TEAL}
           tint="rgba(52, 172, 134, 0.08)"
           description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."

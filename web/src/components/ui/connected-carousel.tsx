@@ -75,10 +75,11 @@ export function CalendlyCarousel({
   // State
   const [page, setPage] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
-  // Pure mouse hover (desktop/laptop) and an active press (any device,
-  // for the whole pointerdown-to-up span, tap or drag alike) — either
-  // one holds autoplay for as long as it lasts, no separate timer.
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  // An active press (any device, for the whole pointerdown-to-up span,
+  // tap or drag alike) holds autoplay for as long as it lasts, no
+  // separate timer. Hover deliberately does NOT pause autoplay — it
+  // should keep cycling even while the mouse sits over the carousel,
+  // only pausing for the moment something is actually pressed.
   const [isPressed, setIsPressed] = useState<boolean>(false);
   const [tier, setTier] = useState<ScreenTier>("desktop");
   const [viewportWidth, setViewportWidth] = useState<number>(1200);
@@ -110,7 +111,7 @@ export function CalendlyCarousel({
   }, []);
 
   useEffect(() => {
-    if (isHovered || isPressed) {
+    if (isPressed) {
       lastTimeRef.current = null;
       return;
     }
@@ -144,7 +145,7 @@ export function CalendlyCarousel({
       }
       lastTimeRef.current = null;
     };
-  }, [page, isHovered, isPressed, autoPlayInterval]);
+  }, [page, isPressed, autoPlayInterval]);
 
   // Handlers
 
@@ -257,17 +258,6 @@ export function CalendlyCarousel({
     dragRef.current = null;
   };
 
-  // Only real mouse hover engages the indefinite hover-pause — on touch,
-  // browsers can synthesize a "hover" after a tap that never gets a
-  // matching leave event, which would otherwise leave the carousel stuck
-  // paused until the visitor happens to touch something else.
-  const handlePointerEnter = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse") setIsHovered(true);
-  };
-  const handlePointerLeave = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === "mouse") setIsHovered(false);
-  };
-
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "ArrowLeft") {
       handlePrev();
@@ -298,8 +288,6 @@ export function CalendlyCarousel({
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerCancel}
-      onPointerEnter={handlePointerEnter}
-      onPointerLeave={handlePointerLeave}
       style={{ touchAction: "pan-y" }}
       className={cn(
         "relative w-full max-w-[1240px] mx-auto flex flex-col items-center select-none outline-none py-4 overflow-hidden",
@@ -620,11 +608,14 @@ export function CalendlyCarousel({
                 className="size-full overflow-hidden relative"
                 style={{ borderRadius: "inherit" }}
               >
-                {/* Plain card back for non-active cards — deliberately no
-                    photo here. This layer is sized to the card's current
+                {/* Card back for non-active cards: a photo glimpse on
+                    tablet/desktop (the coverflow peek effect), but plain
+                    on mobile. This layer is sized to the card's current
                     (mid-transition) bounding box, which is much bigger
-                    than its settled peek size while animating, so a photo
-                    here would flash large every time a card slides past. */}
+                    than its settled peek size while animating — on
+                    mobile that meant a photo here flashed large every
+                    time a card slid past (peek cards are a big fraction
+                    of the screen there), so mobile keeps it photo-free. */}
                 <motion.div
                   initial={false}
                   animate={{ opacity: isActive ? 0 : 1 }}
@@ -634,7 +625,19 @@ export function CalendlyCarousel({
                     isActive && "pointer-events-none"
                   )}
                 >
-                  <div className="size-full rounded-[20px] sm:rounded-[24px] bg-muted" />
+                  <div className="size-full rounded-[20px] sm:rounded-[24px] overflow-hidden bg-muted relative">
+                    {tier !== "mobile" && (
+                      <Image
+                        alt={item.alt || item.author}
+                        src={item.selectedImage}
+                        fill
+                        unoptimized
+                        draggable={false}
+                        style={{ filter: "brightness(0.82)" }}
+                        className="size-full object-cover"
+                      />
+                    )}
+                  </div>
                 </motion.div>
 
                 <div
