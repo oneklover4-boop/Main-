@@ -21,8 +21,9 @@ export interface CarouselItem {
   selectedImage: string;
   alt?: string;
   // Real width/height ratio of selectedImage. On mobile the card sizes
-  // itself around this so the photo can fill the card edge-to-edge
-  // with zero cropping; falls back to DEFAULT_IMAGE_ASPECT if omitted.
+  // the (small, accent-sized) photo box around this so the whole photo
+  // shows with zero cropping; falls back to DEFAULT_IMAGE_ASPECT if
+  // omitted.
   imageAspect?: number;
 }
 
@@ -34,6 +35,9 @@ const MOBILE_TEXT_ZONE_HEIGHT = 260;
 // Horizontal padding (p-4, both sides) eaten out of the card width
 // before the photo box gets what's left.
 const MOBILE_CARD_PADDING_X = 32;
+// The photo is a small design accent on mobile, not the main content —
+// this fraction of the (padded) card width is all it gets.
+const MOBILE_IMAGE_WIDTH_FRACTION = 0.42;
 
 export interface CalendlyCarouselProps extends HTMLAttributes<HTMLDivElement> {
   items: CarouselItem[];
@@ -277,7 +281,7 @@ export function CalendlyCarousel({
   // Mobile card height follows the active item's own photo — wide
   // enough to fill edge-to-edge, tall enough that nothing gets cropped.
   const mobileWidth = Math.min(340, viewportWidth - 56);
-  const mobileImageWidth = mobileWidth - MOBILE_CARD_PADDING_X;
+  const mobileImageWidth = (mobileWidth - MOBILE_CARD_PADDING_X) * MOBILE_IMAGE_WIDTH_FRACTION;
   const mobileImageAspect = items[activeIndex]?.imageAspect ?? DEFAULT_IMAGE_ASPECT;
   const mobileHeight = MOBILE_TEXT_ZONE_HEIGHT + mobileImageWidth / mobileImageAspect;
 
@@ -697,7 +701,7 @@ export function CalendlyCarousel({
                     </div>
 
                     <div
-                      className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-full md:w-[clamp(180px,44%,330px)] md:flex-initial md:h-full"
+                      className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-[42%] mx-auto md:w-[clamp(180px,44%,330px)] md:mx-0 md:flex-initial md:h-full"
                       style={{ aspectRatio: item.imageAspect ?? DEFAULT_IMAGE_ASPECT }}
                     >
                       <Image
