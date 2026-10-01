@@ -49,10 +49,10 @@ export default function Hero() {
       }}
     >
       <style>{`
-        [data-ld-header]{position:absolute;inset:clamp(24px,4.5cqw,48px) clamp(1.25rem,5cqw,5rem) auto;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:2;}
+        [data-ld-header]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;z-index:2;}
         [data-ld-logo] img{height:28px;width:auto;display:block;}
         [data-ld-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(255,255,255,.25);z-index:2;}
-        [data-ld-content-nav]{top:clamp(24px,4.5cqw,48px);display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;}
+        [data-ld-content-nav]{top:clamp(24px,4.5cqw,48px);z-index:2;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;}
         [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:#ffffff;transition:color .15s ease;}
         [data-ld-content-nav] a:hover{color:#34ac86;}
         [data-ld-content-nav-toggle]{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:40px;height:40px;padding:0;border:none;background:transparent;cursor:pointer;}
@@ -94,7 +94,7 @@ export default function Hero() {
         [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
 
-      <div aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
+      <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none", isolation: "isolate" }}>
         <div
           style={{
             position: "absolute",
@@ -159,7 +159,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-        style={{ position: "relative", flex: 1, display: "flex", padding: "5.5rem clamp(1.25rem,5cqw,5rem) 4rem" }}
+        style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", padding: "5.5rem clamp(1.25rem,5cqw,5rem) 4rem" }}
       >
         <div data-ld-copy>
           <h1>Structure, Clarity, Momentum</h1>

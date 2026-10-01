@@ -15,9 +15,9 @@ export default function Home() {
       <Hero />
       <AuroraBackground>
         <WhoWeHelp />
-        <Experience />
-        <HowWeHelp />
         <ClientLogos />
+        <HowWeHelp />
+        <Experience />
         <Contact />
         <Footer />
       </AuroraBackground>
