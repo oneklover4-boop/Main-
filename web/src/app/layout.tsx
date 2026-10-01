@@ -24,13 +24,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Plain Google Fonts link, deliberately not next/font/google: the
-            Launch Doctors glyph portal demo needs a single literal family
-            name it can pass straight to document.fonts.check()/.load() —
-            next/font's synthetic "<Font> Fallback" metric-adjustment face
-            doesn't reliably report as checked via the Font Loading API,
-            which trips that component's strict all-resolved-families
-            gate. Rendered here (React 19 hoists it into <head>, given a
+        {/* Plain Google Fonts link for PT Sans (the site's body font),
+            rendered here (React 19 hoists it into <head>, given a
             precedence) rather than as a sibling of <body> — <html> can
             only contain <head>/<body> as direct children.
             This IS the App Router's site-wide root layout — the eslint
@@ -39,7 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=PT+Sans:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap"
           precedence="default"
         />
         {/* Safari (desktop and iOS) only activates :hover/:active styles on

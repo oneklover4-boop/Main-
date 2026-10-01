@@ -1,4 +1,4 @@
-import GlyphPortalDemo from "@/components/glyph-portal-demo";
+import Hero from "@/components/hero";
 import StickyNav from "@/components/sticky-nav";
 import WhoWeHelp from "@/components/who-we-help";
 import HowWeHelp from "@/components/how-we-help";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div style={{ position: "relative" }}>
       <StickyNav />
-      <GlyphPortalDemo />
+      <Hero />
       <AuroraBackground>
         <WhoWeHelp />
         <HowWeHelp />
