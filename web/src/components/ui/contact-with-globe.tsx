@@ -13,6 +13,11 @@ const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 const DARK = "#15171c";
 const GREY = "#6b7280";
 
+// Web3Forms relays submissions to avi@launch-doctors.com by email — this
+// access key is meant to be public/client-side (that's how Web3Forms
+// works: it only authorizes posting to this specific form), not a secret.
+const WEB3FORMS_ACCESS_KEY = "2280d037-a1b9-48e8-a78f-faf6933e5265";
+
 interface ContactWithGlobeProps {
   title?: string;
   className?: string;
@@ -47,12 +52,13 @@ export default function ContactWithGlobe({
   const [formValues, setFormValues] = useState({ name: "", phone: "", email: "", message: "" });
   const [formErrors, setFormErrors] = useState<Partial<Record<ContactFieldKey, string>>>({});
   const [formStatus, setFormStatus] = useState<{ text: string; success: boolean } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFieldBlur = (key: ContactFieldKey) => {
     setFormErrors((prev) => ({ ...prev, [key]: validateContactField(key, formValues[key]) }));
   };
 
-  const handleContactSubmit = (event: FormEvent) => {
+  const handleContactSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const nextErrors: Partial<Record<ContactFieldKey, string>> = {
       name: validateContactField("name", formValues.name),
@@ -66,9 +72,35 @@ export default function ContactWithGlobe({
       setFormStatus({ text: "Please fix the highlighted fields.", success: false });
       return;
     }
-    setFormStatus({ text: "Thanks! This is a demo form — no message was actually sent yet.", success: true });
-    setFormValues({ name: "", phone: "", email: "", message: "" });
-    setFormErrors({});
+
+    setIsSubmitting(true);
+    setFormStatus(null);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New message from ${formValues.name} via launch-doctors.com`,
+          name: formValues.name,
+          phone: formValues.phone,
+          email: formValues.email,
+          message: formValues.message,
+        }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        setFormStatus({ text: "Thanks! Your message has been sent.", success: true });
+        setFormValues({ name: "", phone: "", email: "", message: "" });
+        setFormErrors({});
+      } else {
+        setFormStatus({ text: "Something went wrong — please try again or email us directly.", success: false });
+      }
+    } catch {
+      setFormStatus({ text: "Something went wrong — please try again or email us directly.", success: false });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -184,9 +216,10 @@ export default function ContactWithGlobe({
             <div className="flex flex-col items-center gap-3 mt-2">
               <Button
                 type="submit"
-                className="w-full sm:w-fit h-12 sm:h-11 px-10 rounded-full font-semibold text-sm tracking-[0.04em] uppercase bg-[#34ac86] hover:bg-[#34ac86] text-white border-2 border-[#34ac86] transition-colors duration-150 touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#34ac86]"
+                disabled={isSubmitting}
+                className="w-full sm:w-fit h-12 sm:h-11 px-10 rounded-full font-semibold text-sm tracking-[0.04em] uppercase bg-[#34ac86] hover:bg-[#34ac86] text-white border-2 border-[#34ac86] transition-colors duration-150 touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#34ac86] disabled:opacity-60 disabled:pointer-events-none"
               >
-                Send
+                {isSubmitting ? "Sending…" : "Send"}
               </Button>
 
               <p role="status" aria-live="polite" className={cn("min-h-[1.4em] text-sm font-semibold", formStatus?.success ? "text-emerald-400" : "text-red-300")}>
