@@ -118,13 +118,13 @@ export default function Experience() {
                     domain) or under a GitHub Pages project subpath. */}
                 <img
                   src="images/avi-founder.jpg"
-                  alt="Avi, Founder"
+                  alt="Avi Leaf, Founder"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
               <div>
                 <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: NAVY }}>
-                  <BlurReveal duration={0.5}>Avi, Founder</BlurReveal>
+                  <BlurReveal duration={0.5}>Avi Leaf, Founder</BlurReveal>
                 </h3>
                 <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>
                   <BlurReveal duration={0.5} delay={0.08}>
