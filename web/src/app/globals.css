@@ -84,11 +84,12 @@
   --ld-aurora-teal: #34ac86;
   --ld-aurora-blue: #1262c1;
 
-  /* Typography: Cormorant — a delicate, tracked-out display serif —
-     for headings/titles, and Poppins, a rounded geometric sans, for
-     body copy. Matched to the reference screenshot. Both loaded in
+  /* Typography: Playfair Display — a high-contrast display serif —
+     for headings/titles, closest free match to the reference site's
+     actual (paid/licensed) heading font, "Argesta Headline". Poppins,
+     a rounded geometric sans, for body copy. Both loaded in
      layout.tsx. */
-  --ld-font-heading: "Cormorant", Georgia, "Times New Roman", serif;
+  --ld-font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
   --ld-font-body: "Poppins", Arial, sans-serif;
 }
 
