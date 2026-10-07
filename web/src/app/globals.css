@@ -86,11 +86,11 @@
 
   /* Typography: Playfair Display — a high-contrast display serif —
      for headings/titles, closest free match to the reference site's
-     actual (paid/licensed) heading font, "Argesta Headline". Poppins,
-     a rounded geometric sans, for body copy. Both loaded in
-     layout.tsx. */
+     actual (paid/licensed) heading font, "Argesta Headline". Montserrat
+     for body copy — an exact match, confirmed via the reference site's
+     own dev tools. Both loaded in layout.tsx. */
   --ld-font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
-  --ld-font-body: "Poppins", Arial, sans-serif;
+  --ld-font-body: "Montserrat", Arial, sans-serif;
 }
 
 @theme inline {

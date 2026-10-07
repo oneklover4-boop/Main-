@@ -6,7 +6,7 @@ import { AuroraBeam } from "@/components/ui/aurora-background";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const NAVY = "#043580";
-const BODY_FONT_FAMILY = '"Poppins", Arial, sans-serif';
+const BODY_FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 const navLinks = [
   { href: "#how-we-help", label: "How We Help" },

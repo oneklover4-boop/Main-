@@ -7,7 +7,7 @@ const BLUE = "#1262c1";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = '"Poppins", Arial, sans-serif';
+const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 const links = [
   { href: "#how-we-help", label: "How We Help" },

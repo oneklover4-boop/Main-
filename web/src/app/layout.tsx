@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         {/* Plain Google Fonts link for Playfair Display (headings/titles)
-            and Poppins (body copy), rendered here (React 19 hoists it
+            and Montserrat (body copy), rendered here (React 19 hoists it
             into <head>, given a precedence) rather than as a sibling of
             <body> — <html> can only contain <head>/<body> as direct
             children.
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
           precedence="default"
         />
         {/* Safari (desktop and iOS) only activates :hover/:active styles on
