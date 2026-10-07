@@ -128,7 +128,7 @@ export default function ClientLogos() {
   return (
     <section style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 3rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto 1.5rem" }}>
-        <p style={{ margin: 0, fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: MUTED, textAlign: "center" }}>
+        <p style={{ margin: 0, fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: MUTED, textAlign: "center", fontFamily: "var(--ld-font-heading)" }}>
           <BlurReveal duration={0.5}>Experience across leading biopharma companies</BlurReveal>
         </p>
       </div>

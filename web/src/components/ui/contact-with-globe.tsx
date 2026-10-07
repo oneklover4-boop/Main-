@@ -128,7 +128,7 @@ export default function ContactWithGlobe({
 
           <span
             className="absolute top-0 left-0 text-white font-bold text-xs sm:text-sm tracking-[0.08em] uppercase px-5 py-2.5 sm:px-6 sm:py-3"
-            style={{ background: GREY }}
+            style={{ background: GREY, fontFamily: "var(--ld-font-heading)" }}
           >
             <BlurReveal duration={0.5}>{title}</BlurReveal>
           </span>
