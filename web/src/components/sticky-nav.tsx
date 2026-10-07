@@ -5,7 +5,7 @@ import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const INK = "#000000";
 const BLUE = "#1262c1";
-const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
+const FONT_FAMILY = '"Lora", Georgia, serif';
 
 const navLinks = [
   { href: "#how-we-help", label: "How We Help" },

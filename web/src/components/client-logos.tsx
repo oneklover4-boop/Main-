@@ -6,7 +6,7 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 
 const NAVY = "#043580";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
+const FONT_FAMILY = '"Lora", Georgia, serif';
 
 // Time (ms) to auto-scroll through one full set of logos.
 const DURATION_MS = 34000;

@@ -84,12 +84,11 @@
   --ld-aurora-teal: #34ac86;
   --ld-aurora-blue: #1262c1;
 
-  /* Typography: a serif for headings, matched to the reference
-     screenshot's heading (Georgia — a system serif, no extra font
-     load needed) and a humanist sans for body copy (PT Sans, loaded
-     in layout.tsx). */
-  --ld-font-heading: Georgia, "Times New Roman", serif;
-  --ld-font-body: "PT Sans", Arial, sans-serif;
+  /* Typography: a single serif (Lora, loaded in layout.tsx) used for
+     both headings and body copy, matched to the reference screenshot's
+     heading. */
+  --ld-font-heading: "Lora", Georgia, "Times New Roman", serif;
+  --ld-font-body: "Lora", Georgia, "Times New Roman", serif;
 }
 
 @theme inline {

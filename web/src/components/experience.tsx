@@ -7,7 +7,7 @@ const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = '"PT Sans", Arial, sans-serif';
+const FONT_FAMILY = '"Lora", Georgia, serif';
 
 export default function Experience() {
   return (
@@ -46,25 +46,6 @@ export default function Experience() {
               padding: "2.25rem",
             }}
           >
-            <span
-              style={{
-                display: "inline-flex",
-                alignSelf: "flex-start",
-                alignItems: "center",
-                marginBottom: "1.25rem",
-                padding: "0.2rem 0.7rem",
-                borderRadius: 4,
-                fontSize: "0.6875rem",
-                fontWeight: 700,
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                background: "transparent",
-                color: MUTED,
-                border: "1px solid rgba(0,0,0,0.2)",
-              }}
-            >
-              <BlurReveal duration={0.5}>Illustrative example</BlurReveal>
-            </span>
             <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.25rem", fontWeight: 700, color: NAVY }}>
               <BlurReveal duration={0.5} delay={0.06}>A representative engagement</BlurReveal>
             </h3>
