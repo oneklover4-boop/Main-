@@ -6,7 +6,7 @@ import { AuroraBeam } from "@/components/ui/aurora-background";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const NAVY = "#043580";
-const BODY_FONT_FAMILY = '"Lora", Georgia, serif';
+const BODY_FONT_FAMILY = '"Poppins", Arial, sans-serif';
 
 const navLinks = [
   { href: "#how-we-help", label: "How We Help" },
@@ -90,7 +90,7 @@ export default function Hero() {
           [data-ld-content-nav] a:last-child{border-bottom:none;}
         }
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);}
-        [data-ld-copy] h1{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.1;letter-spacing:-.01em;text-wrap:balance;}
+        [data-ld-copy] h1{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.15;letter-spacing:.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
 

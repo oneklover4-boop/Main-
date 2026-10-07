@@ -7,7 +7,7 @@ const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = '"Lora", Georgia, serif';
+const FONT_FAMILY = '"Poppins", Arial, sans-serif';
 
 export default function Experience() {
   return (

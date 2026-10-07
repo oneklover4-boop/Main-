@@ -5,7 +5,7 @@ import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const TEAL = "#34ac86";
 const MUTED = "#4a4a4a";
-const FONT_FAMILY = '"Lora", Georgia, serif';
+const FONT_FAMILY = '"Poppins", Arial, sans-serif';
 
 const offers = [
   {
