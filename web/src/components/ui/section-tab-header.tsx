@@ -53,6 +53,7 @@ export function SectionTabHeader({
           left: 0,
           background: accent,
           color: "#ffffff",
+          fontFamily: "var(--ld-font-heading)",
           fontWeight: 700,
           fontSize: "0.8125rem",
           letterSpacing: "0.08em",

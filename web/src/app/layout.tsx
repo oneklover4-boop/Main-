@@ -24,17 +24,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Plain Google Fonts link for Lora (the site's heading AND body
-            font), rendered here (React 19 hoists it into <head>, given a
-            precedence) rather than as a sibling of <body> — <html> can
-            only contain <head>/<body> as direct children.
+        {/* Plain Google Fonts link for Fraunces (headings/titles) and
+            Lora (body copy), rendered here (React 19 hoists it into
+            <head>, given a precedence) rather than as a sibling of
+            <body> — <html> can only contain <head>/<body> as direct
+            children.
             This IS the App Router's site-wide root layout — the eslint
             rule below predates the App Router and still names the Pages
             Router's _document.js, so it flags this as a "single page" font. */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
           precedence="default"
         />
         {/* Safari (desktop and iOS) only activates :hover/:active styles on

@@ -84,10 +84,10 @@
   --ld-aurora-teal: #34ac86;
   --ld-aurora-blue: #1262c1;
 
-  /* Typography: a single serif (Lora, loaded in layout.tsx) used for
-     both headings and body copy, matched to the reference screenshot's
-     heading. */
-  --ld-font-heading: "Lora", Georgia, "Times New Roman", serif;
+  /* Typography: Fraunces — a distinctive, higher-contrast display
+     serif — for headings/titles (matched to the reference screenshot's
+     heading), and Lora for body copy. Both loaded in layout.tsx. */
+  --ld-font-heading: "Fraunces", Georgia, "Times New Roman", serif;
   --ld-font-body: "Lora", Georgia, "Times New Roman", serif;
 }
 
