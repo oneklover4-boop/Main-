@@ -47,7 +47,7 @@ export default function Experience() {
             }}
           >
             <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.25rem", fontWeight: 700, color: NAVY }}>
-              <BlurReveal duration={0.5} delay={0.06}>A representative engagement</BlurReveal>
+              <BlurReveal duration={0.5} delay={0.06}>Client Example Request</BlurReveal>
             </h3>
             <p style={{ margin: 0, color: MUTED, fontSize: "1.0625rem", lineHeight: 1.65 }}>
               <BlurReveal duration={0.5} delay={0.12}>
@@ -59,11 +59,6 @@ export default function Experience() {
                 across key launch milestones. The resulting recommendations
                 informed an Integrated Launch Plan, giving leadership a single,
                 governed view of the path to launch.
-              </BlurReveal>
-            </p>
-            <p style={{ margin: "1.25rem 0 0", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
-              <BlurReveal duration={0.5} delay={0.18}>
-                Composite example for illustration — ask us for real client references.
               </BlurReveal>
             </p>
           </div>
