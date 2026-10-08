@@ -89,21 +89,17 @@ export default function Hero() {
           }
           [data-ld-content-nav] a:last-child{border-bottom:none;}
         }
+        [data-ld-bg]{position:absolute;inset:0;background-image:url(images/hero-rocket-bg.jpg);background-size:cover;background-position:center;}
+        @container (min-width: 700px) {
+          [data-ld-bg]{background-size:contain;background-repeat:no-repeat;background-position:center;}
+        }
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);}
         [data-ld-copy] h1{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.15;letter-spacing:.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
 
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none", isolation: "isolate" }}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(images/hero-rocket-bg.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        <div data-ld-bg />
         <div style={{ position: "absolute", inset: 0, background: NAVY, mixBlendMode: "multiply" }} />
         <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
           <AuroraBeam />
@@ -162,7 +158,7 @@ export default function Hero() {
         style={{ position: "relative", zIndex: 1, flex: 1, display: "flex", padding: "5.5rem clamp(1.25rem,5cqw,5rem) 4rem" }}
       >
         <div data-ld-copy>
-          <h1>Structure, Clarity, Momentum</h1>
+          <h1>Structure. Clarity. Momentum.</h1>
           <p>
             We help emerging and mid-sized BioPharma companies diagnose
             launch risks and build integrated plans for a successful
