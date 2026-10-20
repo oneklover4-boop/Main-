@@ -3,6 +3,7 @@ import StickyNav from "@/components/sticky-nav";
 import WhoWeHelp from "@/components/who-we-help";
 import HowWeHelp from "@/components/how-we-help";
 import Experience from "@/components/experience";
+import Team from "@/components/team";
 import ClientLogos from "@/components/client-logos";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <ClientLogos />
         <HowWeHelp />
         <Experience />
+        <Team />
         <Contact />
         <Footer />
       </AuroraBackground>

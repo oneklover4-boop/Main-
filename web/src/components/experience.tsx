@@ -3,7 +3,6 @@ import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const NAVY = "#043580";
 const BLUE = "#1262c1";
-const TEAL = "#34ac86";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
@@ -63,81 +62,29 @@ export default function Experience() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div
-              data-glass-card
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "1rem",
-                border: `1px solid ${CARD_BORDER}`,
-                borderTop: `4px solid ${BLUE}`,
-                borderRadius: 4,
-                padding: "2rem",
-              }}
-            >
-              <div
-                style={{
-                  flexShrink: 0,
-                  width: 72,
-                  height: 72,
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  background: NAVY,
-                  border: `3px solid ${TEAL}`,
-                }}
-              >
-                {/* Relative path (no leading slash) so it resolves correctly
-                    whether the export is served from the site root (custom
-                    domain) or under a GitHub Pages project subpath. */}
-                <img
-                  src="images/avi-founder.jpg"
-                  alt="Avi Leaf, Founder"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
-              <div>
-                <h3 style={{ margin: "0 0 0.5rem", fontSize: "1.125rem", fontWeight: 700, color: NAVY }}>
-                  <BlurReveal duration={0.5}>Avi Leaf, Founder</BlurReveal>
-                </h3>
-                <p style={{ margin: 0, color: MUTED, fontSize: "1rem", lineHeight: 1.6 }}>
-                  <BlurReveal duration={0.5} delay={0.08}>
-                    25+ years of global BioPharma and consulting experience
-                    across large, medium and small BioPharma companies, with
-                    deep expertise launching, commercialising and building growth
-                    for product portfolios.
-                  </BlurReveal>
-                </p>
-              </div>
-            </div>
-
-            <blockquote
-              data-glass-card
-              style={{
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                margin: 0,
-                padding: "2rem",
-                borderLeft: `4px solid ${BLUE}`,
-                borderRadius: "0 4px 4px 0",
-              }}
-            >
-              <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
-                <BlurReveal duration={0.5}>
-                  &ldquo;Launch Doctors provided excellent strategic direction for
-                  the brand and leadership to the team, which has ensured an
-                  excellent foundation for the business moving forward.&rdquo;
-                </BlurReveal>
-              </p>
-              <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
-                <BlurReveal duration={0.5} delay={0.08}>— Client testimonial</BlurReveal>
-              </cite>
-            </blockquote>
-          </div>
+          <blockquote
+            data-glass-card
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              margin: 0,
+              padding: "2rem",
+              borderLeft: `4px solid ${BLUE}`,
+              borderRadius: "0 4px 4px 0",
+            }}
+          >
+            <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
+              <BlurReveal duration={0.5}>
+                &ldquo;Launch Doctors provided excellent strategic direction for
+                the brand and leadership to the team, which has ensured an
+                excellent foundation for the business moving forward.&rdquo;
+              </BlurReveal>
+            </p>
+            <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
+              <BlurReveal duration={0.5} delay={0.08}>— Client testimonial</BlurReveal>
+            </cite>
+          </blockquote>
         </div>
       </div>
     </section>
