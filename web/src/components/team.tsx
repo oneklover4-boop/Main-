@@ -28,7 +28,7 @@ const team: TeamMember[] = [
     ],
   },
   {
-    photo: "images/darcy-ryan.jpg",
+    photo: "images/darcy-ryan-v2.jpg",
     name: "D’Arcy Ryan",
     title: "Associate",
     bio: [
