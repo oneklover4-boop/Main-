@@ -38,11 +38,17 @@ export default function Team() {
       <style>{`
         [data-glass-card]{background:#ffffff;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:box-shadow .2s ease,transform .2s ease;}
         [data-glass-card]:hover{box-shadow:0 16px 28px -8px rgba(0,0,0,.12);transform:translateY(-4px);}
-        .team-card{display:flex;gap:2rem;align-items:flex-start;}
-        .team-card img{width:320px;height:290px;object-fit:cover;border-radius:4px;flex-shrink:0;}
+        .team-card{display:flex;gap:1.75rem;align-items:flex-start;overflow:visible;}
+        .team-card img{
+          width:220px;height:200px;object-fit:cover;border-radius:4px;flex-shrink:0;
+          margin:-2.75rem 0 -2.75rem -2.75rem;
+          box-shadow:0 16px 32px -10px rgba(0,0,0,.28);
+          position:relative;
+          z-index:1;
+        }
         @media (max-width: 700px) {
           .team-card { flex-direction: column; }
-          .team-card img { width: 100%; height: 260px; }
+          .team-card img { width: 85%; height: 220px; margin: -2.75rem 0 0 0; align-self: center; }
         }
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
