@@ -30,16 +30,10 @@ const team: TeamMember[] = [
   {
     photo: "images/darcy-ryan.jpg",
     name: "D’Arcy Ryan",
-    title: "Co-lead Consultant",
-    location: "Columbus, Ohio, USA",
+    title: "Associate",
     bio: [
-      "D’Arcy Ryan is co-lead for this engagement and brings more than 25 years of pharmaceutical marketing experience across client and agency roles, multiple therapeutic areas, and brands ranging from large global products to rare-disease launches.",
-      "At Takeda, D’Arcy led diabetes brands and the diabetes portfolio, participated on the Global Therapeutic Area Development Team, and led Marketing Operations. She also developed and led the process for cross-functional, cross-brand Commercial Planning Teams, building deep experience in launch planning, alignment, governance and execution across functions.",
+      "D’Arcy brings more than 25 years of Pharmaceutical marketing experience across client and agency roles, multiple therapeutic areas and brand ranging from large global products to rare disease launches. She has built deep expertise in launch planning, alignment, governance and execution across functions.",
     ],
-    quote: {
-      text: "D’Arcy can take complex issues, drill them down to the relevant information and package them in a way that will resonate with the end user. Throughout launch planning, she was able to think five steps ahead and contingency plan accordingly. She has an incredible ability to bring out the best in others and challenge them to reach their full potential.",
-      attribution: "Executive Director, Operational Excellence, Global Pharma",
-    },
   },
 ];
 
