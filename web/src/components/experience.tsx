@@ -29,7 +29,7 @@ export default function Experience() {
         <div
           style={{
             background: "rgba(18, 98, 201, 0.1)",
-            borderRadius: 6,
+            borderRadius: 10,
             padding: "3rem clamp(1.5rem, 4vw, 3rem)",
           }}
         >
@@ -49,7 +49,7 @@ export default function Experience() {
                 flexDirection: "column",
                 border: `1px solid ${CARD_BORDER}`,
                 borderTop: `4px solid ${BLUE}`,
-                borderRadius: "0 4px 4px 4px",
+                borderRadius: 10,
                 padding: "2.25rem",
               }}
             >
@@ -79,7 +79,7 @@ export default function Experience() {
                 margin: 0,
                 padding: "2rem",
                 borderLeft: `4px solid ${BLUE}`,
-                borderRadius: "0 4px 4px 0",
+                borderRadius: 10,
               }}
             >
               <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>

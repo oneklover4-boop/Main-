@@ -39,16 +39,17 @@ export default function HowWeHelp() {
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
         .offer-row{position:relative;display:flex;align-items:center;}
-        .offer-row img{width:52%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;flex-shrink:0;}
+        .offer-row img{width:56%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;flex-shrink:0;}
         .offer-card{
-          background:#ffffff;border-top:4px solid ${TEAL};border-radius:0 4px 4px 0;
-          padding:2rem 2.25rem;margin-left:-3rem;position:relative;z-index:1;flex:1;
-          box-shadow:0 20px 36px -16px rgba(0,0,0,.18);
+          background:#ffffff;border-top:4px solid ${TEAL};border-radius:12px;
+          padding:1.75rem 2rem;margin-left:-2.75rem;position:relative;z-index:1;
+          width:38%;flex-shrink:0;
+          box-shadow:0 20px 36px -16px rgba(0,0,0,.2);
         }
         @media (max-width: 760px) {
           .offer-row{flex-direction:column;}
           .offer-row img{width:100%;aspect-ratio:4/3;}
-          .offer-card{margin-left:0;margin-top:-2.5rem;width:88%;align-self:flex-end;}
+          .offer-card{margin-left:0;margin-top:-2.5rem;width:78%;align-self:flex-end;}
         }
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
@@ -64,7 +65,7 @@ export default function HowWeHelp() {
         <div
           style={{
             background: "rgba(0, 191, 178, 0.14)",
-            borderRadius: 6,
+            borderRadius: 10,
             padding: "3rem clamp(1.5rem, 4vw, 3rem)",
             display: "flex",
             flexDirection: "column",

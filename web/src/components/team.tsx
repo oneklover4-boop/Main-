@@ -37,7 +37,7 @@ export default function Team() {
       <style>{`
         [data-glass-card]{background:#ffffff;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:box-shadow .2s ease,transform .2s ease;}
         .team-photo-row{display:flex;gap:1.75rem;align-items:flex-start;margin-top:1.5rem;}
-        .team-photo-row img{width:200px;height:180px;object-fit:cover;border-radius:4px;flex-shrink:0;margin-left:-2.5rem;box-shadow:0 16px 28px -12px rgba(0,0,0,.22);}
+        .team-photo-row img{width:200px;height:180px;object-fit:cover;border-radius:10px;flex-shrink:0;margin-left:-2.5rem;box-shadow:0 16px 28px -12px rgba(0,0,0,.22);}
         @media (max-width: 700px) {
           .team-photo-row { flex-direction: column; }
           .team-photo-row img { width: 100%; height: 220px; margin-left: 0; }
@@ -56,7 +56,7 @@ export default function Team() {
         <div
           style={{
             background: "rgba(18, 98, 201, 0.1)",
-            borderRadius: 6,
+            borderRadius: 10,
             padding: "3rem clamp(1.5rem, 4vw, 3rem)",
             display: "flex",
             flexDirection: "column",
@@ -69,7 +69,7 @@ export default function Team() {
               data-glass-card
               style={{
                 borderTop: `4px solid ${BLUE}`,
-                borderRadius: "0 4px 4px 4px",
+                borderRadius: 10,
                 padding: "2.25rem",
               }}
             >
