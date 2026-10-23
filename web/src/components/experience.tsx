@@ -22,69 +22,78 @@ export default function Experience() {
         <SectionTabHeader
           label="Led by Real Launch Experience"
           accent={BLUE}
-          tint="rgba(18, 98, 193, 0.07)"
+          tint="rgba(18, 98, 193, 0.1)"
           className="mb-6"
         />
 
         <div
-          className="exp-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.15fr 0.85fr",
-            gap: "1.5rem",
-            alignItems: "stretch",
+            background: "rgba(18, 98, 201, 0.1)",
+            borderRadius: 6,
+            padding: "3rem clamp(1.5rem, 4vw, 3rem)",
           }}
         >
           <div
-            data-glass-card
+            className="exp-grid"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              border: `1px solid ${CARD_BORDER}`,
-              borderRadius: 4,
-              padding: "2.25rem",
+              display: "grid",
+              gridTemplateColumns: "1.15fr 0.85fr",
+              gap: "1.5rem",
+              alignItems: "stretch",
             }}
           >
-            <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.25rem", fontWeight: 700, color: NAVY }}>
-              <BlurReveal duration={0.5} delay={0.06}>Client Example Request</BlurReveal>
-            </h3>
-            <p style={{ margin: 0, color: MUTED, fontSize: "1.0625rem", lineHeight: 1.65 }}>
-              <BlurReveal duration={0.5} delay={0.12}>
-                A mid-sized biopharma company approaching its first commercial
-                launch in years engaged Launch Doctors for a Launch Health Check
-                roughly 24 months ahead of anticipated approval. The assessment
-                surfaced gaps in cross-functional alignment between medical,
-                market access and commercial teams, along with unclear ownership
-                across key launch milestones. The resulting recommendations
-                informed an Integrated Launch Plan, giving leadership a single,
-                governed view of the path to launch.
-              </BlurReveal>
-            </p>
-          </div>
+            <div
+              data-glass-card
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                border: `1px solid ${CARD_BORDER}`,
+                borderTop: `4px solid ${BLUE}`,
+                borderRadius: "0 4px 4px 4px",
+                padding: "2.25rem",
+              }}
+            >
+              <h3 style={{ margin: "0 0 0.75rem", fontSize: "1.25rem", fontWeight: 700, color: NAVY }}>
+                <BlurReveal duration={0.5} delay={0.06}>Client Example Request</BlurReveal>
+              </h3>
+              <p style={{ margin: 0, color: MUTED, fontSize: "1.0625rem", lineHeight: 1.65 }}>
+                <BlurReveal duration={0.5} delay={0.12}>
+                  A mid-sized biopharma company approaching its first commercial
+                  launch in years engaged Launch Doctors for a Launch Health Check
+                  roughly 24 months ahead of anticipated approval. The assessment
+                  surfaced gaps in cross-functional alignment between medical,
+                  market access and commercial teams, along with unclear ownership
+                  across key launch milestones. The resulting recommendations
+                  informed an Integrated Launch Plan, giving leadership a single,
+                  governed view of the path to launch.
+                </BlurReveal>
+              </p>
+            </div>
 
-          <blockquote
-            data-glass-card
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              margin: 0,
-              padding: "2rem",
-              borderLeft: `4px solid ${BLUE}`,
-              borderRadius: "0 4px 4px 0",
-            }}
-          >
-            <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
-              <BlurReveal duration={0.5}>
-                &ldquo;Launch Doctors provided excellent strategic direction for
-                the brand and leadership to the team, which has ensured an
-                excellent foundation for the business moving forward.&rdquo;
-              </BlurReveal>
-            </p>
-            <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
-              <BlurReveal duration={0.5} delay={0.08}>— Client testimonial</BlurReveal>
-            </cite>
-          </blockquote>
+            <blockquote
+              data-glass-card
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                margin: 0,
+                padding: "2rem",
+                borderLeft: `4px solid ${BLUE}`,
+                borderRadius: "0 4px 4px 0",
+              }}
+            >
+              <p style={{ margin: "0 0 0.75rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
+                <BlurReveal duration={0.5}>
+                  &ldquo;Launch Doctors provided excellent strategic direction for
+                  the brand and leadership to the team, which has ensured an
+                  excellent foundation for the business moving forward.&rdquo;
+                </BlurReveal>
+              </p>
+              <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
+                <BlurReveal duration={0.5} delay={0.08}>— Client testimonial</BlurReveal>
+              </cite>
+            </blockquote>
+          </div>
         </div>
       </div>
     </section>
