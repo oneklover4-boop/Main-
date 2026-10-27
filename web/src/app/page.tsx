@@ -1,6 +1,5 @@
 import Hero from "@/components/hero";
 import StickyNav from "@/components/sticky-nav";
-import WhoWeHelp from "@/components/who-we-help";
 import HowWeHelp from "@/components/how-we-help";
 import Experience from "@/components/experience";
 import Team from "@/components/team";
@@ -15,7 +14,6 @@ export default function Home() {
       <StickyNav />
       <Hero />
       <AuroraBackground>
-        <WhoWeHelp />
         <ClientLogos />
         <HowWeHelp />
         <Experience />
