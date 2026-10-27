@@ -16,9 +16,11 @@ const team: TeamMember[] = [
   {
     photo: "images/avi-founder.jpg",
     name: "Avi Leaf",
-    title: "Founder",
+    title: "Founder and Director",
     bio: [
-      "25+ years of global BioPharma and consulting experience across large, medium and small BioPharma companies, with deep expertise launching, commercialising and building growth for product portfolios.",
+      "Avi has more than 24 years experience working in global, regional and local roles in large, medium and small pharmaceutical companies.",
+      "Avi has extensive experience launching, commercialising and building growth for product portfolios, optimising brand performance across the full product lifecycle from Phase 1 through launch to loss of exclusivity, with experience in many major therapy areas, oncology and rare disease.",
+      "Avi has successfully built, led, developed, engaged and motivated teams whilst maintaining focus on a clear strategy and tactical delivery through a leadership style that is clear, values-driven and empowering.",
     ],
   },
   {
@@ -40,12 +42,12 @@ export default function Team() {
           width:73%; margin: 0 auto;
         }
         .team-photo{
-          flex:0 0 59%; min-width:0; border-radius:12px; overflow:hidden;
+          flex:0 0 29%; min-width:0; border-radius:12px; overflow:hidden;
           aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .team-card{
-          flex:0 0 48%; min-width:0; position:relative; z-index:1;
+          flex:0 0 78%; min-width:0; position:relative; z-index:1;
           margin-left:-7%; background:#ffffff; border-radius:8px;
           border-top:3px solid ${BLUE};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
