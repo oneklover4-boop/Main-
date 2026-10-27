@@ -46,13 +46,13 @@ export default function HowWeHelp() {
           width:73%; margin: 0 auto;
         }
         .offer-photo{
-          flex:0 0 59%; min-width:0; border-radius:0; overflow:hidden;
+          flex:0 0 59%; min-width:0; border-radius:12px; overflow:hidden;
           aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .offer-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .offer-card{
           flex:0 0 48%; min-width:0; position:relative; z-index:1;
-          margin-left:-7%; background:#ffffff; border-radius:0;
+          margin-left:-7%; background:#ffffff; border-radius:8px;
           border-top:3px solid ${TEAL};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
           padding:1.25rem 1.5rem;
