@@ -1,6 +1,6 @@
 import { BlurReveal } from "@/components/ui/blur-reveal";
 
-const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
+const CARD_BORDER = "rgba(0, 0, 0, 0.06)";
 const INK = "#000000";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
@@ -21,8 +21,8 @@ export default function WhoWeHelp() {
       }}
     >
       <style>{`
-        [data-glass-card]{background:#ffffff;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:box-shadow .2s ease,transform .2s ease;}
-        [data-glass-card]:hover{box-shadow:0 16px 28px -8px rgba(0,0,0,.12);transform:translateY(-4px);}
+        [data-glass-card]{background:#ffffff;box-shadow:0 1px 3px rgba(16,24,40,.04);transition:box-shadow .25s ease,transform .25s ease;}
+        [data-glass-card]:hover{box-shadow:0 24px 40px -16px rgba(4,53,128,.18);transform:translateY(-3px);}
       `}</style>
       <div
         data-glass-card
@@ -30,7 +30,7 @@ export default function WhoWeHelp() {
           maxWidth: "1120px",
           margin: "0 auto",
           border: `1px solid ${CARD_BORDER}`,
-          borderRadius: 4,
+          borderRadius: 14,
           padding: "2rem 2.25rem",
           fontFamily: FONT_FAMILY,
         }}

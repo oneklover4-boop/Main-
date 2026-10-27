@@ -62,11 +62,15 @@ export default function HowWeHelp() {
           .offer-photo{ flex:none; width:100%; }
           .offer-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; }
         }
+        /* The header's own rounded+clipped box would otherwise nip the top
+           corners of the outer panel; force it fully square to match the
+           bottom corners. */
+        .offer-header-square{ border-radius:0 !important; }
       `}</style>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <div style={{ background: "rgba(0, 191, 178, 0.14)", borderRadius: 0 }}>
-          <SectionTabHeader label="Four Focused Offers" accent={TEAL} tint="transparent" />
+          <SectionTabHeader label="Four Focused Offers" accent={TEAL} tint="transparent" className="offer-header-square" />
 
           <div
             style={{
