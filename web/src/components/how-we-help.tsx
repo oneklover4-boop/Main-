@@ -2,7 +2,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const TEAL = "#34ac86";
-const MUTED = "#4a4a4a";
+const MUTED = "#2a2a2a";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 const offers = [
@@ -82,7 +82,7 @@ export default function HowWeHelp() {
                   <img src={offer.image} alt={offer.title} />
                 </div>
                 <div className="offer-card">
-                  <h3 style={{ margin: 0, fontSize: "1.0625rem", fontWeight: 600, color: TEAL }}>
+                  <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>
                   <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.8125rem", lineHeight: 1.55 }}>
