@@ -66,7 +66,7 @@ export default function HowWeHelp() {
       `}</style>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div style={{ background: "rgba(52, 172, 134, 0.10)", borderRadius: 20 }}>
+        <div style={{ background: "rgba(0, 191, 178, 0.14)", borderRadius: 20 }}>
           <SectionTabHeader label="Four Focused Offers" accent={TEAL} tint="transparent" />
 
           <div
