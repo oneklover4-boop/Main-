@@ -94,7 +94,14 @@ export default function Hero() {
           [data-ld-bg]{background-size:cover;background-position:center 72%;}
         }
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);}
-        [data-ld-copy] h1{max-width:48rem;margin:0;color:rgba(255,255,255,.82);font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.15;letter-spacing:.01em;text-wrap:balance;}
+        [data-ld-copy] h1{
+          max-width:48rem;margin:0;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;
+          line-height:1.15;letter-spacing:.01em;text-wrap:balance;
+          color:transparent;
+          background-image:linear-gradient(rgba(255,255,255,.65),rgba(255,255,255,.65)),url(images/hero-rocket-bg.jpg);
+          background-size:cover;background-position:center 73%;background-blend-mode:screen;
+          -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+        }
         [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
 
