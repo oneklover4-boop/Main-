@@ -39,60 +39,61 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
-        .offer-outer{
-          max-width: 1040px; margin: 0 auto; background: rgba(52, 172, 134, 0.10);
-          border-radius: 22px; padding: clamp(1.5rem, 4vw, 3rem);
-          display:flex; align-items:stretch; aspect-ratio: 1 / 1;
-        }
-        .offer-row{ position:relative; display:flex; align-items:center; width:100%; }
+        .offer-row{ position:relative; display:flex; align-items:center; }
         .offer-photo{
-          flex:0 0 50%; min-width:0; height:88%; border-radius:16px; overflow:hidden;
-          box-shadow:0 1px 3px rgba(16,24,40,.08);
+          flex:0 0 55%; min-width:0; border-radius:14px; overflow:hidden;
+          aspect-ratio: 4 / 3; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .offer-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .offer-card{
-          flex:0 0 40%; min-width:0; position:relative; z-index:1;
-          margin-left:-2.75rem; background:#ffffff; border-radius:10px;
+          flex:1 1 auto; min-width:0; position:relative; z-index:1;
+          margin-left:-3rem; background:#ffffff; border-radius:10px;
           border-top:4px solid ${TEAL};
           box-shadow:0 20px 40px -20px rgba(4,53,128,.25);
-          padding:1.75rem 1.75rem;
+          padding:1.75rem 2rem;
         }
         @media (max-width: 760px) {
-          .offer-outer{ aspect-ratio:auto; padding:1.5rem; }
           .offer-row{ flex-direction:column; align-items:stretch; }
-          .offer-photo{ flex:none; width:100%; height:auto; aspect-ratio: 4 / 3; }
-          .offer-card{ flex:none; margin-left:0; margin-top:-2rem; width:calc(100% - 2rem); margin-inline:auto; }
+          .offer-photo{ flex:none; width:100%; }
+          .offer-card{ margin-left:0; margin-top:-2rem; width:calc(100% - 2rem); margin-inline:auto; }
         }
       `}</style>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <SectionTabHeader
-          label="Four Focused Offers"
-          accent={TEAL}
-          tint="rgba(52, 172, 134, 0.08)"
-          description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
-          descriptionColor={MUTED}
-        />
-      </div>
+        <div style={{ background: "rgba(52, 172, 134, 0.10)", borderRadius: 20 }}>
+          <SectionTabHeader
+            label="Four Focused Offers"
+            accent={TEAL}
+            tint="transparent"
+            description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
+            descriptionColor={MUTED}
+          />
 
-      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "3rem 0 0", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
-        {offers.map((offer, i) => (
-          <div className="offer-outer" key={offer.title}>
-            <div className="offer-row">
-              <div className="offer-photo">
-                <img src={offer.image} alt={offer.title} />
+          <div
+            style={{
+              padding: "0 clamp(1.5rem, 4vw, 3rem) clamp(2rem, 5vw, 3rem)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "3rem",
+            }}
+          >
+            {offers.map((offer, i) => (
+              <div className="offer-row" key={offer.title}>
+                <div className="offer-photo">
+                  <img src={offer.image} alt={offer.title} />
+                </div>
+                <div className="offer-card">
+                  <h3 style={{ margin: 0, fontSize: "1.5rem", fontWeight: 600, color: NAVY }}>
+                    <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
+                  </h3>
+                  <p style={{ margin: "0.9rem 0 0", color: MUTED, fontSize: "0.9375rem", lineHeight: 1.7 }}>
+                    <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{offer.body}</BlurReveal>
+                  </p>
+                </div>
               </div>
-              <div className="offer-card">
-                <h3 style={{ margin: 0, fontSize: "1.5rem", fontWeight: 600, color: NAVY }}>
-                  <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
-                </h3>
-                <p style={{ margin: "0.9rem 0 0", color: MUTED, fontSize: "0.9375rem", lineHeight: 1.7 }}>
-                  <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{offer.body}</BlurReveal>
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
