@@ -46,7 +46,7 @@ export default function HowWeHelp() {
           width:73%; margin: 0 auto;
         }
         .offer-photo{
-          flex:0 0 59%; min-width:0; border-radius:12px; overflow:hidden;
+          flex:0 0 59%; min-width:0; border-radius:0; overflow:hidden;
           aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .offer-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
