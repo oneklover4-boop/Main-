@@ -50,24 +50,17 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div
-          style={{
-            background: "rgba(0, 191, 178, 0.14)",
-            borderRadius: 10,
-          }}
-        >
-          <SectionTabHeader
-            label="Four Focused Offers"
-            accent={TEAL}
-            tint="transparent"
-            description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
-            descriptionColor={MUTED}
-          />
+        <SectionTabHeader
+          label="Four Focused Offers"
+          accent={TEAL}
+          tint="rgba(52, 172, 134, 0.08)"
+          description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
+          descriptionColor={MUTED}
+        />
+      </div>
 
-          <div style={{ padding: "0.5rem 0 2.5rem" }}>
-            <CalendlyCarousel items={offerCards} autoPlayInterval={12000} />
-          </div>
-        </div>
+      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
+        <CalendlyCarousel items={offerCards} autoPlayInterval={12000} />
       </div>
     </section>
   );
