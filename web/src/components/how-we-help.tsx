@@ -1,8 +1,8 @@
 import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const TEAL = "#01adc7";
-const MUTED = "#1a1a1a";
+const TEAL = "#00bfb2";
+const MUTED = "#000000";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 const offers = [
@@ -89,7 +89,7 @@ export default function HowWeHelp() {
                   <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>
-                  <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.8125rem", lineHeight: 1.55 }}>
+                  <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.875rem", lineHeight: 1.55 }}>
                     <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{offer.body}</BlurReveal>
                   </p>
                 </div>
