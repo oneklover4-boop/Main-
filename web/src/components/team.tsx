@@ -38,29 +38,29 @@ export default function Team() {
     <section id="team" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
         .team-row{
-          position:relative; display:flex; align-items:flex-start;
+          position:relative; display:flex; align-items:center;
           width:73%; margin: 0 auto;
         }
         .team-photo{
-          flex:0 0 29%; min-width:0; margin-top:2.5rem; position:relative; z-index:2;
-          border-radius:12px; overflow:hidden;
-          aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
+          flex:0 0 29%; min-width:0; position:relative; z-index:2;
+          border-radius:12px; overflow:hidden; background:#ffffff;
+          aspect-ratio: 1 / 1; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
-        .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .team-photo img{ width:100%; height:100%; object-fit:contain; display:block; }
         .team-card{
           flex:0 0 78%; min-width:0; position:relative; z-index:1;
           margin-left:-7%; background:#ffffff; border-radius:8px;
           border-top:3px solid ${BLUE};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
-          padding:2.5rem 3rem 2.75rem 5.5rem;
+          padding:1.5rem 2.5rem 1.75rem 5.5rem;
         }
-        .team-name{ margin:0; font-size:1.75rem; font-weight:600; color:${BLUE}; }
-        .team-role{ margin:0.35rem 0 1.25rem; font-size:1.125rem; color:${BLUE}; }
-        .team-bio{ margin:0; color:${MUTED}; font-size:1rem; line-height:1.7; }
-        .team-bio + .team-bio{ margin-top:1.25rem; }
+        .team-name{ margin:0; font-size:1.625rem; font-weight:600; color:${BLUE}; }
+        .team-role{ margin:0.2rem 0 0.75rem; font-size:1.0625rem; color:${BLUE}; }
+        .team-bio{ margin:0; color:${MUTED}; font-size:0.9375rem; line-height:1.5; }
+        .team-bio + .team-bio{ margin-top:0.75rem; }
         @media (max-width: 760px) {
           .team-row{ flex-direction:column; align-items:stretch; width:86%; }
-          .team-photo{ flex:none; width:100%; margin-top:0; }
+          .team-photo{ flex:none; width:100%; aspect-ratio: 4 / 3; }
           .team-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; padding:2rem 1.75rem; }
         }
       `}</style>
