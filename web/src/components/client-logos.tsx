@@ -3,16 +3,16 @@ const TAB_GREY = "#818181";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 const clients = [
-  { name: "Galápagos", file: "galapagos.png", height: 34 },
-  { name: "Novartis", file: "novartis.png", height: 36 },
-  { name: "Allergan", file: "allergan.png", height: 40 },
-  { name: "Sanofi", file: "sanofi.png", height: 36 },
-  { name: "Regeneron", file: "regeneron.png", height: 30 },
-  { name: "Janssen, Pharmaceutical Companies of Johnson & Johnson", file: "janssen.png", height: 36 },
-  { name: "GSK", file: "gsk.png", height: 46 },
+  { name: "Galápagos", file: "galapagos.png", height: 42 },
+  { name: "Novartis", file: "novartis.png", height: 44 },
+  { name: "Allergan", file: "allergan.png", height: 48 },
+  { name: "Sanofi", file: "sanofi.png", height: 44 },
+  { name: "Regeneron", file: "regeneron.png", height: 36 },
+  { name: "Janssen, Pharmaceutical Companies of Johnson & Johnson", file: "janssen.png", height: 44 },
+  { name: "GSK", file: "gsk.png", height: 54 },
 ];
 
-const ipsen = { name: "Ipsen", file: "ipsen.png", height: 32 };
+const ipsen = { name: "Ipsen", file: "ipsen.png", height: 38 };
 
 export default function ClientLogos() {
   return (
@@ -21,7 +21,7 @@ export default function ClientLogos() {
         .clients-grid{
           display:grid; grid-template-columns:repeat(3,1fr); gap:3rem 1.5rem;
         }
-        .clients-cell{ display:flex; align-items:center; justify-content:center; height:70px; }
+        .clients-cell{ display:flex; align-items:center; justify-content:center; height:80px; }
         @media (max-width: 700px) {
           .clients-grid{ grid-template-columns:repeat(2,1fr); gap:2.5rem 1rem; }
         }

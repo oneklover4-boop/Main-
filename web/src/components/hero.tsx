@@ -51,7 +51,6 @@ export default function Hero() {
       <style>{`
         [data-ld-header]{position:absolute;top:clamp(24px,4.5cqw,48px);left:clamp(1.25rem,5cqw,5rem);display:inline-flex;align-items:center;z-index:2;}
         [data-ld-logo] img{height:28px;width:auto;display:block;}
-        [data-ld-topbar-line]{position:absolute;top:calc(clamp(24px,4.5cqw,48px) + 44px);left:clamp(1.25rem,5cqw,5rem);right:clamp(1.25rem,5cqw,5rem);height:1px;background:rgba(255,255,255,.25);z-index:2;}
         [data-ld-content-nav]{top:clamp(24px,4.5cqw,48px);z-index:2;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:1.25rem;}
         [data-ld-content-nav] a{font-size:0.875rem;font-weight:500;text-decoration:none;color:#ffffff;transition:color .15s ease;}
         [data-ld-content-nav] a:hover{color:#34ac86;}
@@ -155,8 +154,6 @@ export default function Hero() {
           </a>
         ))}
       </nav>
-
-      <div data-ld-topbar-line aria-hidden="true" />
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}
