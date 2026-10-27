@@ -8,12 +8,12 @@ const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 const offers = [
   {
     title: "Launch Health Check",
-    body: "A structured assessment of your launch readiness: stakeholder interviews and clear recommendations for your team.",
+    body: "A structured assessment of your launch readiness: stakeholder interviews and clear recommendations for your team. We pinpoint the gaps that matter most and prioritise them, so your team knows exactly where to focus first.",
     image: "images/offers/offer-1.jpg",
   },
   {
     title: "Launch Strategy Support",
-    body: "Support to get the right strategic imperatives, critical success factors, positioning and stakeholder priorities that shape your launch roadmap.",
+    body: "Support to get the right strategic imperatives, critical success factors, positioning and stakeholder priorities that shape your launch roadmap. We work alongside your team to turn that strategy into a clear, actionable plan everyone can align behind.",
     image: "images/offers/offer-2.jpg",
   },
   // Integrated Launch Plan — hidden for now, keep for re-adding later.
@@ -24,12 +24,12 @@ const offers = [
   // },
   {
     title: "Launch Readiness Programme",
-    body: "A readiness framework with scorecards, workshops and structured gap closure.",
+    body: "A readiness framework with scorecards, workshops and structured gap closure. Regular check-ins keep momentum up and hold every function accountable to the same launch timeline.",
     image: "images/offers/offer-4.jpg",
   },
   {
     title: "Launch Office Support",
-    body: "Fractional launch leadership support: decision management and day-to-day cross-functional launch planning coordination.",
+    body: "Fractional launch leadership support: decision management and day-to-day cross-functional launch planning coordination. We act as an extension of your team, keeping plans on track and surfacing risks before they become delays.",
     image: "images/offers/offer-5.jpg",
   },
 ];

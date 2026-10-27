@@ -1,11 +1,8 @@
 import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const NAVY = "#043580";
 const BLUE = "#1262c1";
-const TEAL = "#34ac86";
-const CARD_BORDER = "rgba(0, 0, 0, 0.06)";
-const MUTED = "#4a4a4a";
+const MUTED = "#000000";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 interface TeamMember {
@@ -38,84 +35,71 @@ export default function Team() {
   return (
     <section id="team" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
-        [data-team-card]{
-          background:#ffffff;border:1px solid ${CARD_BORDER};border-radius:14px;
-          box-shadow:0 1px 3px rgba(16,24,40,.04);
-          transition:box-shadow .25s ease, transform .25s ease;
+        .team-row{
+          position:relative; display:flex; align-items:center;
+          width:73%; margin: 0 auto;
         }
-        [data-team-card]:hover{box-shadow:0 24px 40px -16px rgba(4,53,128,.18);transform:translateY(-3px);}
-        .team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;}
-        .team-photo-ring{
-          width:118px;height:118px;border-radius:50%;flex-shrink:0;
-          background:linear-gradient(135deg, ${BLUE}, ${TEAL});
-          padding:3px;
+        .team-photo{
+          flex:0 0 59%; min-width:0; border-radius:12px; overflow:hidden;
+          aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
-        .team-photo-ring img{
-          width:100%;height:100%;border-radius:50%;object-fit:cover;
-          border:3px solid #ffffff;display:block;
+        .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+        .team-card{
+          flex:0 0 48%; min-width:0; position:relative; z-index:1;
+          margin-left:-7%; background:#ffffff; border-radius:8px;
+          border-top:3px solid ${BLUE};
+          box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
+          padding:1.5rem 1.75rem;
         }
-        .team-role-pill{
-          display:inline-block;margin:0.5rem 0 1.25rem;padding:0.3rem 0.95rem;
-          border-radius:999px;background:rgba(18,98,193,0.09);color:${BLUE};
-          font-size:0.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
-        }
+        .team-role{ margin:0.1rem 0 0.75rem; font-size:1.0625rem; color:${BLUE}; }
         @media (max-width: 760px) {
-          .team-grid { grid-template-columns: 1fr; }
+          .team-row{ flex-direction:column; align-items:stretch; width:86%; }
+          .team-photo{ flex:none; width:100%; }
+          .team-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; }
         }
       `}</style>
+
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <SectionTabHeader
-          label="Our Team"
-          accent={BLUE}
-          tint="rgba(18, 98, 193, 0.07)"
-          description="The consultants leading your launch, with decades of hands-on BioPharma launch experience between them."
-          descriptionColor={MUTED}
-          className="mb-6"
-        />
+        <div style={{ background: "rgba(18, 98, 193, 0.14)", borderRadius: 0 }}>
+          <SectionTabHeader label="Our Team" accent={BLUE} tint="transparent" />
 
-        <div className="team-grid">
-          {team.map((member, idx) => (
-            <div
-              key={member.name}
-              data-team-card
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-                padding: "2.75rem 2.25rem 2.5rem",
-              }}
-            >
-              <div className="team-photo-ring">
-                {/* Relative path (no leading slash) so it resolves correctly
-                    whether the export is served from the site root (custom
-                    domain) or under a GitHub Pages project subpath. */}
-                <img src={member.photo} alt={member.name} />
+          <div
+            style={{
+              padding: "0 0 clamp(2rem, 5vw, 3rem)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
+            }}
+          >
+            {team.map((member, idx) => (
+              <div className="team-row" key={member.name}>
+                <div className="team-photo">
+                  <img src={member.photo} alt={member.name} />
+                </div>
+                <div className="team-card">
+                  <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: BLUE }}>
+                    <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
+                  </h3>
+                  <p className="team-role">
+                    <BlurReveal duration={0.5} delay={0.04 + idx * 0.05}>{member.title}</BlurReveal>
+                  </p>
+                  {member.bio.map((paragraph, i) => (
+                    <p
+                      key={i}
+                      style={{
+                        margin: i === 0 ? 0 : "0.75rem 0 0",
+                        color: MUTED,
+                        fontSize: "0.875rem",
+                        lineHeight: 1.55,
+                      }}
+                    >
+                      <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
+                    </p>
+                  ))}
+                </div>
               </div>
-
-              <h3 style={{ margin: "1.25rem 0 0", fontSize: "1.5rem", fontWeight: 600, color: NAVY }}>
-                <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
-              </h3>
-              <span className="team-role-pill">
-                <BlurReveal duration={0.5} delay={0.04 + idx * 0.05}>{member.title}</BlurReveal>
-              </span>
-
-              {member.bio.map((paragraph, i) => (
-                <p
-                  key={i}
-                  style={{
-                    margin: i === 0 ? 0 : "0.9rem 0 0",
-                    color: MUTED,
-                    fontSize: "0.9375rem",
-                    lineHeight: 1.7,
-                    textAlign: "left",
-                  }}
-                >
-                  <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
-                </p>
-              ))}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
