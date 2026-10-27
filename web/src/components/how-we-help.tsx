@@ -1,8 +1,8 @@
 import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const TEAL = "#34ac86";
-const MUTED = "#2a2a2a";
+const TEAL = "#01adc7";
+const MUTED = "#1a1a1a";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 const offers = [
