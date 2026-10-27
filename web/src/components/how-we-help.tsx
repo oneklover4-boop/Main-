@@ -39,26 +39,29 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
+        /* Proportions measured directly off the Holmfield reference screenshot:
+           row is 73% of the panel width (centered), the photo is 59% of the
+           row, the card is 48% of the row, overlapping by 7%. */
         .offer-row{
           position:relative; display:flex; align-items:center;
-          max-width: 640px; margin: 0 auto;
+          width:73%; margin: 0 auto;
         }
         .offer-photo{
-          flex:0 0 54%; min-width:0; border-radius:12px; overflow:hidden;
+          flex:0 0 59%; min-width:0; border-radius:12px; overflow:hidden;
           aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .offer-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .offer-card{
-          flex:1 1 auto; min-width:0; position:relative; z-index:1;
-          margin-left:-2.25rem; background:#ffffff; border-radius:8px;
+          flex:0 0 48%; min-width:0; position:relative; z-index:1;
+          margin-left:-7%; background:#ffffff; border-radius:8px;
           border-top:3px solid ${TEAL};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
           padding:1.25rem 1.5rem;
         }
         @media (max-width: 760px) {
-          .offer-row{ flex-direction:column; align-items:stretch; max-width: 420px; }
+          .offer-row{ flex-direction:column; align-items:stretch; width:86%; }
           .offer-photo{ flex:none; width:100%; }
-          .offer-card{ margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; }
+          .offer-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; }
         }
       `}</style>
 
@@ -68,7 +71,7 @@ export default function HowWeHelp() {
 
           <div
             style={{
-              padding: "0 clamp(1.5rem, 4vw, 3rem) clamp(2rem, 5vw, 3rem)",
+              padding: "0 0 clamp(2rem, 5vw, 3rem)",
               display: "flex",
               flexDirection: "column",
               gap: "2rem",
