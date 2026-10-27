@@ -3,7 +3,7 @@
 import { CalendlyCarousel, type CarouselItem } from "@/components/ui/connected-carousel";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const TEAL = "#00bfb2";
+const TEAL = "#34ac86";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
