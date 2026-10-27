@@ -42,7 +42,8 @@ export default function Team() {
           width:73%; margin: 0 auto;
         }
         .team-photo{
-          flex:0 0 29%; min-width:0; margin-top:2.5rem; border-radius:12px; overflow:hidden;
+          flex:0 0 29%; min-width:0; margin-top:2.5rem; position:relative; z-index:2;
+          border-radius:12px; overflow:hidden;
           aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
