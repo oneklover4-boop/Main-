@@ -21,11 +21,16 @@ export interface CarouselItem {
   alt?: string;
 }
 
-// Fixed height for the mobile active card — the photo fills the whole
-// card now (text overlaps the bottom corner rather than sitting in its
-// own zone above), so this just needs to be a reasonable portrait-ish
-// photo aspect, not text-height + photo-height like before.
-const MOBILE_CARD_HEIGHT = 420;
+// Generous estimate of title + quote + author/role + padding/gaps
+// above the photo on a mobile card, so the card is sized tall enough
+// to comfortably fit the text.
+const MOBILE_TEXT_ZONE_HEIGHT = 260;
+// Fixed photo box on mobile — width matches the "Strategic BioPharma
+// Launch Consultancy" subtitle line (w-[61%] below); height is capped
+// so the card stays compact. At this width the narrower/taller photos
+// get their top and bottom cropped a bit via object-cover rather than
+// growing the box to show them fully uncropped.
+const MOBILE_IMAGE_HEIGHT = 230;
 
 export interface CalendlyCarouselProps extends HTMLAttributes<HTMLDivElement> {
   items: CarouselItem[];
@@ -261,8 +266,9 @@ export function CalendlyCarousel({
     }
   };
 
+  // Mobile card height: a fixed, compact photo box under the text zone.
   const mobileWidth = Math.min(340, viewportWidth - 56);
-  const mobileHeight = MOBILE_CARD_HEIGHT;
+  const mobileHeight = MOBILE_TEXT_ZONE_HEIGHT + MOBILE_IMAGE_HEIGHT;
 
   const activeDimensions = {
     desktop: { width: 762, height: 513 },
@@ -661,37 +667,51 @@ export function CalendlyCarousel({
                     }}
                     transition={TRANSITION_SPRING}
                     className={cn(
-                      "relative size-full overflow-hidden rounded-[18px] sm:rounded-[22px]",
+                      "size-full flex flex-col md:flex-row p-4 sm:p-5 md:p-6 lg:p-7 gap-3 sm:gap-4 md:gap-6",
                       !isActive && "pointer-events-none"
                     )}
                   >
-                    <Image
-                      alt={item.alt || item.author}
-                      src={item.selectedImage}
-                      fill
-                      unoptimized
-                      draggable={false}
-                      className="object-cover"
-                    />
-
-                    <div
-                      className="absolute right-[5%] bottom-[6%] w-[82%] sm:w-[66%] md:w-[48%] rounded-xl p-5 sm:p-6"
-                      style={{
-                        background: "#ffffff",
-                        borderTop: "4px solid #00bfb2",
-                        boxShadow: "0 20px 36px -16px rgba(0,0,0,.3)",
-                      }}
-                    >
+                    <div className="flex-1 min-w-0 flex flex-col items-center md:items-start text-center md:text-left justify-between py-1 gap-2 sm:gap-3">
                       <h3
                         title={item.stat}
-                        className="text-base sm:text-xl md:text-2xl font-bold tracking-tight leading-tight"
-                        style={{ color: "#00bfb2" }}
+                        className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight w-full"
+                        style={{ color: "#043580" }}
                       >
                         <BlurReveal duration={0.6}>{item.stat}</BlurReveal>
                       </h3>
-                      <p className="mt-2 text-xs sm:text-sm md:text-base leading-snug" style={{ color: "#4a4a4a" }}>
-                        <BlurReveal duration={0.6} delay={0.1}>{item.quote}</BlurReveal>
-                      </p>
+
+                      <div className="relative w-full min-w-0 my-auto py-1">
+                        <p className="text-xs sm:text-base md:text-lg leading-snug" style={{ color: "#4a4a4a" }}>
+                          <BlurReveal duration={0.6} delay={0.1}>{item.quote}</BlurReveal>
+                        </p>
+                      </div>
+
+                      <div className="flex min-w-0 w-full max-w-full overflow-hidden items-center md:items-start justify-center md:justify-start">
+                        <div className="flex flex-col items-center md:items-start min-w-0 max-w-full gap-0.5">
+                          <span className="whitespace-nowrap font-semibold text-[11px] sm:text-xs select-none" style={{ color: "#043580" }}>
+                            {item.author}
+                          </span>
+                          <span
+                            title={item.role}
+                            className="truncate max-w-full text-[10px] sm:text-xs select-none"
+                            style={{ color: "#4a4a4a" }}
+                          >
+                            {item.role}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="relative shrink-0 grow-0 overflow-hidden rounded-[18px] sm:rounded-[22px] bg-muted w-[61%] h-[230px] mx-auto md:w-[clamp(180px,44%,330px)] md:h-full md:mx-0 md:flex-initial">
+                      <Image
+                        alt={item.alt || item.author}
+                        src={item.selectedImage}
+                        fill
+                        unoptimized
+                        draggable={false}
+                        style={{ filter: "brightness(0.82)" }}
+                        className="size-full object-cover"
+                      />
                     </div>
                   </motion.div>
                 </div>
