@@ -3,7 +3,7 @@
 import { CalendlyCarousel, type CarouselItem } from "@/components/ui/connected-carousel";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const TEAL = "#34ac86";
+const TEAL = "#00bfb2";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
@@ -50,17 +50,24 @@ export default function HowWeHelp() {
   return (
     <section id="how-we-help" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <SectionTabHeader
-          label="Four Focused Offers"
-          accent={TEAL}
-          tint="rgba(52, 172, 134, 0.08)"
-          description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
-          descriptionColor={MUTED}
-        />
-      </div>
+        <div
+          style={{
+            background: "rgba(0, 191, 178, 0.14)",
+            borderRadius: 10,
+          }}
+        >
+          <SectionTabHeader
+            label="Four Focused Offers"
+            accent={TEAL}
+            tint="transparent"
+            description="Each one solves a specific problem on the journey to launch. Start with a Launch Health Check, or go straight to the support you need."
+            descriptionColor={MUTED}
+          />
 
-      <div style={{ maxWidth: "1120px", margin: "0 auto", padding: "2rem 0" }}>
-        <CalendlyCarousel items={offerCards} autoPlayInterval={12000} />
+          <div style={{ padding: "0.5rem 0 2.5rem" }}>
+            <CalendlyCarousel items={offerCards} autoPlayInterval={12000} />
+          </div>
+        </div>
       </div>
     </section>
   );
