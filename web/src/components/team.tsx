@@ -51,13 +51,16 @@ export default function Team() {
           margin-left:-7%; background:#ffffff; border-radius:8px;
           border-top:3px solid ${BLUE};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
-          padding:1.5rem 1.75rem;
+          padding:2.5rem 3rem 2.75rem 5.5rem;
         }
-        .team-role{ margin:0.1rem 0 0.75rem; font-size:1.0625rem; color:${BLUE}; }
+        .team-name{ margin:0; font-size:1.75rem; font-weight:600; color:${BLUE}; }
+        .team-role{ margin:0.35rem 0 1.25rem; font-size:1.125rem; color:${BLUE}; }
+        .team-bio{ margin:0; color:${MUTED}; font-size:1rem; line-height:1.7; }
+        .team-bio + .team-bio{ margin-top:1.25rem; }
         @media (max-width: 760px) {
           .team-row{ flex-direction:column; align-items:stretch; width:86%; }
           .team-photo{ flex:none; width:100%; }
-          .team-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; }
+          .team-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; padding:2rem 1.75rem; }
         }
       `}</style>
 
@@ -79,22 +82,14 @@ export default function Team() {
                   <img src={member.photo} alt={member.name} />
                 </div>
                 <div className="team-card">
-                  <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: BLUE }}>
+                  <h3 className="team-name">
                     <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
                   </h3>
                   <p className="team-role">
                     <BlurReveal duration={0.5} delay={0.04 + idx * 0.05}>{member.title}</BlurReveal>
                   </p>
                   {member.bio.map((paragraph, i) => (
-                    <p
-                      key={i}
-                      style={{
-                        margin: i === 0 ? 0 : "0.75rem 0 0",
-                        color: MUTED,
-                        fontSize: "0.875rem",
-                        lineHeight: 1.55,
-                      }}
-                    >
+                    <p key={i} className="team-bio">
                       <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
                     </p>
                   ))}
