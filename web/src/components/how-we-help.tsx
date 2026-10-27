@@ -52,7 +52,7 @@ export default function HowWeHelp() {
         .offer-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .offer-card{
           flex:0 0 48%; min-width:0; position:relative; z-index:1;
-          margin-left:-7%; background:#ffffff; border-radius:8px;
+          margin-left:-7%; background:#ffffff; border-radius:0;
           border-top:3px solid ${TEAL};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
           padding:1.25rem 1.5rem;
