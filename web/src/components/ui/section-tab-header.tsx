@@ -54,7 +54,7 @@ export function SectionTabHeader({
           background: accent,
           color: "#ffffff",
           fontWeight: 700,
-          fontSize: "0.8125rem",
+          fontSize: "0.875rem",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           padding: "0.65rem 1.5rem",

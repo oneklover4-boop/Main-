@@ -2,7 +2,6 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const TEAL = "#34ac86";
-const NAVY = "#043580";
 const MUTED = "#4a4a4a";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
@@ -66,7 +65,7 @@ export default function HowWeHelp() {
       `}</style>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div style={{ background: "rgba(0, 191, 178, 0.14)", borderRadius: 20 }}>
+        <div style={{ background: "rgba(0, 191, 178, 0.14)", borderRadius: 0 }}>
           <SectionTabHeader label="Four Focused Offers" accent={TEAL} tint="transparent" />
 
           <div
@@ -83,7 +82,7 @@ export default function HowWeHelp() {
                   <img src={offer.image} alt={offer.title} />
                 </div>
                 <div className="offer-card">
-                  <h3 style={{ margin: 0, fontSize: "1.0625rem", fontWeight: 600, color: NAVY }}>
+                  <h3 style={{ margin: 0, fontSize: "1.0625rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>
                   <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.8125rem", lineHeight: 1.55 }}>
