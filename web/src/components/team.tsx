@@ -38,11 +38,11 @@ export default function Team() {
     <section id="team" style={{ padding: "1rem clamp(1.25rem, 5vw, 1.5rem) 4rem", fontFamily: FONT_FAMILY }}>
       <style>{`
         .team-row{
-          position:relative; display:flex; align-items:center;
+          position:relative; display:flex; align-items:flex-start;
           width:73%; margin: 0 auto;
         }
         .team-photo{
-          flex:0 0 29%; min-width:0; border-radius:12px; overflow:hidden;
+          flex:0 0 29%; min-width:0; margin-top:2.5rem; border-radius:12px; overflow:hidden;
           aspect-ratio: 3 / 2; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -59,7 +59,7 @@ export default function Team() {
         .team-bio + .team-bio{ margin-top:1.25rem; }
         @media (max-width: 760px) {
           .team-row{ flex-direction:column; align-items:stretch; width:86%; }
-          .team-photo{ flex:none; width:100%; }
+          .team-photo{ flex:none; width:100%; margin-top:0; }
           .team-card{ flex:none; margin-left:0; margin-top:-1.5rem; width:calc(100% - 1.5rem); margin-inline:auto; padding:2rem 1.75rem; }
         }
       `}</style>
