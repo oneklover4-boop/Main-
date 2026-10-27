@@ -28,7 +28,8 @@ const team: TeamMember[] = [
     name: "D’Arcy Ryan",
     title: "Associate",
     bio: [
-      "D’Arcy brings more than 25 years of Pharmaceutical marketing experience across client and agency roles, multiple therapeutic areas and brand ranging from large global products to rare disease launches. She has built deep expertise in launch planning, alignment, governance and execution across functions.",
+      "D’Arcy Ryan is co-lead for this engagement and brings more than 25 years of pharmaceutical marketing experience across client and agency roles, multiple therapeutic areas, and brands ranging from large global products to rare-disease launches.",
+      "At Takeda, D’Arcy led diabetes brands and the diabetes portfolio, participated on the Global Therapeutic Area Development Team, and led Marketing Operations. She also developed and led the process for cross-functional, cross-brand Commercial Planning Teams, building deep experience in launch planning, alignment, governance, and execution across functions.",
     ],
   },
 ];
@@ -46,7 +47,7 @@ export default function Team() {
           border-radius:12px; overflow:hidden; background:#ffffff;
           aspect-ratio: 1 / 1; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
-        .team-photo img{ width:100%; height:100%; object-fit:contain; display:block; }
+        .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .team-card{
           flex:0 0 78%; min-width:0; position:relative; z-index:1;
           margin-left:-7%; background:#ffffff; border-radius:8px;
