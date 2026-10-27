@@ -59,6 +59,10 @@ export default function Team() {
         .team-role{ margin:0.2rem 0 0.75rem; font-size:1.0625rem; color:${BLUE}; }
         .team-bio{ margin:0; color:${MUTED}; font-size:0.9375rem; line-height:1.5; }
         .team-bio + .team-bio{ margin-top:0.75rem; }
+        /* The header's own rounded+clipped box would otherwise nip the top
+           corners of the outer panel; force it fully square to match the
+           bottom corners. */
+        .team-header-square{ border-radius:0 !important; }
         @media (max-width: 760px) {
           .team-row{ flex-direction:column; align-items:stretch; width:86%; }
           .team-photo{ flex:none; width:100%; aspect-ratio: 4 / 3; }
@@ -68,7 +72,7 @@ export default function Team() {
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <div style={{ background: "rgba(18, 98, 193, 0.14)", borderRadius: 0 }}>
-          <SectionTabHeader label="Our Team" accent={BLUE} tint="transparent" />
+          <SectionTabHeader label="Our Team" accent={BLUE} tint="transparent" className="team-header-square" />
 
           <div
             style={{
