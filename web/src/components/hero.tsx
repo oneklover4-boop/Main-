@@ -39,7 +39,7 @@ export default function Hero() {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "min(640px, 90svh)",
+        minHeight: "100svh",
         display: "flex",
         flexDirection: "column",
         containerType: "inline-size",
@@ -94,13 +94,13 @@ export default function Hero() {
           [data-ld-bg]{background-size:cover;background-position:center 72%;}
         }
         [data-ld-copy]{display:flex;width:min(100%,80rem);margin:auto;flex-direction:column;align-items:center;text-align:center;gap:clamp(1.5rem,4svh,2.5rem);}
-        [data-ld-copy] h1{max-width:48rem;margin:0;color:#ffffff;font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.15;letter-spacing:.01em;text-wrap:balance;}
+        [data-ld-copy] h1{max-width:48rem;margin:0;color:rgba(255,255,255,.94);font-size:clamp(2.5rem,1.6rem + 3.6cqw,4rem);font-weight:500;line-height:1.15;letter-spacing:.01em;text-wrap:balance;}
         [data-ld-copy] p{margin:0;color:rgba(255,255,255,.82);font-size:1.0625rem;line-height:1.6;max-width:38rem;}
       `}</style>
 
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, pointerEvents: "none", isolation: "isolate" }}>
         <div data-ld-bg />
-        <div style={{ position: "absolute", inset: 0, background: NAVY, mixBlendMode: "multiply", opacity: 0.6 }} />
+        <div style={{ position: "absolute", inset: 0, background: NAVY, mixBlendMode: "multiply", opacity: 0.75 }} />
         <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
           <AuroraBeam />
         </div>
