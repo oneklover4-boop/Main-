@@ -11,7 +11,7 @@
 :HL["images/offers/offer-1.jpg","image"]
 :HL["images/offers/offer-2.jpg","image"]
 :HL["images/avi-founder.jpg","image"]
-:HL["images/darcy-ryan-v3.jpg","image"]
 :HL["images/offers/offer-4.jpg","image"]
 :HL["images/offers/offer-5.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"WrPBQ9D_T443E4O3E9QYO"}
+:HL["images/darcy-ryan-v3.jpg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"lyEhmGGHUGLCtcZR2P4GE"}
