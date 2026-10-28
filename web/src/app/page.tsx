@@ -14,8 +14,8 @@ export default function Home() {
       <StickyNav />
       <Hero />
       <AuroraBackground>
-        <ClientLogos />
         <HowWeHelp />
+        <ClientLogos />
         <Experience />
         <Team />
         <Contact />
