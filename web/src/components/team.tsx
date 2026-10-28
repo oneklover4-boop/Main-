@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
@@ -33,6 +37,20 @@ const team: TeamMember[] = [
     ],
   },
 ];
+
+// Reference-site behaviour: the text card settles into place a touch after
+// the photo as each row scrolls through view (and un-settles the same way
+// scrolling back up), while the photo itself scrolls rigidly with the page.
+function TeamCard({ className, children }: { className?: string; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.92", "start 0.45"] });
+  const y = useTransform(scrollYProgress, [0, 1], [28, 0]);
+  return (
+    <motion.div ref={ref} className={className} style={{ y }}>
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Team() {
   return (
@@ -87,7 +105,7 @@ export default function Team() {
                 <div className="team-photo">
                   <img src={member.photo} alt={member.name} />
                 </div>
-                <div className="team-card">
+                <TeamCard className="team-card">
                   <h3 className="team-name">
                     <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
                   </h3>
@@ -99,7 +117,7 @@ export default function Team() {
                       <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
                     </p>
                   ))}
-                </div>
+                </TeamCard>
               </div>
             ))}
           </div>

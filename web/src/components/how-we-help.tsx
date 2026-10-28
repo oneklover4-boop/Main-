@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
@@ -33,6 +37,20 @@ const offers = [
     image: "images/offers/offer-5.jpg",
   },
 ];
+
+// Reference-site behaviour: the text card settles into place a touch after
+// the photo as each row scrolls through view (and un-settles the same way
+// scrolling back up), while the photo itself scrolls rigidly with the page.
+function OfferCard({ className, children }: { className?: string; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.92", "start 0.45"] });
+  const y = useTransform(scrollYProgress, [0, 1], [28, 0]);
+  return (
+    <motion.div ref={ref} className={className} style={{ y }}>
+      {children}
+    </motion.div>
+  );
+}
 
 export default function HowWeHelp() {
   return (
@@ -85,14 +103,14 @@ export default function HowWeHelp() {
                 <div className="offer-photo">
                   <img src={offer.image} alt={offer.title} />
                 </div>
-                <div className="offer-card">
+                <OfferCard className="offer-card">
                   <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>
                   <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.875rem", lineHeight: 1.55 }}>
                     <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{offer.body}</BlurReveal>
                   </p>
-                </div>
+                </OfferCard>
               </div>
             ))}
           </div>
