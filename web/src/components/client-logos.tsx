@@ -1,3 +1,8 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
 const PANEL_GREY = "#616161";
 const TAB_GREY = "#818181";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
@@ -13,6 +18,19 @@ const clients = [
 ];
 
 const ipsen = { name: "Ipsen", file: "ipsen.png", height: 38 };
+
+// Same scroll-linked settle as the offer and team cards, applied to the
+// whole logo grid as it scrolls into view.
+function ClientsGrid({ className, children }: { className?: string; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.98", "start 0.72"] });
+  const y = useTransform(scrollYProgress, [0, 1], [28, 0]);
+  return (
+    <motion.div ref={ref} className={className} style={{ y }}>
+      {children}
+    </motion.div>
+  );
+}
 
 export default function ClientLogos() {
   return (
@@ -45,7 +63,7 @@ export default function ClientLogos() {
             Clients
           </span>
 
-          <div className="clients-grid">
+          <ClientsGrid className="clients-grid">
             {clients.map((client) => (
               <div className="clients-cell" key={client.file}>
                 <img
@@ -64,7 +82,7 @@ export default function ClientLogos() {
                 />
               </div>
             </div>
-          </div>
+          </ClientsGrid>
         </div>
       </div>
     </section>

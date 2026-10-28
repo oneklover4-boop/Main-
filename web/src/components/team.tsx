@@ -43,7 +43,7 @@ const team: TeamMember[] = [
 // scrolling back up), while the photo itself scrolls rigidly with the page.
 function TeamCard({ className, children }: { className?: string; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.92", "start 0.45"] });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.98", "start 0.72"] });
   const y = useTransform(scrollYProgress, [0, 1], [28, 0]);
   return (
     <motion.div ref={ref} className={className} style={{ y }}>
