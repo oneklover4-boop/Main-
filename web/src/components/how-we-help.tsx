@@ -77,7 +77,7 @@ export default function HowWeHelp() {
               padding: "0 0 clamp(2rem, 5vw, 3rem)",
               display: "flex",
               flexDirection: "column",
-              gap: "2rem",
+              gap: "4rem",
             }}
           >
             {offers.map((offer, i) => (
