@@ -38,13 +38,14 @@ const team: TeamMember[] = [
   },
 ];
 
-// Reference-site behaviour: the text card settles into place a touch after
-// the photo as each row scrolls through view (and un-settles the same way
-// scrolling back up), while the photo itself scrolls rigidly with the page.
-function TeamCard({ className, children }: { className?: string; children: React.ReactNode }) {
+// Reference-site behaviour: one element settles into place a touch after
+// the other as each row scrolls through view (and un-settles the same way
+// scrolling back up). Here the photo is the smaller element, so it's the
+// photo that glides while the (larger) card scrolls rigidly with the page.
+function TeamPhoto({ className, children }: { className?: string; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.98", "start 0.72"] });
-  const y = useTransform(scrollYProgress, [0, 1], [28, 0]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 1", "start 0.15"] });
+  const y = useTransform(scrollYProgress, [0, 1], [36, 0]);
   return (
     <motion.div ref={ref} className={className} style={{ y }}>
       {children}
@@ -102,10 +103,10 @@ export default function Team() {
           >
             {team.map((member, idx) => (
               <div className="team-row" key={member.name}>
-                <div className="team-photo">
+                <TeamPhoto className="team-photo">
                   <img src={member.photo} alt={member.name} />
-                </div>
-                <TeamCard className="team-card">
+                </TeamPhoto>
+                <div className="team-card">
                   <h3 className="team-name">
                     <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
                   </h3>
@@ -117,7 +118,7 @@ export default function Team() {
                       <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
                     </p>
                   ))}
-                </TeamCard>
+                </div>
               </div>
             ))}
           </div>
