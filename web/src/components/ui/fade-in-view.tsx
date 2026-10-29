@@ -1,30 +1,36 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
 
 type FadeInViewProps = Omit<
   React.ComponentPropsWithoutRef<typeof motion.div>,
-  "initial" | "whileInView" | "viewport" | "transition" | "children"
+  "ref" | "style" | "children"
 > & {
   children: React.ReactNode;
   /** Slide-up distance in px on entry; 0 for a fade with no movement. */
   y?: number;
-  /** Fraction of the element that must be visible before it triggers. */
-  amount?: number;
+  style?: React.CSSProperties;
 };
 
-// Fades an element in (and optionally slides it up slightly) the first time
-// it scrolls into view on a fresh page load, then leaves it settled —
-// scrolling it out and back in later in the same visit doesn't replay it.
-export function FadeInView({ children, y = 36, amount = 0.3, ...rest }: FadeInViewProps) {
+// Fades (and optionally slides up) an element as it scrolls through the
+// lower half of the viewport — bound directly to scroll position, so it
+// moves exactly with the scroll gesture rather than playing a fixed-length
+// animation. Progress is latched at its highest point reached, so once the
+// element has fully revealed itself, scrolling back up and down again later
+// in the same visit leaves it settled rather than fading it back out.
+export function FadeInView({ children, y = 36, style, ...rest }: FadeInViewProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 1", "start 0.15"] });
+  const maxProgress = useMotionValue(0);
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest > maxProgress.get()) maxProgress.set(latest);
+  });
+  const opacity = useTransform(maxProgress, [0, 1], [0, 1]);
+  const translateY = useTransform(maxProgress, [0, 1], [y, 0]);
+
   return (
-    <motion.div
-      {...rest}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <motion.div ref={ref} style={{ ...style, opacity, y: translateY }} {...rest}>
       {children}
     </motion.div>
   );

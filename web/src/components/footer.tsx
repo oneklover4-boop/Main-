@@ -2,6 +2,7 @@
 
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { BlurReveal } from "@/components/ui/blur-reveal";
+import { FadeInView } from "@/components/ui/fade-in-view";
 
 const BLUE = "#1262c1";
 const CARD_BORDER = "rgba(0, 0, 0, 0.08)";
@@ -27,51 +28,53 @@ export default function Footer() {
       }}
     >
       <style>{`[data-footer-nav] a{transition:color .15s ease;} [data-footer-nav] a:hover{color:${BLUE};}`}</style>
-      <div
-        style={{
-          maxWidth: "1120px",
-          margin: "0 auto 1.5rem",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          gap: "2rem",
-        }}
-      >
-        <div>
-          <a
-            href="#home"
-            onClick={(e) => { e.preventDefault(); smoothScrollTo("home"); }}
-            style={{ display: "inline-flex", alignItems: "center", textDecoration: "none" }}
-          >
-            <img src="images/logo-full.png" alt="Launch Doctors" style={{ height: 38, width: "auto", display: "block" }} />
-          </a>
-          <p style={{ margin: "0.875rem 0 0", maxWidth: "40ch", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
-            <BlurReveal duration={0.5}>
-              Strategic consultancy — not a provider of medical advice or clinical services.
-            </BlurReveal>
-          </p>
+      <FadeInView y={20}>
+        <div
+          style={{
+            maxWidth: "1120px",
+            margin: "0 auto 1.5rem",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: "2rem",
+          }}
+        >
+          <div>
+            <a
+              href="#home"
+              onClick={(e) => { e.preventDefault(); smoothScrollTo("home"); }}
+              style={{ display: "inline-flex", alignItems: "center", textDecoration: "none" }}
+            >
+              <img src="images/logo-full.png" alt="Launch Doctors" style={{ height: 38, width: "auto", display: "block" }} />
+            </a>
+            <p style={{ margin: "0.875rem 0 0", maxWidth: "40ch", fontSize: "0.8125rem", color: MUTED, fontStyle: "italic" }}>
+              <BlurReveal duration={0.5}>
+                Strategic consultancy — not a provider of medical advice or clinical services.
+              </BlurReveal>
+            </p>
+          </div>
+
+          <nav data-footer-nav aria-label="Footer" style={{ display: "flex", flexWrap: "wrap", gap: "1.25rem" }}>
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); smoothScrollTo(link.href.slice(1)); }}
+                style={{ fontSize: "0.875rem", fontWeight: 500, textDecoration: "none", color: INK }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <nav data-footer-nav aria-label="Footer" style={{ display: "flex", flexWrap: "wrap", gap: "1.25rem" }}>
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); smoothScrollTo(link.href.slice(1)); }}
-              style={{ fontSize: "0.875rem", fontWeight: 500, textDecoration: "none", color: INK }}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <p style={{ margin: 0, fontSize: "0.8125rem", color: MUTED }}>
-          <BlurReveal duration={0.5}>© {year} Launch Doctors. All rights reserved.</BlurReveal>
-        </p>
-      </div>
+        <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
+          <p style={{ margin: 0, fontSize: "0.8125rem", color: MUTED }}>
+            <BlurReveal duration={0.5}>© {year} Launch Doctors. All rights reserved.</BlurReveal>
+          </p>
+        </div>
+      </FadeInView>
     </footer>
   );
 }

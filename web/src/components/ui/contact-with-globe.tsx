@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlurReveal } from "@/components/ui/blur-reveal";
+import { FadeInView } from "@/components/ui/fade-in-view";
 import type { FormEvent } from "react";
-
-const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
 const DARK = "#15171c";
 const GREY = "#6b7280";
@@ -106,11 +104,8 @@ export default function ContactWithGlobe({
   return (
     <section className={cn("relative w-full overflow-hidden py-10 sm:py-14", className)}>
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: smoothEase }}
+        <FadeInView
+          y={20}
           className="relative overflow-hidden rounded-sm px-6 pt-16 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-14 md:pt-16 md:pb-14"
           style={{ background: DARK }}
         >
@@ -227,7 +222,7 @@ export default function ContactWithGlobe({
               </p>
             </div>
           </form>
-        </motion.div>
+        </FadeInView>
       </div>
     </section>
   );
