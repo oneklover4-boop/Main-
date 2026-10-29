@@ -37,15 +37,31 @@ const offers = [
   },
 ];
 
-// The card settles into place the first time it scrolls into view on a
-// fresh page load, then stays put — scrolling it in and out again later in
-// the same visit doesn't replay the animation.
+// The card fades in and settles into place the first time it scrolls into
+// view on a fresh page load, then stays put — scrolling it in and out again
+// later in the same visit doesn't replay the animation.
 function OfferCard({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
     <motion.div
       className={className}
-      initial={{ y: 36 }}
-      whileInView={{ y: 0 }}
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// The photo fades in alongside the card, but doesn't shift position — it
+// scrolls rigidly with the page.
+function OfferPhoto({ className, children }: { className?: string; children: React.ReactNode }) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
@@ -102,9 +118,9 @@ export default function HowWeHelp() {
           >
             {offers.map((offer, i) => (
               <div className="offer-row" key={offer.title}>
-                <div className="offer-photo">
+                <OfferPhoto className="offer-photo">
                   <img src={offer.image} alt={offer.title} />
-                </div>
+                </OfferPhoto>
                 <OfferCard className="offer-card">
                   <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
