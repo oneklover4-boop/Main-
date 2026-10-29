@@ -1,7 +1,7 @@
 "use client";
 
 import { BlurReveal } from "@/components/ui/blur-reveal";
-import { FadeInView } from "@/components/ui/fade-in-view";
+import { PopInView } from "@/components/ui/pop-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const NAVY = "#043580";
@@ -50,7 +50,7 @@ export default function Experience() {
             alignItems: "stretch",
           }}
         >
-          <FadeInView
+          <PopInView
             data-exp-card
             style={{
               display: "flex",
@@ -76,9 +76,9 @@ export default function Experience() {
                 governed view of the path to launch.
               </BlurReveal>
             </p>
-          </FadeInView>
+          </PopInView>
 
-          <FadeInView style={{ height: "100%" }}>
+          <PopInView style={{ height: "100%" }}>
             <blockquote
               data-exp-card
               style={{
@@ -121,7 +121,7 @@ export default function Experience() {
                 </cite>
               </div>
             </blockquote>
-          </FadeInView>
+          </PopInView>
         </div>
       </div>
     </section>

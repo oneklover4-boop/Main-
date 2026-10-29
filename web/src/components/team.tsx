@@ -1,7 +1,7 @@
 "use client";
 
 import { BlurReveal } from "@/components/ui/blur-reveal";
-import { FadeInView } from "@/components/ui/fade-in-view";
+import { PopInView } from "@/components/ui/pop-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const BLUE = "#3476d1";
@@ -87,10 +87,10 @@ export default function Team() {
           >
             {team.map((member, idx) => (
               <div className="team-row" key={member.name}>
-                <FadeInView className="team-photo">
+                <PopInView className="team-photo">
                   <img src={member.photo} alt={member.name} />
-                </FadeInView>
-                <FadeInView className="team-card" y={0}>
+                </PopInView>
+                <PopInView className="team-card" y={0}>
                   <h3 className="team-name">
                     <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
                   </h3>
@@ -102,7 +102,7 @@ export default function Team() {
                       <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
                     </p>
                   ))}
-                </FadeInView>
+                </PopInView>
               </div>
             ))}
           </div>

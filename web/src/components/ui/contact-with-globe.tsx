@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlurReveal } from "@/components/ui/blur-reveal";
-import { FadeInView } from "@/components/ui/fade-in-view";
+import { PopInView } from "@/components/ui/pop-in-view";
 import type { FormEvent } from "react";
 
 const DARK = "#15171c";
@@ -105,7 +105,7 @@ export default function ContactWithGlobe({
   return (
     <section className={cn("relative w-full overflow-hidden py-10 sm:py-14", className)}>
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
-        <FadeInView
+        <PopInView
           y={20}
           className="relative overflow-hidden rounded-none px-6 pt-16 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-14 md:pt-16 md:pb-14"
           style={{ background: DARK }}
@@ -223,7 +223,7 @@ export default function ContactWithGlobe({
               </p>
             </div>
           </form>
-        </FadeInView>
+        </PopInView>
       </div>
     </section>
   );

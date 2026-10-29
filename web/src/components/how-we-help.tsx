@@ -1,7 +1,7 @@
 "use client";
 
 import { BlurReveal } from "@/components/ui/blur-reveal";
-import { FadeInView } from "@/components/ui/fade-in-view";
+import { PopInView } from "@/components/ui/pop-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const TEAL = "#5ac3b7";
@@ -85,17 +85,17 @@ export default function HowWeHelp() {
           >
             {offers.map((offer, i) => (
               <div className="offer-row" key={offer.title}>
-                <FadeInView className="offer-photo" y={0}>
+                <PopInView className="offer-photo" y={0}>
                   <img src={offer.image} alt={offer.title} />
-                </FadeInView>
-                <FadeInView className="offer-card">
+                </PopInView>
+                <PopInView className="offer-card">
                   <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>
                   <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.875rem", lineHeight: 1.55 }}>
                     <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{offer.body}</BlurReveal>
                   </p>
-                </FadeInView>
+                </PopInView>
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import { FadeInView } from "@/components/ui/fade-in-view";
+import { PopInView } from "@/components/ui/pop-in-view";
 
 const PANEL_GREY = "#616161";
 const TAB_GREY = "#818181";
@@ -47,7 +47,7 @@ export default function ClientLogos() {
             Clients
           </span>
 
-          <FadeInView className="clients-grid">
+          <PopInView className="clients-grid">
             {clients.map((client) => (
               <div className="clients-cell" key={client.file}>
                 <img
@@ -66,7 +66,7 @@ export default function ClientLogos() {
                 />
               </div>
             </div>
-          </FadeInView>
+          </PopInView>
         </div>
       </div>
     </section>
