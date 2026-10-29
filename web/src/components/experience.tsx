@@ -16,7 +16,7 @@ export default function Experience() {
     <section id="experience" style={{ padding: "4rem clamp(1.25rem, 5vw, 1.5rem)", fontFamily: FONT_FAMILY }}>
       <style>{`
         [data-exp-card]{
-          background:#ffffff;border:1px solid ${CARD_BORDER};border-radius:14px;
+          background:#ffffff;border:1px solid ${CARD_BORDER};border-radius:0;
           box-shadow:0 1px 3px rgba(16,24,40,.04);
           transition:box-shadow .25s ease, transform .25s ease;
         }
