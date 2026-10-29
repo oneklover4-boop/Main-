@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { BlurReveal } from "@/components/ui/blur-reveal";
+import { FadeInView } from "@/components/ui/fade-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const TEAL = "#00bfb2";
@@ -36,39 +36,6 @@ const offers = [
     image: "images/offers/offer-5.jpg",
   },
 ];
-
-// The card fades in and settles into place the first time it scrolls into
-// view on a fresh page load, then stays put — scrolling it in and out again
-// later in the same visit doesn't replay the animation.
-function OfferCard({ className, children }: { className?: string; children: React.ReactNode }) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-// The photo fades in alongside the card, but doesn't shift position — it
-// scrolls rigidly with the page.
-function OfferPhoto({ className, children }: { className?: string; children: React.ReactNode }) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 export default function HowWeHelp() {
   return (
@@ -118,17 +85,17 @@ export default function HowWeHelp() {
           >
             {offers.map((offer, i) => (
               <div className="offer-row" key={offer.title}>
-                <OfferPhoto className="offer-photo">
+                <FadeInView className="offer-photo" y={0}>
                   <img src={offer.image} alt={offer.title} />
-                </OfferPhoto>
-                <OfferCard className="offer-card">
+                </FadeInView>
+                <FadeInView className="offer-card">
                   <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>
                   <p style={{ margin: "0.5rem 0 0", color: MUTED, fontSize: "0.875rem", lineHeight: 1.55 }}>
                     <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{offer.body}</BlurReveal>
                   </p>
-                </OfferCard>
+                </FadeInView>
               </div>
             ))}
           </div>

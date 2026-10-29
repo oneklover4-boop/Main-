@@ -1,3 +1,5 @@
+import { FadeInView } from "@/components/ui/fade-in-view";
+
 const PANEL_GREY = "#616161";
 const TAB_GREY = "#818181";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
@@ -45,7 +47,7 @@ export default function ClientLogos() {
             Clients
           </span>
 
-          <div className="clients-grid">
+          <FadeInView className="clients-grid">
             {clients.map((client) => (
               <div className="clients-cell" key={client.file}>
                 <img
@@ -64,7 +66,7 @@ export default function ClientLogos() {
                 />
               </div>
             </div>
-          </div>
+          </FadeInView>
         </div>
       </div>
     </section>

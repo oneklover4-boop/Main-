@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { BlurReveal } from "@/components/ui/blur-reveal";
+import { FadeInView } from "@/components/ui/fade-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const BLUE = "#1262c1";
@@ -36,39 +36,6 @@ const team: TeamMember[] = [
     ],
   },
 ];
-
-// The photo (the smaller element here) fades in and settles into place the
-// first time it scrolls into view on a fresh page load, then stays put —
-// scrolling it in and out again later in the same visit doesn't replay the
-// animation.
-function TeamPhoto({ className, children }: { className?: string; children: React.ReactNode }) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 36 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-// The card fades in alongside the photo, but doesn't shift position.
-function TeamCard({ className, children }: { className?: string; children: React.ReactNode }) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 export default function Team() {
   return (
@@ -120,10 +87,10 @@ export default function Team() {
           >
             {team.map((member, idx) => (
               <div className="team-row" key={member.name}>
-                <TeamPhoto className="team-photo">
+                <FadeInView className="team-photo">
                   <img src={member.photo} alt={member.name} />
-                </TeamPhoto>
-                <TeamCard className="team-card">
+                </FadeInView>
+                <FadeInView className="team-card" y={0}>
                   <h3 className="team-name">
                     <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
                   </h3>
@@ -135,7 +102,7 @@ export default function Team() {
                       <BlurReveal duration={0.5} delay={0.1 + i * 0.05}>{paragraph}</BlurReveal>
                     </p>
                   ))}
-                </TeamCard>
+                </FadeInView>
               </div>
             ))}
           </div>

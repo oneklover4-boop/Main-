@@ -1,4 +1,7 @@
+"use client";
+
 import { BlurReveal } from "@/components/ui/blur-reveal";
+import { FadeInView } from "@/components/ui/fade-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
 const NAVY = "#043580";
@@ -44,7 +47,7 @@ export default function Experience() {
             alignItems: "stretch",
           }}
         >
-          <div
+          <FadeInView
             data-exp-card
             style={{
               display: "flex",
@@ -70,49 +73,52 @@ export default function Experience() {
                 governed view of the path to launch.
               </BlurReveal>
             </p>
-          </div>
+          </FadeInView>
 
-          <blockquote
-            data-exp-card
-            style={{
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              margin: 0,
-              padding: "2.75rem 2.5rem 2.5rem",
-              overflow: "hidden",
-            }}
-          >
-            <span
-              aria-hidden="true"
+          <FadeInView style={{ height: "100%" }}>
+            <blockquote
+              data-exp-card
               style={{
-                position: "absolute",
-                top: "0.5rem",
-                left: "1.5rem",
-                fontSize: "5rem",
-                lineHeight: 1,
-                fontFamily: "var(--ld-font-heading)",
-                color: "rgba(18, 98, 193, 0.14)",
-                userSelect: "none",
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                height: "100%",
+                margin: 0,
+                padding: "2.75rem 2.5rem 2.5rem",
+                overflow: "hidden",
               }}
             >
-              &ldquo;
-            </span>
-            <p style={{ position: "relative", margin: "0.5rem 0 1rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
-              <BlurReveal duration={0.5}>
-                &ldquo;Launch Doctors provided excellent strategic direction for
-                the brand and leadership to the team, which has ensured an
-                excellent foundation for the business moving forward.&rdquo;
-              </BlurReveal>
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <span style={{ width: 28, height: 2, background: BLUE, flexShrink: 0 }} aria-hidden="true" />
-              <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
-                <BlurReveal duration={0.5} delay={0.08}>Client testimonial</BlurReveal>
-              </cite>
-            </div>
-          </blockquote>
+              <span
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: "0.5rem",
+                  left: "1.5rem",
+                  fontSize: "5rem",
+                  lineHeight: 1,
+                  fontFamily: "var(--ld-font-heading)",
+                  color: "rgba(18, 98, 193, 0.14)",
+                  userSelect: "none",
+                }}
+              >
+                &ldquo;
+              </span>
+              <p style={{ position: "relative", margin: "0.5rem 0 1rem", fontSize: "1.125rem", fontStyle: "italic", color: INK }}>
+                <BlurReveal duration={0.5}>
+                  &ldquo;Launch Doctors provided excellent strategic direction for
+                  the brand and leadership to the team, which has ensured an
+                  excellent foundation for the business moving forward.&rdquo;
+                </BlurReveal>
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ width: 28, height: 2, background: BLUE, flexShrink: 0 }} aria-hidden="true" />
+                <cite style={{ fontSize: "0.9375rem", color: MUTED, fontStyle: "normal" }}>
+                  <BlurReveal duration={0.5} delay={0.08}>Client testimonial</BlurReveal>
+                </cite>
+              </div>
+            </blockquote>
+          </FadeInView>
         </div>
       </div>
     </section>
