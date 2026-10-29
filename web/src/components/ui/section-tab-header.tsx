@@ -57,7 +57,7 @@ export function SectionTabHeader({
           fontSize: "0.875rem",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          padding: "0.65rem 1.5rem",
+          padding: "0.9rem 1.5rem",
         }}
       >
         <BlurReveal duration={0.5}>{label}</BlurReveal>

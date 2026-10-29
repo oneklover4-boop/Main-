@@ -10,6 +10,7 @@ import type { FormEvent } from "react";
 
 const DARK = "#15171c";
 const GREY = "#6b7280";
+const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
 // Web3Forms relays submissions to avi@launch-doctors.com by email — this
 // access key is meant to be public/client-side (that's how Web3Forms
@@ -28,8 +29,8 @@ type ContactFieldKey = "name" | "phone" | "email" | "message";
 function fieldClass(hasError: boolean): string {
   return cn(
     "w-full bg-transparent border-0 border-b rounded-none px-1 pb-3 pt-2 text-base text-white placeholder:text-white/60 outline-none transition-colors duration-200",
-    "sm:bg-white sm:border sm:rounded-sm sm:px-4 sm:py-3 sm:text-sm sm:text-zinc-800 sm:placeholder:text-zinc-500 sm:focus:ring-2 sm:focus:ring-[#34ac86]/20",
-    hasError ? "border-red-400" : "border-white/25 focus:border-[#34ac86] sm:border-transparent",
+    "sm:bg-white sm:border sm:rounded-sm sm:px-4 sm:py-3 sm:text-sm sm:text-zinc-800 sm:placeholder:text-zinc-500 sm:focus:ring-2 sm:focus:ring-[#5ac3b7]/20",
+    hasError ? "border-red-400" : "border-white/25 focus:border-[#5ac3b7] sm:border-transparent",
   );
 }
 
@@ -106,7 +107,7 @@ export default function ContactWithGlobe({
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
         <FadeInView
           y={20}
-          className="relative overflow-hidden rounded-sm px-6 pt-16 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-14 md:pt-16 md:pb-14"
+          className="relative overflow-hidden rounded-none px-6 pt-16 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-14 md:pt-16 md:pb-14"
           style={{ background: DARK }}
         >
           <div
@@ -122,8 +123,8 @@ export default function ContactWithGlobe({
           />
 
           <span
-            className="absolute top-0 left-0 text-white font-bold text-xs sm:text-sm tracking-[0.08em] uppercase px-5 py-2.5 sm:px-6 sm:py-3"
-            style={{ background: GREY, fontFamily: "var(--ld-font-heading)" }}
+            className="absolute top-0 left-0 text-white font-bold text-xs sm:text-sm tracking-[0.08em] uppercase px-5 py-3.5 sm:px-6 sm:py-4"
+            style={{ background: GREY, fontFamily: FONT_FAMILY }}
           >
             <BlurReveal duration={0.5}>{title}</BlurReveal>
           </span>
@@ -212,7 +213,7 @@ export default function ContactWithGlobe({
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-fit h-12 sm:h-11 px-10 rounded-full font-semibold text-sm tracking-[0.04em] uppercase bg-[#34ac86] hover:bg-[#34ac86] text-white border-2 border-[#34ac86] transition-colors duration-150 touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#34ac86] disabled:opacity-60 disabled:pointer-events-none"
+                className="w-full sm:w-fit h-14 sm:h-[3.25rem] px-12 rounded-full font-semibold text-base tracking-[0.04em] uppercase bg-[#5ac3b7] hover:bg-[#5ac3b7] text-white border-2 border-[#5ac3b7] transition-colors duration-150 touch-manipulation hover:brightness-110 active:bg-transparent active:text-[#5ac3b7] disabled:opacity-60 disabled:pointer-events-none"
               >
                 {isSubmitting ? "Sending…" : "Send"}
               </Button>
