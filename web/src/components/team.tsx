@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { BlurReveal } from "@/components/ui/blur-reveal";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
@@ -38,16 +37,18 @@ const team: TeamMember[] = [
   },
 ];
 
-// Reference-site behaviour: one element settles into place a touch after
-// the other as each row scrolls through view (and un-settles the same way
-// scrolling back up). Here the photo is the smaller element, so it's the
-// photo that glides while the (larger) card scrolls rigidly with the page.
+// The photo (the smaller element here) settles into place the first time it
+// scrolls into view on a fresh page load, then stays put — scrolling it in
+// and out again later in the same visit doesn't replay the animation.
 function TeamPhoto({ className, children }: { className?: string; children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 1", "start 0.15"] });
-  const y = useTransform(scrollYProgress, [0, 1], [36, 0]);
   return (
-    <motion.div ref={ref} className={className} style={{ y }}>
+    <motion.div
+      className={className}
+      initial={{ y: 36 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
       {children}
     </motion.div>
   );
