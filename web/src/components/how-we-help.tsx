@@ -4,7 +4,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 import { FadeInView } from "@/components/ui/fade-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const TEAL = "#00bfb2";
+const TEAL = "#5ac3b7";
 const MUTED = "#000000";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
@@ -72,7 +72,7 @@ export default function HowWeHelp() {
       `}</style>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div style={{ background: "rgba(0, 191, 178, 0.14)", borderRadius: 0 }}>
+        <div style={{ background: "rgba(90, 195, 183, 0.16)", borderRadius: 0 }}>
           <SectionTabHeader label="Four Focused Offers" accent={TEAL} tint="transparent" className="offer-header-square" />
 
           <div

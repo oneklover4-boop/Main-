@@ -29,13 +29,16 @@ export default function Experience() {
         @media (max-width: 860px) {
           .exp-grid { grid-template-columns: 1fr !important; }
         }
+        /* Matches the square-cornered header treatment used on the other
+           section headers (How We Help, Our Team). */
+        .exp-header-square{ border-radius:0 !important; }
       `}</style>
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <SectionTabHeader
           label="Led by Real Launch Experience"
           accent={BLUE}
           tint="rgba(18, 98, 193, 0.07)"
-          className="mb-6"
+          className="mb-6 exp-header-square"
         />
 
         <div

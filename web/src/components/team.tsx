@@ -4,7 +4,7 @@ import { BlurReveal } from "@/components/ui/blur-reveal";
 import { FadeInView } from "@/components/ui/fade-in-view";
 import { SectionTabHeader } from "@/components/ui/section-tab-header";
 
-const BLUE = "#1262c1";
+const BLUE = "#3476d1";
 const MUTED = "#000000";
 const FONT_FAMILY = '"Montserrat", Arial, sans-serif';
 
@@ -74,7 +74,7 @@ export default function Team() {
       `}</style>
 
       <div style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div style={{ background: "rgba(18, 98, 193, 0.14)", borderRadius: 0 }}>
+        <div style={{ background: "rgba(52, 118, 209, 0.16)", borderRadius: 0 }}>
           <SectionTabHeader label="Our Team" accent={BLUE} tint="transparent" className="team-header-square" />
 
           <div
