@@ -1,7 +1,4 @@
-"use client"
-
 import * as React from "react"
-import { motion, useInView } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
@@ -12,31 +9,6 @@ interface BlurRevealProps {
   duration?: number
 }
 
-export function BlurReveal({
-  className,
-  children,
-  delay = 0,
-  duration = 1,
-}: BlurRevealProps) {
-  const spanRef = React.useRef<HTMLSpanElement | null>(null)
-  // once: false — replays every time this scrolls back into view, not
-  // just the first time, so it fades in again on a re-visit rather than
-  // just staying visible once revealed.
-  const isInView: boolean = useInView(spanRef, { once: false })
-
-  return (
-    <motion.span
-      ref={spanRef}
-      initial={{ opacity: 0, filter: "blur(10px)", y: "20%" }}
-      animate={
-        isInView
-          ? { opacity: 1, filter: "blur(0px)", y: "0%" }
-          : { opacity: 0, filter: "blur(10px)", y: "20%" }
-      }
-      transition={{ duration: duration, delay: delay }}
-      className={cn("inline-block", className)}
-    >
-      {children}
-    </motion.span>
-  )
+export function BlurReveal({ className, children }: BlurRevealProps) {
+  return <span className={cn("inline-block", className)}>{children}</span>
 }
