@@ -43,7 +43,9 @@ export default function HowWeHelp() {
       <style>{`
         /* Proportions measured directly off the Holmfield reference screenshot:
            row is 73% of the panel width (centered), the photo is 59% of the
-           row, the card is 48% of the row, overlapping by 7%. */
+           row, the card is 41% of the row, sitting flush beside the photo
+           (no overlap — the "floating" look comes from the card's own
+           box-shadow spilling onto the photo, not a negative margin). */
         .offer-row{
           position:relative; display:flex; align-items:center;
           width:73%; margin: 0 auto;
@@ -54,8 +56,8 @@ export default function HowWeHelp() {
         }
         .offer-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .offer-card{
-          flex:0 0 48%; min-width:0; position:relative; z-index:1;
-          margin-left:-7%; background:#ffffff; border-radius:8px;
+          flex:0 0 41%; min-width:0; position:relative; z-index:1;
+          background:#ffffff; border-radius:8px;
           border-top:3px solid ${TEAL};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
           padding:1.25rem 1.5rem;

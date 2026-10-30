@@ -46,17 +46,17 @@ export default function Team() {
           width:73%; margin: 0 auto;
         }
         .team-photo{
-          flex:0 0 29%; min-width:0; position:relative; z-index:2;
+          flex:0 0 40%; min-width:0; position:relative; z-index:2;
           border-radius:12px; overflow:hidden; background:#ffffff;
           aspect-ratio: 1 / 1; box-shadow:0 1px 3px rgba(16,24,40,.08);
         }
         .team-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
         .team-card{
-          flex:0 0 78%; min-width:0; position:relative; z-index:1;
-          margin-left:-7%; background:#ffffff; border-radius:8px;
+          flex:0 0 60%; min-width:0; position:relative; z-index:1;
+          background:#ffffff; border-radius:8px;
           border-top:3px solid ${BLUE};
           box-shadow:0 16px 32px -18px rgba(4,53,128,.25);
-          padding:1.5rem 2.5rem 1.75rem 5.5rem;
+          padding:1.5rem 2.5rem 1.75rem;
         }
         .team-name{ margin:0; font-size:1.625rem; font-weight:600; color:${BLUE}; }
         .team-role{ margin:0.2rem 0 0.75rem; font-size:1.0625rem; color:${BLUE}; }
