@@ -88,7 +88,7 @@ export default function HowWeHelp() {
                 <PopInView className="offer-photo" y={24}>
                   <img src={offer.image} alt={offer.title} />
                 </PopInView>
-                <PopInView className="offer-card">
+                <PopInView className="offer-card" y={60} parallax>
                   <h3 style={{ margin: 0, fontSize: "1.1875rem", fontWeight: 600, color: TEAL }}>
                     <BlurReveal duration={0.5} delay={i * 0.05}>{offer.title}</BlurReveal>
                   </h3>

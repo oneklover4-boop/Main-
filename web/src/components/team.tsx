@@ -87,7 +87,7 @@ export default function Team() {
           >
             {team.map((member, idx) => (
               <div className="team-row" key={member.name}>
-                <PopInView className="team-photo">
+                <PopInView className="team-photo" y={60} parallax>
                   <img src={member.photo} alt={member.name} />
                 </PopInView>
                 <PopInView className="team-card" y={24}>
