@@ -90,7 +90,7 @@ export default function Team() {
                 <PopInView className="team-photo">
                   <img src={member.photo} alt={member.name} />
                 </PopInView>
-                <PopInView className="team-card" y={0}>
+                <PopInView className="team-card" y={24}>
                   <h3 className="team-name">
                     <BlurReveal duration={0.5} delay={idx * 0.05}>{member.name}</BlurReveal>
                   </h3>

@@ -85,7 +85,7 @@ export default function HowWeHelp() {
           >
             {offers.map((offer, i) => (
               <div className="offer-row" key={offer.title}>
-                <PopInView className="offer-photo" y={0}>
+                <PopInView className="offer-photo" y={24}>
                   <img src={offer.image} alt={offer.title} />
                 </PopInView>
                 <PopInView className="offer-card">
