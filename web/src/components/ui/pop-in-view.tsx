@@ -25,7 +25,7 @@ type PopInViewProps = Omit<
 // Progress is latched at its highest point reached, so once the element has
 // settled, scrolling back up and down again later in the same visit leaves
 // it settled rather than re-animating.
-export function PopInView({ children, y = 36, style, ...rest }: PopInViewProps) {
+export function PopInView({ children, y = 90, style, ...rest }: PopInViewProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 1", "start 0.15"] });
   const maxProgress = useMotionValue(0);

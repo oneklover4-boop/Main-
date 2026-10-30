@@ -106,7 +106,7 @@ export default function ContactWithGlobe({
     <section className={cn("relative w-full overflow-hidden py-10 sm:py-14", className)}>
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
         <PopInView
-          y={20}
+          y={50}
           className="relative overflow-hidden rounded-none px-6 pt-16 pb-10 sm:px-10 sm:pt-16 sm:pb-12 md:px-14 md:pt-16 md:pb-14"
           style={{ background: DARK }}
         >
